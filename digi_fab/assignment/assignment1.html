@@ -2,18 +2,104 @@
 <html lang="jp">
 <head>
     <!-- ⑥↓タイトルを変えてみよう -->
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style - A1.css">
     <title>NOSHIのAssignment 1</title>
     <!-- ⑤スタイルシートの設定をしよう -->
     <!-- h1.htmlからある行をコピペしてくればOK -->
 </head>
 <body>
-    <h1></h1>
+    <h1><img src="../images/0_XBlogo.png"width=3%> 課題1<br>
+        <br>
+        3Dプリントを利用した小型ピンセットの設計と制作</h1>
     <!-- 塊ごとにdivタグで区切るようにしましょう。 -->
     <div>
          <!-- ①↓に文字を書いてみよう -->
-        <h2></h2><br>
+        <h2>ピンセットの設計目標：未使用時に省力で閉じるピンセット</h2><br>
+        <h3>サイズ：50mm*20mm*5mm</h3>
+        <img src="../images for a/DF1/004.jpg"width=23%><br>
+        <h2>設計案1</h2>
         <br>
+        <img src="../images for a/DF1/010.jpg"width=30%><br>
+        <br>
+        <h4>湾曲したピンセットの先端は、接触面積を広げて安定したつかみを保証する。<br>
+        尾部は円柱型で、一部に穴を設けて固定台に差し込むことができる。<br></h4>
+        <img src="../images for a/DF1/009.jpg"width=20%><br>
+        X字型の構造<br>
+        <h4>X字型構造と2枚のパーツを組み合わせることで、逆方向に開閉する特徴を実現する。<br></h4>
+        <br>
+        <br>
+        <h3>実際に作業を始める前に考えた問題点</h3><br>
+        <h4>ピンセットのサイズ制約を考慮すると、完成品の強度に関する設計を変更する必要がある。</h4><br>
+        <br>
+        <h2>設計案2</h2>
+        <br>
+        <img src="../images for a/DF1/008.jpg"width=30%><br>
+        <br>
+        <h4>湾曲した先端の設計を直し、中央部分を広げてラベルシールを取り付けられるようにした。</h4><br>
+        <br>
+        <br>
+        <h3>問題点</h3><br>
+        <h4>X字型構造の実現可能性、および限られた厚さで本当に実現できるかどうか。</h4><br>
+        <br>
+    </div>
+    <div>
+        <h2>プリント段階</h2>
+        <h3>プリント試作1</h3><br>
+        <img src="../images for a/DF1/007.jpg"width=30%>
+        <h3>失敗</h3>
+        <h4>実現可能性を考慮し、尾部の差し込み口を取り除いた。<br>
+            2枚のパーツの差し込み部分の隙間を0.2mmに設定したが、うまく組み合わせることができなかった。
+            </h4><br>
+        <h3>プリント試作2</h3><br>
+        <img src="../images for a/DF1/005.jpg"width=30%><br>
+        <h3>失敗</h3><br>
+        <img src="../images for a/DF1/006.jpg"width=20%><br>
+        新しい部分（下）<br>
+        <h4>差し込み部分の隙間を約0.6mmに広げ、成功して組み立てることができた。<br>
+            しかし、2枚のパーツのピンセット先端の形状が干渉し、X字型構造が実現できなかった。<br>
+            無理に組み立てたため、部品が破損した。<br>
+            </h4>
+        <h3>プリント完成品</h3>
+        <img src="../images for a/DF1/014.jpg"width=25%><img src="../images for a/DF1/015.jpg"width=25%><br>
+        <h3>ほぼ成功</h3>
+        <img src="../images for a/DF1/013.jpg"width=20%><br>
+        直した部分（上）<br>
+        <h4>ピンセットの先端の形状を調整し、交差して組み立てることができた。<br>
+        <br>
+        <img src="../images for a/DF1/012.jpg"width=20%><br>
+            しかし、設計上の寸法が適切ではなかったため、交差して組み立てば正常に使用できなかった。<br>
+        <img src="../images for a/DF1/001.jpg"width=25%><br>
+            ただし、X字型に組み立てなければ、設計目標は達成された。<br></h4>
+            設置時の状態：<br>
+        <img src="../images for a/DF1/003.jpg"width=23%><br>
+
+            使用時の状態：<br>
+            <img src="../images for a/DF1/002.jpg"width=23%><br>
+        <h4>意図しない方法で設計目標を達成した。</h4>
+        <br>
+        <br>
+        <br>
+
+    </div>
+    <div>
+         <h2>総括</h2> 
+         <h4>意図しない形で設計目標を達成したが、今回のピンセット設計は失敗したと思う。<br>
+             想定していたデザインを再現できなかった。<br>
+            失敗の原因は、Fusion 360の操作に不慣れだったことと、構造設計が理想化されすぎていたことにある。<br>
+            この設計案の改善策として、まずはFusion 360の操作技術を向上させること。<br>
+            次に、2枚のパーツの場合、プリント途中で一時停止し、部品を追加してから再びプリントを続行する技術を試すことが考えられる。<br>
+            </h4>
+            <h5>技術の参考動画（中国語注意）<br>
+                <li><a href="https://b23.tv/M2Pvqr3"target=_blank>这也是纯打印的？六件真能让你学到技术的3D打印作品-哔哩哔哩</a></li>
+            </h5>
+            <h6>今回未使用</h6><br>
+            <h2>所属</h2><br>
+         <a href="./index.html">デザイン演習I·IIトップページ</a><br>
+         <a href="../index.html">XBPトップページ</a><br>
+    </div>
+    
+
+
         
 
          <!-- ②↓に画像（imagesフォルダにあるtest.png）を挿入してみよう -->
@@ -27,7 +113,7 @@
 
 
 
-    </div>
+
 
 </body>
 </html>
