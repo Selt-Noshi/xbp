@@ -39,12 +39,19 @@ h2{
     color: #564232;
 }
 h3{
+    font-size: 25Spx;
     margin-left: 2em;
+    color: #564232;
+
 }
 h4{
+    font-size: 22Spx;
    margin-left: 3em;
+   color: #564232;
+   
 }
 h5{
+    font-size: 20Spx;
     margin-left: 4em;
 }
 div{
@@ -52,7 +59,7 @@ div{
     margin-left: 3em;
 }
 p{
-    margin-left: 3em;
+    margin-left: 5em;
 }
 span.blackback{
     text-indent: 3em;
