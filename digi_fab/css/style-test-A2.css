@@ -1,0 +1,131 @@
+@charset "utf-8";
+/* 导入字体 */
+@import url('https://fonts.googleapis.com/css?family=Raleway:700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700&display=swap&subset=japanese');
+
+/* 图标样式 */
+.logo img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.logotohome img {
+    border-radius: 70%;
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+}
+
+/* 公共样式 */
+html, body {
+    font-size: 16px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    color: #393939;
+    margin-left: 15px;
+    margin-bottom: 40px;
+    background: #dfd7c2;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+}
+
+/* 标题样式 */
+h1 {
+    text-indent: 2em;
+    font-family: 'Raleway', sans-serif;
+}
+
+h2 {
+    font-size: 27px;
+    margin-left: 1em;
+    margin-top: 1em;
+    color: #564232;
+}
+
+h3 {
+    font-size: 25px;
+    margin-left: 2em;
+    color: #564232;
+}
+
+h4 {
+    font-size: 22px;
+    margin-left: 3em;
+    color: #564232;
+}
+
+h5 {
+    font-size: 20px;
+    margin-left: 4em;
+}
+
+h6{
+    font-size: 16px;
+    margin-left: 5em; 
+    margin-bottom: 40px;
+}
+div {
+    margin-top: 1em;
+    margin-left: 3em;
+}
+
+/* 段落样式 */
+p {
+    margin-left: 5em;
+}
+
+span.blackback {
+    text-indent: 3em;
+    background: #393939;
+    color: #efefef;
+}
+
+/* 链接和悬停效果 */
+a {
+    color: #564232;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #dfd7c2;
+    background-color: #564232;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+/* 每周内容区块 */
+.week-content {
+    background-color: #eadcd6;
+    padding: 15px;
+    margin-bottom: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #cf4813;
+    max-width: 1100px;
+}
+
+/* 表格样式 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table, th, td {
+    border: 1px solid #cf4813;
+    padding: 8px;
+}
+
+th {
+    background-color: #cf4813;
+    color: #dfd7c2;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
