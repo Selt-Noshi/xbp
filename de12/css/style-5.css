@@ -135,3 +135,14 @@ hr {
         margin-left: 2em;
     }
 }
+/* 链接样式 */
+a {
+    text-decoration: none;
+    color: #007bff;  /* 设置鲜艳的蓝色 */
+    transition: color 0.3s ease; /* 平滑过渡效果 */
+}
+
+a:hover {
+    color: #ff6347; /* 悬停时显示橙色 */
+    text-decoration: underline; /* 悬停时添加下划线 */
+}
