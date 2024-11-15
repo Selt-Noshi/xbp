@@ -1,0 +1,137 @@
+@charset "utf-8";
+/* 冒頭でimport */
+@import url('https://fonts.googleapis.com/css?family=Raleway:700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700&display=swap&subset=japanese');
+
+/* 通用样式 */
+html, body {
+    font-size: 16px;
+    font-family: 'Raleway', sans-serif;
+    color: #393939;
+    margin: 0;
+    padding: 0;
+    background: #f5f5f5;
+}
+
+/* 页面整体布局 */
+body {
+    margin-left: 15px;
+    margin-bottom: 40px;
+}
+
+/* 页头样式 */
+h1 {
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+    margin: 20px 0;
+    font-family: 'M+ PLUS Rounded 1c', sans-serif;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #564232;
+    margin: 1.5em 0 0.5em 2em;
+    font-weight: bold;
+    font-family: 'Raleway', sans-serif;
+}
+
+h3 {
+    font-size: 1.25rem;
+    color: #564232;
+    margin: 1em 0 0.5em 2em;
+}
+
+h4 {
+    font-size: 1rem;
+    margin: 1em 0;
+    font-weight: normal;
+}
+
+/* 内容区块 */
+div, p {
+    margin-left: 3em;
+    margin-top: 1em;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #393939;
+}
+
+p {
+    margin-left: 3em;
+    margin-top: 1em;
+    text-indent: 2em;
+}
+
+/* 引用和特别文本 */
+span.blackback {
+    background-color: #393939;
+    color: #efefef;
+    padding: 5px 10px;
+    border-radius: 4px;
+    display: block;
+    margin-top: 10px;
+}
+
+/* 图片样式 */
+logo img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+logotohome img {
+    border-radius: 70%;
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 链接样式 */
+a {
+    text-decoration: none;
+    color: #564232;
+}
+
+a:hover {
+    color: #ff6347; /* 使链接在悬停时显示红色 */
+    text-decoration: underline;
+}
+
+/* 行内元素 */
+strong {
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
+}
+
+/* 边距和间距的设置 */
+hr {
+    border: 0;
+    border-top: 2px solid #ccc;
+    margin: 30px 0;
+}
+
+/* 适应不同屏幕大小 */
+@media screen and (max-width: 768px) {
+    body {
+        margin-left: 10px;
+    }
+    
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+    }
+    
+    div, p {
+        margin-left: 2em;
+    }
+}
