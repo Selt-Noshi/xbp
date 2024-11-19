@@ -17,8 +17,6 @@ def gpt_request(prompt):
     )
     return response.choices[0].message['content']
 
-
-
 def process_1():
     while True:
         print("1-翻訳、2-返信メールを選んでください。")
@@ -119,3 +117,20 @@ def process_3():
                     print("内容がコピーされました。")
                     return
 
+def main():
+    print("本プログラムは返信回数に応じて料金がかかります。長い文章の場合、一度に入力してください。個人情報は入れないでください。")
+    print("翻訳結果の言語を選択してください。1-日本語、2-英語、3-中国語")
+    language_choice = input("選択: ")
+
+    if language_choice == "1":
+        process_1()
+    elif language_choice == "2":
+        process_2()
+    elif language_choice == "3":
+        process_3()
+    else:
+        print("無効な選択です。プログラムを終了します。")
+
+if __name__ == "__main__":
+    main()
+    
