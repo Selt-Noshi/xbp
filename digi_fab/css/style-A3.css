@@ -1,0 +1,124 @@
+@charset "utf-8";
+/* 冒頭でimport */
+@import url('https://fonts.googleapis.com/css?family=Raleway:700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700&display=swap&subset=japanese');
+
+/* ロゴ用 */
+logo img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover; /* 画像のトリミング */
+}
+
+logotohome img {
+    border-radius: 70%;
+    width: 70px;
+    height: 70px;
+    object-fit: cover; /* 画像のトリミング */
+}
+
+/* ========== common ========== */
+html, body {
+    font-size: 16px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    color: #393939;
+    margin-left: 15px;
+    margin-bottom: 40px;
+    background: #f7f3e8;
+}
+
+h1 {
+    font-size: 32px;
+    text-indent: 2em;
+    margin-bottom: 10px;
+    color: #3e2723;
+    font-family: 'Raleway', sans-serif;
+}
+
+h2 {
+    font-size: 27px;
+    margin-left: 1em;
+    margin-top: 1em;
+    margin-bottom: 10px;
+    color: #564232;
+}
+
+h3 {
+    font-size: 25px;
+    margin-left: 2em;
+    margin-top: 0.8em;
+    margin-bottom: 8px;
+    color: #6d4c41;
+}
+
+h4 {
+    font-size: 22px;
+    margin-left: 3em;
+    margin-top: 0.5em;
+    margin-bottom: 5px;
+    color: #795548;
+}
+
+h5 {
+    font-size: 20px;
+    margin-left: 4em;
+}
+
+div {
+    margin-top: 1.5em;
+    margin-left: 3em;
+    padding: 10px 20px;
+    border-left: 5px solid #bda27e;
+    background: #f9f6f0;
+    border-radius: 8px;
+}
+
+p {
+    margin-left: 5em;
+    margin-bottom: 10px;
+}
+
+ul {
+    padding-left: 4em;
+    margin-bottom: 15px;
+    list-style-type: disc;
+}
+
+li {
+    margin-bottom: 8px;
+    color: #4e342e;
+}
+
+span.blackback {
+    text-indent: 3em;
+    background: #393939;
+    color: #efefef;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+/* Link styling */
+a {
+    color: #795548;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Button Styling */
+button {
+    font-size: 16px;
+    color: #ffffff;
+    background: #795548;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #6d4c41;
+}
