@@ -1,54 +1,142 @@
 @charset "utf-8";
-/* 冒頭でimport */
+/* 导入字体 */
 @import url('https://fonts.googleapis.com/css?family=Raleway:700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700&display=swap&subset=japanese');
-/* フォントを指定したいところで */
 
-logo img{
+/* ========== 全局样式 ========== */
+html, body {
+    font-size: 16px;
+    font-family: 'Raleway', sans-serif;
+    color: #393939;
+    margin: 0;
+    padding: 0;
+    background: #f7f7f7;
+}
+
+/* 页面主体布局 */
+body {
+    margin: 20px auto;
+    max-width: 1000px;
+    background: #ffffff;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* 标题样式 */
+h1 {
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-family: 'M+ PLUS Rounded 1c', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #555;
+    margin: 1.5rem 0 1rem;
+    border-left: 4px solid #ff6347;
+    padding-left: 10px;
+}
+
+h3 {
+    font-size: 1.25rem;
+    color: #555;
+    margin-left: 1.5em;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+/* 列表样式 */
+ol, ul {
+    margin-left: 2rem;
+    padding-left: 1rem;
+    list-style-type: decimal;
+}
+
+ol li, ul li {
+    margin-bottom: 0.75em;
+    line-height: 1.6;
+    font-size: 1rem;
+    color: #444;
+}
+
+li a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+li a:hover {
+    color: #ff6347;
+    text-decoration: underline;
+}
+
+/* 图片样式 */
+logo img {
     border-radius: 50%;
     width: 150px;
     height: 150px;
     object-fit: cover; /* 画像のトリミング */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-logotohome img{
+logotohome img {
     border-radius: 70%;
     width: 70px;
     height: 70px;
     object-fit: cover; /* 画像のトリミング */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-
-
-/* ========== common ========== */
-html, body {
-	font-size: 16px;
-	font-family: sans-serif;
-	color: #393939;
-    margin-left: 15px;
-    margin-bottom: 40px;
-	background: #efefef;
-}
-h1{
-    text-indent: 0em;
-}
-h2{
-    margin-left: 1em;
-    margin-top: 1em;
-}
-h3{
-    margin-left: 2em;
-}
-div{
-    margin-top: 1em;
-    margin-left: 3em;
-}
-p{
-    margin-left: 3em;
-}
-span.blackback{
-    text-indent: 3em;
+/* 引用样式 */
+span.blackback {
     background: #393939;
     color: #efefef;
+    padding: 5px 10px;
+    border-radius: 4px;
+    display: inline-block;
 }
 
+/* 间距调整 */
+div, p {
+    margin-left: 2rem;
+    margin-top: 1rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #393939;
+}
+
+p {
+    text-indent: 2rem;
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 768px) {
+    body {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+    }
+
+    ol, ul {
+        margin-left: 1rem;
+    }
+
+    div, p {
+        margin-left: 1rem;
+    }
+}
