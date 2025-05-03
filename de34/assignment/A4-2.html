@@ -1,0 +1,24 @@
+<pre><code>
+import serial
+import time
+import pyautogui  
+
+
+ser = serial.Serial('COM5', 9600) 
+time.sleep(2)  
+
+print("Listening for PLAY/PAUSE command...")
+
+while True:
+    if ser.in_waiting:
+        line = ser.readline().decode('utf-8').strip()
+        print(f"Received: {line}")
+        
+        if line == "PLAY":
+            pyautogui.hotkey('space')  
+            print("Triggered PLAY")
+        
+        elif line == "PAUSE":
+            pyautogui.hotkey('space') 
+            print("Triggered PAUSE")
+</code></pre>
