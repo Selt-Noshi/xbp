@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+<link rel="stylesheet" href="../css for assignment/A1.css">
+<title>Noshiのassignment</title>
+</head>
+
+<body>
+    <h1>Noshiのassignment4</h1>
+    <div>
+        <iframe width="560" height="315"
+        src="https://www.youtube.com/embed/B9K5O1surOA"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+
+    </div>
+    <div>
+        <h2>説明</h2>
+       <h4>これはパーティー用装置（たぶんそうです）。<br>
+        基本的な機能としては、CdSセンサーを使って室内の明るさを検知し、設定した明るさ以下になると、<br>
+         RGB LEDとディスコボール（少なくとも構想はディスコボール）を起動し、<br>
+          同時にSpotifyに音楽再生の指示を送ります。逆に、室内が明るくなると、すべての機器が停止します。<br>
+    </h4> <br>
+        <li>RGB LEDについては、最も基本的な虹色の発光設定と、センサーとの連動によるオン・オフ機能のみを実装しました。</li>
+        <li>ディスコボール、もしくはモーターについては、最初はセンサーとの連動によるオン・オフ制御だけを行っていましたが、現場での材料不足により球体の固定ができなかったため、最終的には左右に揺れる動作に調整しました。</li>
+        <li>Spotifyの再生制御は、Pythonでシリアルポートのデータを監視することで実現しています。設定値を超えると、pyautoguiのキーボード操作シミュレーション機能を使ってスペースキー（Spotifyの再生・一時停止のショートカット）を入力し、自動で再生を一時停止するようにしています。</li>
+
+    </div>
+<div>
+    <h2>コード</h2>
+    <li><a href="./A4-1.html">Arduino</a></li>
+    <li><a href="./A4-2.html">Python</a></li>
+</div>
+
+</body>

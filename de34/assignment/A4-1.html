@@ -1,0 +1,120 @@
+<pre><code>
+    #include <Adafruit_NeoPixel.h>
+
+        // CdS
+        const int lightSensorPin = A1;
+        
+        // MORTOR
+        const int DIR  = 8;
+        const int STEP = 9;
+        
+        // NeoPixel
+        const int NEOPIXEL_PIN = 6;
+        const int NUMPIXELS = 5; 
+        
+        Adafruit_NeoPixel pixels(NUMPIXELS, NEOPIXEL_PIN, NEO_GRB + NEO_KHZ800);
+        
+        // LV
+        const int threshold = 500;
+        
+        // RD
+        unsigned long lastSwitchTime = 0; 
+        bool direction = true; 
+        
+        // DV
+        bool isDark = false;  
+        
+        // LC
+        int colorPos = 0;
+        
+        void setup() {
+          Serial.begin(9600);
+        
+          // MORTOR SETUP
+          pinMode(DIR, OUTPUT);
+          pinMode(STEP, OUTPUT);
+          digitalWrite(DIR, LOW);
+          digitalWrite(STEP, LOW);
+        
+          // NeoPixel SETUP
+          pixels.begin();
+          pixels.clear();
+          pixels.show();
+        }
+        
+        void loop() {
+          int lightValue = analogRead(lightSensorPin);
+          Serial.println(lightValue);
+        
+          if (lightValue > threshold) {
+            // DARK
+            moveMotor(100);         
+            rainbowCycle();         
+        
+            if (!isDark) {
+              Serial.println("PLAY"); 
+              isDark = true;
+            }
+          } else {
+            // Clear
+            digitalWrite(STEP, LOW);   
+            pixels.clear();           
+            pixels.show();
+        
+            if (isDark) {
+              Serial.println("PAUSE"); 
+              isDark = false;
+            }
+          }
+        
+          delay(10);
+        }
+        
+        // MC
+        void moveMotor(int delaytime) {
+          unsigned long currentTime = millis();
+        
+          if (currentTime - lastSwitchTime >= 500) { // CT
+            direction = !direction;                   // CD
+            lastSwitchTime = currentTime;
+          }
+        
+          if (direction) {
+            digitalWrite(DIR, HIGH); 
+          } else {
+            digitalWrite(DIR, LOW); 
+          }
+        
+          digitalWrite(STEP, HIGH);
+          delayMicroseconds(delaytime);
+          digitalWrite(STEP, LOW);
+          delayMicroseconds(delaytime);
+        }
+        
+        //  NeoPixel RC
+        void rainbowCycle() {
+          colorPos++;
+          if (colorPos > 255) colorPos = 0;
+        
+          uint32_t color = Wheel(colorPos);
+          for (int i = 0; i < NUMPIXELS; i++) {
+            pixels.setPixelColor(i, color);
+          }
+          pixels.show();
+          delay(5); // CS
+        }
+        
+        // RC
+        uint32_t Wheel(byte WheelPos) {
+          WheelPos = 255 - WheelPos;
+          if (WheelPos < 85) {
+            return pixels.Color(255 - WheelPos * 3, 0, WheelPos * 3);
+          }
+          if (WheelPos < 170) {
+            WheelPos -= 85;
+            return pixels.Color(0, WheelPos * 3, 255 - WheelPos * 3);
+          }
+          WheelPos -= 170;
+          return pixels.Color(WheelPos * 3, 255 - WheelPos * 3, 0);
+        }
+</code></pre>
