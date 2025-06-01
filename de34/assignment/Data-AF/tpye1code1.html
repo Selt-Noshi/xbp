@@ -1,0 +1,117 @@
+<pre><code>// Type 1: ESP32-S3 停车雷达 - 安装模式 + BLE 控制 + 雷达轮询读取
+// 功能：倾角检测 + 模式切换 + 距离采集 + BLE发送
+
+#include <Wire.h>
+#include <Adafruit_MPU6050.h>
+#include <BLEDevice.h>
+#include <BLEUtils.h>
+#include <BLEServer.h>
+
+Adafruit_MPU6050 mpu;
+
+// RADAR GPIO
+const int radarPins[4] = {13, 14, 15, 16};
+int distances[4] = {0};
+int baseline[4] = {0};
+
+// LED
+const int LED_PIN = 2;
+
+// MODE
+enum Mode { INSTALL, WORK };
+Mode currentMode = INSTALL;
+
+// BLE UUID
+#define SERVICE_UUID        "12345678-1234-1234-1234-123456789abc"
+#define MODE_CHAR_UUID      "abcd1234-5678-1234-5678-abcdefabcdef"
+#define DATA_CHAR_UUID      "dcba4321-8765-4321-8765-fedcbafedcba"
+
+BLECharacteristic *modeChar;
+BLECharacteristic *dataChar;
+
+// SET MPU6050
+void setupMPU() {
+  mpu.begin();
+  mpu.setAccelerometerRange(MPU6050_RANGE_8_G);
+  mpu.setGyroRange(MPU6050_RANGE_500_DEG);
+  mpu.setFilterBandwidth(MPU6050_BAND_5_HZ);
+}
+
+float getPitch() {
+  sensors_event_t a, g, temp;
+  mpu.getEvent(&a, &g, &temp);
+  float pitch = atan2(a.acceleration.x, sqrt(pow(a.acceleration.y, 2) + pow(a.acceleration.z, 2))) * 180 / PI;
+  return pitch;
+}
+
+// READ RADAR
+int readRadar(int pin) {
+  // D-DATA
+  return analogRead(pin) / 4; // 0~1023 → 0~255
+}
+
+// BLE 
+class MyCallbacks: public BLECharacteristicCallbacks {
+  void onWrite(BLECharacteristic *pCharacteristic) {
+    std::string value = pCharacteristic->getValue();
+    if (value == "INSTALL") {
+      currentMode = INSTALL;
+    } else if (value == "WORK") {
+      currentMode = WORK;
+      // SET BASIC DISTACES
+      for (int i = 0; i < 4; i++) baseline[i] = readRadar(radarPins[i]);
+    }
+  }
+};
+
+void setupBLE() {
+  BLEDevice::init("ESP-Radar-Device");
+  BLEServer *pServer = BLEDevice::createServer();
+  BLEService *pService = pServer->createService(SERVICE_UUID);
+
+  modeChar = pService->createCharacteristic(MODE_CHAR_UUID, BLECharacteristic::PROPERTY_WRITE);
+  modeChar->setCallbacks(new MyCallbacks());
+
+  dataChar = pService->createCharacteristic(DATA_CHAR_UUID, BLECharacteristic::PROPERTY_NOTIFY);
+
+  pService->start();
+  BLEAdvertising *pAdvertising = BLEDevice::getAdvertising();
+  pAdvertising->start();
+}
+
+void setup() {
+  Serial.begin(115200);
+  Wire.begin();
+  pinMode(LED_PIN, OUTPUT);
+  for (int i = 0; i < 4; i++) pinMode(radarPins[i], INPUT);
+
+  setupMPU();
+  setupBLE();
+}
+
+void loop() {
+  static unsigned long lastRadar = 0;
+  static int currentRadar = 0;
+
+  if (currentMode == INSTALL) {
+    float pitch = getPitch();
+    if (abs(pitch) > 5.0) digitalWrite(LED_PIN, HIGH);
+    else digitalWrite(LED_PIN, LOW);
+  }
+  else if (currentMode == WORK) {
+    if (millis() - lastRadar > 100) {
+      distances[currentRadar] = readRadar(radarPins[currentRadar]);
+      currentRadar = (currentRadar + 1) % 4;
+      lastRadar = millis();
+
+      // SEND
+      if (currentRadar == 0) {
+        uint8_t payload[4];
+        for (int i = 0; i < 4; i++) payload[i] = (uint8_t)distances[i];
+        dataChar->setValue(payload, 4);
+        dataChar->notify();
+      }
+    }
+  }
+} 
+</code></pre>
