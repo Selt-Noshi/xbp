@@ -1,10 +1,40 @@
 <!DOCTYPE html>
 <html lang="jp">
 <head>
-<link rel="stylesheet" href="../css for assignment/A1.css">
+<link rel="stylesheet" href="../../css for assignment/A1.css">
 <title>Noshiのfinal assignment T1-B-0603</title>
 </head>
 
 <body>
-    <h1></h1>
+    <h1>Type-1組立進捗（2025年6月3日）</h1>
+    <div>
+        <hr>
+      <h3>主要部品：</h3>
+      <h4>•	ESP32-S3 ×1、防水超音波センサープローブ ×4、RCWL-1655 ×4、18650リチウム電池 ×1（今回購入忘れ）、MT3608昇圧モジュール ×1（実際の型番はHW-183B）、MPU6050 三軸加速度センサー ×1、TP4056充電モジュール ×1、18650電池ホルダー ×1、LEDランプ ×1、220Ω抵抗 ×1</h4>
+      <br>
+      <h3>問題点：</h3>
+      <h4>TP4056充電モジュールは単セル（1本）の18650リチウム電池のみ対応のため、単セル用の電池ホルダーを別途購入する必要あり</h4>
+      <br><hr>
+      <h3></h3>
+
+    </div>
+    <div>
+        <h3>組立手順：</h3>
+        <li><b>ステップ1：</b></li>
+        <h4>TP4056およびHW-183Bにピンヘッダーをはんだ付け</h4>
+        <li><b>ステップ2：</b></li>
+        <h4>TP4056のBAT+/BAT-を18650電池ホルダーに接続、OUT+/OUT-をHW-183BのIN+/IN-に接続</h4>
+        <li><b>ステップ3：</b></li>
+        <h4>デバッグを容易にするため、ブレッドボードで配線。HW-183BのOUT+/OUT-を赤/青レール(給電レール)に接続し給電、ESP32-S3の5VINを赤レール、GNDを青レールに接続して電源供給</h4>
+        <li><b>ステップ4： </b></li>
+        <h4>MPU6050のVCCをESP32-S3の3.3Vに接続、GNDを青レール共通グランドに、SCL/SDAはそれぞれGPIO17/GPIO18へ接続（傾斜データ転送）</h4>
+        <li><b>ステップ5：</b></li>
+        <h4>RCWL-1655のVCCを赤レールで5V給電、GNDを青レールへ。Trig_RX_SCL_I/OピンをGPIO5,7,9,11、Echo_TX_SDAピンをGPIO6,8,10,12へ接続しデータ通信</h4>
+        <li><b>ステップ6： </b></li>
+        <h4>超音波センサーをRCWL-1655に接続</h4>
+        <li><b>ステップ7：</b></li>
+        <h4>220Ω抵抗とLEDを直列接続し、正極をGPIO2、負極をGNDに接続
+        <br>→ この時点で初期接続が完了
+</h4>
+    </div>
 </body>
