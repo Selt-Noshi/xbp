@@ -1,5 +1,35 @@
 <!DOCTYPE html>
 <html lang="jp">
 <head>
-<link rel="stylesheet" href="../css for assignment/A1.css">
+<link rel="stylesheet" href="../../css for assignment/A1.css for assignment/A1.css">
 <title>Noshiのfinal assignment T1-T-0603</title>
+</head>
+
+<body>
+    <h1>Type-1 テスト進捗（2025年6月3日）</h1>
+    <div>
+        <h3>進捗1：</h3>
+        <h4>Arduino IDEでESP32-S3のドライバーをインストール</h4>
+        <h3>進捗2：</h3>
+        <h4>ESP32-S3と接続し、<a href="../Data-AF/T1T1-0603.html">【テスト1】</a> をアップロード。LED点滅で接続状態を確認 <br>
+        → 成功</h4>
+        <h3>進捗3：</h3>
+        <h4>Arduinoライブラリにて「MPU6050 by Electronic Cats」をインストール</h4>
+        <li><b>考察：</b></li>
+        <h4>インストール後はArduinoを再起動しないとスケッチの書き込みに失敗する可能性あり</h4>
+        <h3>進捗4：</h3>
+        <h4><a href="../Data-AF/T1T2-0603.html">【テスト2】</a>をアップロード、シリアルモニタでMPU6050の動作確認
+        <br>→ 失敗</h4>
+        <li><b>考察：</b></li>
+        <h4>傾斜演算に必要なDMP対応コードが含まれていなかった</h4>
+        <h3>進捗5：</h3>
+        <h4><a href="../Data-AF/T1T3-0603.html">【テスト3】</a>をアップロードし再テスト
+        <br>→ 成功</h4>
+        <h3>進捗6：</h3>
+        <h4><a href="../Data-AF/T1T4-0603.html">【テスト4】</a>をアップロードし、RCWL-1655超音波センサーの動作をシリアルモニタで確認
+        <br>→ 失敗</h4>
+        <li><b>考察：</b></li>
+        <h4>現在、リチウム電池モジュール未接続のため電力不足の可能性あり。全センサーが「No Echo」状態。次回、バッテリーを接続後に再度テストを実施予定。
+</h4>
+    </div>
+</body>
