@@ -21,22 +21,31 @@
     <div>
         <h3>組立手順：</h3>
         <li><b>ステップ1：</b></li>
+        <img src="../../images for assignment/AF/011.jpg" alt="" width="35%">
         <h4>TP4056およびHW-183Bにピンヘッダーをはんだ付け</h4>
         <li><b>ステップ2：</b></li>
+        <img src="../../images for assignment/AF/012.jpg" alt="" width="35%">
         <h4>TP4056のBAT+/BAT-を18650電池ホルダーに接続、OUT+/OUT-をHW-183BのIN+/IN-に接続</h4>
         <li><b>ステップ3：</b></li>
+        <img src="../../images for assignment/AF/014.jpg" alt="" width="35%">
         <h4>デバッグを容易にするため、ブレッドボードで配線。HW-183BのOUT+/OUT-を赤/青レール(給電レール)に接続し給電、ESP32-S3の5VINを赤レール、GNDを青レールに接続して電源供給</h4>
         <li><b>ステップ4： </b></li>
+        <img src="../../images for assignment/AF/015.jpg" alt="" width="35%">
         <h4>MPU6050のVCCをESP32-S3の3.3Vに接続、GNDを青レール共通グランドに、SCL/SDAはそれぞれGPIO17/GPIO18へ接続（傾斜データ転送）</h4>
         <li><b>ステップ5：</b></li>
+        <img src="../../images for assignment/AF/016.jpg" alt="" width="35%">
         <h4>RCWL-1655のVCCを赤レールで5V給電、GNDを青レールへ。Trig_RX_SCL_I/OピンをGPIO5,7,9,11、Echo_TX_SDAピンをGPIO6,8,10,12へ接続しデータ通信</h4>
         <li><b>ステップ6： </b></li>
+        <img src="../../images for assignment/AF/017.jpg" alt="" width="35%">
         <h4>超音波センサーをRCWL-1655に接続</h4>
         <li><b>ステップ7：</b></li>
+        <img src="../../images for assignment/AF/018.jpg" alt="" width="35%">
         <h4>220Ω抵抗とLEDを直列接続し、正極をGPIO2、負極をGNDに接続
         <br>→ ここで初期接続が完了</h4>
+        <img src="../../images for assignment/AF/008.jpg" alt="" width="35%">
         <hr>
         <h3>考察：</h3>
         <h4>GNDの共通接地について：GNDは電圧の基準点であり、すべての電圧測定や信号伝送は「GNDを基準」として行われる。そのため、全センサーを同じGNDに共通接地することで、正確なデータ通信が可能になる。</h4>
     </div>
+    <a href="../AF-TOP.html">戻る</a>
 </body>
