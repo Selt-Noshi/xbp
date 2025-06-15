@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+<link rel="stylesheet" href="../../css for assignment/A1.css">
+<title>Noshiのfinal assignment T2-B-0609</title>
+</head>
+
+<body>
+     <h1>Type-2組立進捗（2025年6月9日）</h1>
+     <div>
+        <h3>組立手順：</h3>
+        <li><b>ステップ1：</b></li>
+        <h4>TP4056充電モジュールにピンヘッダーをはんだ付けし、電池ボックスの+/-配線をB+/B-に接続</h4>
+        <img src="../../images for assignment/AF/023.jpg" alt="" width="35%">
+        <li><b>ステップ2：</b></li>
+        <h4>HW-183B昇圧モジュールを用意し、TP4056のOUT+/OUT-をIN+/IN-のピンヘッダーに接続。HW-183BのOUT+/OUT-をブレッドボードの赤/青レールに接続して電源供給</h4>
+          <img src="../../images for assignment/AF/024.jpg" alt="" width="35%">
+        <li><b>ステップ3：</b></li>
+        <h4>RCWL-1655超音波センサーのVCCを赤レールに、GNDを青レールに接続。TX EchoピンをESP32のGPIO12およびGPIO13に接続</h4>
+        <li><b>ステップ4：</b></li>
+        <h4>ESP32-CAMの5Vを赤レール、GNDを青レールに接続し給電</h4>
+        <img src="../../images for assignment/AF/025.jpg" width="35%" alt="">
+        <hr>
+        <li><b>考察1:</b></li>
+        <h4>まだデバッグ段階に入っていないため、ソーラーパネルは未接続。充電機能については、今後のテスト結果に応じて導入を検討予定</h4>
+        <li><b>考察2:</b></li>
+        <h4> ESP32-CAMの基板上では多くのピンがTFカードスロットやカメラ用に使用されているため、センサーの数を2個に減らし、主に車両の左右の障害物を検出する構成とした</h4>
+        <li><b>考察3：</b></li>
+        <h4>センサー数を2個に減らしたことで、相互干渉が少なくなったため、RX_TRIG_SCL_IO入力端子をESP32-CAMへ接続しない構成でも問題ないと判断した</h4>
+    </div>
+    <a href="../AF-TOP.html">戻る</a>
+</body>
