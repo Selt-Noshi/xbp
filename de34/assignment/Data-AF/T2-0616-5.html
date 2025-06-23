@@ -1,0 +1,80 @@
+<pre><code>#include "esp_camera.h"
+
+// 适用于 AI Thinker ESP32-CAM 的引脚配置
+#define PWDN_GPIO_NUM    -1
+#define RESET_GPIO_NUM   -1
+#define XCLK_GPIO_NUM     0
+#define SIOD_GPIO_NUM    26
+#define SIOC_GPIO_NUM    27
+
+#define Y9_GPIO_NUM      35
+#define Y8_GPIO_NUM      34
+#define Y7_GPIO_NUM      39
+#define Y6_GPIO_NUM      36
+#define Y5_GPIO_NUM      21
+#define Y4_GPIO_NUM      19
+#define Y3_GPIO_NUM      18
+#define Y2_GPIO_NUM       5
+#define VSYNC_GPIO_NUM   25
+#define HREF_GPIO_NUM    23
+#define PCLK_GPIO_NUM    22
+
+void setup() {
+  Serial.begin(115200);
+  delay(2000);  // 等待串口稳定
+  Serial.println();
+  Serial.println("==== ESP32-CAM 摄像头初始化测试开始 ====");
+
+  camera_config_t config;
+  config.ledc_channel = LEDC_CHANNEL_0;
+  config.ledc_timer = LEDC_TIMER_0;
+  config.pin_d0 = Y2_GPIO_NUM;
+  config.pin_d1 = Y3_GPIO_NUM;
+  config.pin_d2 = Y4_GPIO_NUM;
+  config.pin_d3 = Y5_GPIO_NUM;
+  config.pin_d4 = Y6_GPIO_NUM;
+  config.pin_d5 = Y7_GPIO_NUM;
+  config.pin_d6 = Y8_GPIO_NUM;
+  config.pin_d7 = Y9_GPIO_NUM;
+  config.pin_xclk = XCLK_GPIO_NUM;
+  config.pin_pclk = PCLK_GPIO_NUM;
+  config.pin_vsync = VSYNC_GPIO_NUM;
+  config.pin_href = HREF_GPIO_NUM;
+  config.pin_sscb_sda = SIOD_GPIO_NUM;
+  config.pin_sscb_scl = SIOC_GPIO_NUM;
+  config.pin_pwdn = PWDN_GPIO_NUM;
+  config.pin_reset = RESET_GPIO_NUM;
+  config.xclk_freq_hz = 20000000;
+  config.pixel_format = PIXFORMAT_JPEG;
+
+  // 设置最兼容参数，适用于测试是否能正常初始化
+  config.frame_size = FRAMESIZE_QQVGA; // 160x120 最低分辨率
+  config.jpeg_quality = 12;            // 最低画质（最高压缩）
+  config.fb_count = 1;
+
+  Serial.println("初始化摄像头...");
+  esp_err_t err = esp_camera_init(&config);
+  if (err != ESP_OK) {
+    Serial.printf("❌ 摄像头初始化失败，错误代码: 0x%x\n", err);
+    while (true) delay(1000);  // 卡死提示错误
+  }
+
+  Serial.println("✅ 摄像头初始化成功！");
+
+  // 拍照测试
+  Serial.println("拍照测试中...");
+  camera_fb_t* fb = esp_camera_fb_get();
+  if (!fb) {
+    Serial.println("❌ 拍照失败，未获取图像帧");
+  } else {
+    Serial.printf("📷 拍照成功，图像大小：%d 字节\n", fb->len);
+    esp_camera_fb_return(fb);
+  }
+
+  Serial.println("==== 摄像头测试完成 ====");
+}
+
+void loop() {
+  // 空循环，不执行其他任务
+}
+</code></pre>

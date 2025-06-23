@@ -1,0 +1,47 @@
+<pre><code>// 
+HardwareSerial Radar1(1); // 模块1 → GPIO12
+HardwareSerial Radar2(2); // 模块2 → GPIO13
+
+void setup() {
+  Serial.begin(115200); // 
+  delay(1000);
+
+  // 
+  Radar1.begin(115200, SERIAL_8N1, 12, -1); // 
+
+  // 
+  Radar2.begin(115200, SERIAL_8N1, 13, -1); // 
+
+  Serial.println("RCWL-1655 radar serial test start");
+}
+
+void loop() {
+  //
+  if (Radar1.available()) {
+    Serial.print("Radar1: ");
+    while (Radar1.available()) {
+      byte b = Radar1.read();
+      Serial.print("0x");
+      if (b < 0x10) Serial.print("0");
+      Serial.print(b, HEX);
+      Serial.print(" ");
+    }
+    Serial.println();
+  }
+
+  // 
+  if (Radar2.available()) {
+    Serial.print("Radar2: ");
+    while (Radar2.available()) {
+      byte b = Radar2.read();
+      Serial.print("0x");
+      if (b < 0x10) Serial.print("0");
+      Serial.print(b, HEX);
+      Serial.print(" ");
+    }
+    Serial.println();
+  }
+
+  delay(100); // 
+}
+</code></pre>
