@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>倒車雷達</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background: #f5f5f5;
+    }
+    #camera {
+      width: 100%;
+      max-width: 480px;
+      height: auto;
+      border: 2px solid #444;
+      margin-top: 10px;
+    }
+    .radar-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 15px;
+      gap: 10px;
+    }
+    .radar-box {
+      padding: 10px;
+      border-radius: 8px;
+      width: 80px;
+      background: #ddd;
+    }
+    .green { background: #b2ffb2; }
+    .orange { background: #ffe5b4; }
+    .red { background: #ffb2b2; }
+    .controls {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2>🚗 倒車雷達システム</h2>
+
+  <!-- 摄像头流 -->
+  <img id="camera" src="/cam" alt="Camera Feed">
+
+  <!-- 雷达数据展示 -->
+  <div class="radar-container">
+    <div id="radar0" class="radar-box">-- cm</div>
+    <div id="radar1" class="radar-box">-- cm</div>
+    <div id="radar2" class="radar-box">-- cm</div>
+  </div>
+
+  <!-- 控制区域 -->
+  <div class="controls">
+    <label for="width">車幅 (cm):</label>
+    <select id="width">
+      <option value="160">160</option>
+      <option value="180" selected>180</option>
+      <option value="200">200</option>
+    </select>
+    <br><br>
+    <button onclick="sendCommand('start')">▶️ 開機</button>
+    <button onclick="sendCommand('stop')">⏸️ 待機</button>
+    <p>🔋 電池電壓：<span id="voltage">--</span> V</p>
+  </div>
+
+  <script>
+    let baseCenter = null;
+
+    function sendCommand(cmd) {
+      fetch("/" + cmd).then(() => {
+        if (cmd === "start") baseCenter = null;
+      });
+    }
+
+    function updateStatus() {
+      fetch("/status.json")
+        .then(r => r.json())
+        .then(data => {
+          const radar = data.radar;
+          const carwidth = parseInt(document.getElementById("width").value);
+          const ref = (carwidth - 10) / 2;
+
+          radar.forEach((dist, i) => {
+            const box = document.getElementById("radar" + i);
+            box.innerText = dist + " cm";
+
+            if (i === 1) { // 中置传感器
+              if (baseCenter === null) baseCenter = dist;
+              if (dist < 35) {
+                box.className = "radar-box red";
+              } else if (dist < baseCenter) {
+                box.className = "radar-box orange";
+              } else {
+                box.className = "radar-box green";
+              }
+            } else {
+              const diff = Math.abs(dist - ref);
+              if (diff < 10) {
+                box.className = "radar-box red";
+              } else if (diff < 20) {
+                box.className = "radar-box orange";
+              } else {
+                box.className = "radar-box green";
+              }
+            }
+          });
+
+          document.getElementById("voltage").innerText = data.voltage.toFixed(2);
+        })
+        .catch(() => console.log("接続失敗"));
+
+      setTimeout(updateStatus, 500);
+    }
+
+    updateStatus();
+  </script>
+</body>
+</html>
