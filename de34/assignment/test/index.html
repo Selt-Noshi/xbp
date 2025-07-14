@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ESP32 レーダーシステム</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>ESP32 バックレーダー</h1>
+
+    <div id="systemStatus">システムは準備完了です</div>
+
+    <!-- カメラ映像位置（未実装） -->
+    <div id="cameraStream" style="text-align:center; margin-bottom: 20px;">
+      <p style="color: #aaa;">※カメラ映像準備中…</p>
+    </div>
+
+    <div class="sensor-grid">
+      <div class="sensor" id="sensor1">
+        <div class="sensor-label">左レーダー</div>
+        <div class="distance" id="distance1">-- cm</div>
+      </div>
+      <div class="sensor" id="sensor2">
+        <div class="sensor-label">中央レーダー</div>
+        <div class="distance" id="distance2">-- cm</div>
+      </div>
+      <div class="sensor" id="sensor3">
+        <div class="sensor-label">右レーダー</div>
+        <div class="distance" id="distance3">-- cm</div>
+      </div>
+    </div>
+
+    <div class="control-panel">
+      <div class="form-group">
+        <label for="carWidth">車両幅:</label>
+        <select id="carWidth">
+          <option value="160">160cm</option>
+          <option value="180" selected>180cm</option>
+          <option value="200">200cm</option>
+        </select>
+      </div>
+
+      <div class="button-group">
+        <button id="startBtn" class="btn">レーダー開始</button>
+        <button id="stopBtn" class="btn">レーダー停止</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/main.js"></script>
+</body>
+</html>
