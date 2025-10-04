@@ -1,54 +1,188 @@
-@charset "utf-8";
-/* 冒頭でimport */
-@import url('https://fonts.googleapis.com/css?family=Raleway:700&display=swap');
-@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700&display=swap&subset=japanese');
-/* フォントを指定したいところで */
+/* ================== XBP Home Style | 中式 × 科技風（20px 基准） ================== */
+:root{
+  --primary:#a1afc9;          /* 蓝灰 */
+  --primary-deep:#5a6c8f;     /* 深蓝灰（渐变加强） */
+  --secondary:#ed5736;        /* 妃色 */
+  --secondary-deep:#c84529;   /* 深妃色（渐变加强） */
+  --accent:#bbcdc5;           /* 蟹壳青 */
+  --light:#eef2f7;            /* 浅底色 */
+  --dark:#392f41;             /* 正文色（乌黑） */
+  --gray:#7a859a;
+  --light-gray:#f4f6f9;
+  --heading-solid:#2b2730;    /* H2/H3 深色 */
+  --stroke:rgba(57,47,65,.28);/* 渐变文字描边 */
 
-logo img{
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    object-fit: cover; /* 画像のトリミング */
+  --radius:12px;
+  --shadow:0 10px 28px rgba(57,47,65,.14);
+  --transition:all .28s ease;
 }
 
+/* 基础 */
+*{margin:0;padding:0;box-sizing:border-box}
+html{
+  scroll-behavior:smooth;
+  background:
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="110" height="110" viewBox="0 0 110 110"><rect width="110" height="110" fill="%23eef2f7"/><path d="M0,0 L110,110 M110,0 L0,110" stroke="%23f4f6f9" stroke-width="0.5"/></svg>')
+    0 0/110px 110px;
+}
+body{
+  font-family:'Noto Sans JP','Noto Serif SC','Source Han Serif SC',system-ui,-apple-system,Segoe UI,sans-serif;
+  font-size:20px;
+  line-height:1.9;
+  color:var(--dark);
+  background:rgba(238,242,247,.96);
+  max-width:960px;
+  margin:0 auto;
+  padding:36px 28px 56px;
+  border-left:1px solid var(--primary);
+  border-right:1px solid var(--primary);
+  box-shadow:0 0 36px rgba(161,175,201,.18);
+  position:relative;
+}
+
+/* 顶/底霓虹条 */
+body::before,body::after{
+  content:"";position:fixed;left:0;right:0;height:6px;z-index:1000;
+  background:linear-gradient(90deg,var(--secondary),var(--primary),var(--accent));
+}
+body::before{top:0} body::after{bottom:0}
+
+/* 顶部 Logo 返回（你的自定义标签 <logotohome>） */
+logotohome{
+  position:fixed; top:16px; left:16px; z-index:1100;
+  background:rgba(255,255,255,.65);
+  backdrop-filter:saturate(1.2) blur(4px);
+  border:1px solid rgba(161,175,201,.55);
+  border-radius:999px;
+  box-shadow:0 8px 20px rgba(57,47,65,.12);
+  padding:6px 10px;
+}
+logotohome a{display:block; line-height:0}
 logotohome img{
-    border-radius: 70%;
-    width: 70px;
-    height: 70px;
-    object-fit: cover; /* 画像のトリミング */
+  width:44px; height:44px; object-fit:contain; display:block;
+  transition:transform .22s ease, filter .22s ease;
 }
+logotohome img:hover{ transform:scale(1.06); filter:contrast(1.05) }
 
-
-
-/* ========== common ========== */
-html, body {
-	font-size: 16px;
-	font-family: sans-serif;
-	color: #393939;
-    margin-left: 15px;
-    margin-bottom: 40px;
-	background: #efefef;
-}
+/* 标题：H1 常驻渐变（清晰可读） */
 h1{
-    text-indent: 0em;
+  margin-top:40px; /* 避开固定 logo */
+  font-size:2.8rem; text-align:center; padding:22px 0; margin-bottom:22px;
+  background-color:var(--light);
+  background-image:linear-gradient(90deg,var(--secondary-deep),var(--primary-deep));
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent; color:#000; /* 非 webkit 兜底 */
+  -webkit-text-stroke:0.6px var(--stroke); text-shadow:0 1px 0 rgba(255,255,255,.35);
+  border-radius:var(--radius);
+  border:2px solid var(--primary);
+  box-shadow:var(--shadow);
+  position:relative; overflow:hidden; font-weight:900; letter-spacing:1.5px;
 }
+h1::before,h1::after{
+  content:"❧"; position:absolute; top:50%; transform:translateY(-50%);
+  color:var(--secondary); font-size:1.8rem; opacity:.9;
+}
+h1::before{ left:28px } h1::after{ right:28px }
+
+/* H2 深色下划线装饰 */
 h2{
-    margin-left: 1em;
-    margin-top: 1em;
+  color:var(--heading-solid);
+  font-size:1.9rem; font-weight:800;
+  margin:8px 0 18px; padding:0 0 10px 14px; position:relative;
 }
+h2::before{
+  content:""; position:absolute; left:0; bottom:0; height:3px; width:120px;
+  background:linear-gradient(90deg,var(--secondary),var(--primary));
+  border-radius:2px;
+}
+
+/* H3 作为入口卡片（a 是整块可点） */
 h3{
-    margin-left: 2em;
+  margin:16px 0;
 }
-div{
-    margin-top: 1em;
-    margin-left: 3em;
+h3 a{
+  display:block;
+  background:#fff;
+  border:1px solid rgba(161,175,201,.65);
+  border-radius:14px;
+  padding:16px 18px;
+  color:var(--heading-solid);
+  text-decoration:none;
+  font-weight:800;
+  letter-spacing:.3px;
+  box-shadow:0 8px 22px rgba(57,47,65,.10);
+  position:relative;
+  overflow:hidden;
+  transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease, background .22s ease;
 }
-p{
-    margin-left: 3em;
+h3 a::after{
+  content:"↗"; /* 进入箭头 */
+  position:absolute; right:16px; top:50%; transform:translateY(-50%);
+  font-size:1.1rem; color:var(--secondary);
+  transition:transform .22s ease;
 }
-span.blackback{
-    text-indent: 3em;
-    background: #393939;
-    color: #efefef;
+h3 a:hover{
+  transform:translateY(-2px);
+  box-shadow:0 14px 28px rgba(57,47,65,.16);
+  border-color:var(--primary);
+  background:linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
 }
+h3 a:hover::after{ transform:translate(2px,-50%) }
+
+/* 通用链接（正文内） */
+a{
+  color:var(--secondary);
+  text-decoration:none; font-weight:700; position:relative;
+  transition:color .2s ease, text-shadow .2s ease;
+}
+a:not(h3 a)::after{
+  content:""; position:absolute; left:0; bottom:-3px; height:2px; width:0%;
+  background:linear-gradient(90deg,var(--secondary),var(--primary));
+  border-radius:2px; transition:width .28s ease; box-shadow:0 0 6px rgba(237,87,54,.5);
+}
+a:not(h3 a):hover{ color:#d94c2f; text-shadow:0 0 6px rgba(237,87,54,.25) }
+a:not(h3 a):hover::after{ width:100% }
+a:focus-visible{ outline:2px dashed var(--primary); outline-offset:3px }
+
+/* 网格（如果你后续增多入口，可直接使用 .grid） */
+.grid{
+  display:grid; gap:16px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  margin-top:12px;
+}
+
+/* 图片（首页一般只在 logo） */
+img{
+  max-width:100%; height:auto; display:block;
+}
+
+/* 分隔线（可选） */
+hr{
+  border:0; height:2px; margin:26px 0;
+  background:linear-gradient(to right, transparent, var(--primary), var(--secondary), transparent);
+  border-radius:2px;
+}
+
+/* 响应式 */
+@media (max-width: 768px){
+  body{ padding:24px 16px 44px; font-size:19px }
+  h1{ font-size:2.2rem; padding:18px 0 }
+  h1::before,h1::after{ display:none }
+  h2{ font-size:1.6rem; padding-left:10px }
+  h2::before{ width:90px }
+  logotohome{ top:12px; left:12px; padding:5px 9px }
+  logotohome img{ width:40px; height:40px }
+}
+@media (max-width: 420px){
+  h1{ font-size:1.9rem }
+  h2{ font-size:1.45rem }
+  h3 a{ padding:14px 16px }
+}
+
+/* 进入时轻微动画 */
+@keyframes fadeInUp{ from{ opacity:0; transform:translateY(14px) } to{ opacity:1; transform:translateY(0) } }
+h1, h2, h3{ animation:fadeInUp .45s ease-out both }
+h3:nth-of-type(1){ animation-delay:.05s }
+h3:nth-of-type(2){ animation-delay:.10s }
+h3:nth-of-type(3){ animation-delay:.15s }
 
