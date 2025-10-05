@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>企画プロジェクト進行スライド（10/6週）</title>
+<style>
+  :root{
+    --bg:#0e1116; --fg:#e8edf2; --muted:#9aa4af; --accent:#6aa6ff; --card:#171b22;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:linear-gradient(120deg,#0e1116 0%,#121720 60%,#0e1116 100%);
+    color:var(--fg);
+    font-family:"Noto Sans JP","Yu Gothic","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+  }
+  a{color:#84b9ff;text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .deck{height:100vh; display:grid; place-items:center; padding:24px;}
+  .slide{
+    width:min(1100px,95vw); height:min(640px,85vh);
+    background:var(--card); border:1px solid #202632; border-radius:20px;
+    padding:40px 48px; box-shadow:0 10px 40px rgba(0,0,0,.35);
+    display:none; overflow:auto;
+  }
+  .slide.active{display:block; animation:fade .25s ease;}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  h1{font-size:34px;margin:.2em 0 .4em;}
+  h2{font-size:24px;color:#cfe2ff;margin-top:.6em;}
+  p,li{font-size:18px;line-height:1.6;}
+  .badge{font-size:14px;background:linear-gradient(135deg,#9bc2ff,#6aa6ff);
+    border-radius:999px;padding:6px 12px;display:inline-block;margin-right:8px;color:#0b1220;}
+  .grid{display:grid;gap:14px;}
+  .cols-2{grid-template-columns:1fr 1fr;}
+  .cols-3{grid-template-columns:repeat(3,1fr);}
+  .card{background:#131821;border:1px solid #1f2631;border-radius:14px;padding:16px 18px;}
+  .muted{color:var(--muted);}
+  ul.check>li::marker{content:"✔  ";}
+  table{width:100%;border-collapse:collapse;font-size:16px;}
+  th,td{border:1px solid #273140;padding:10px 12px;vertical-align:top;}
+  th{background:#1a2130;color:#d8e6ff;}
+  tr:nth-child(even) td{background:#121825;}
+  .pill{padding:2px 10px;border-radius:999px;font-size:13px;border:1px solid #2a3343;color:#cfe2ff;}
+  .good{background:rgba(132,216,135,.15);border-color:#2b7a2e;color:#bff3c1;}
+  .warn{background:rgba(255,209,102,.12);border-color:#8a6d1d;color:#ffe4a3;}
+  .bad{ background:rgba(255,123,123,.12);border-color:#8a2b2b;color:#ffc5c5;}
+  .toc a{display:block;padding:10px 12px;border:1px solid #233043;border-radius:10px;margin-bottom:10px;background:#101722;}
+  .btn{
+    display:inline-block;padding:10px 18px;border-radius:10px;
+    background:#6aa6ff;color:#0e1116;font-weight:bold;border:none;
+  }
+  .btn:hover{background:#9bc2ff;}
+  .footer{
+    position:fixed;left:0;right:0;bottom:0;height:44px;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 16px;font-size:14px;color:var(--muted);
+  }
+  .progress{height:6px;background:#1e2532;border-radius:999px;overflow:hidden;width:260px;}
+  .progress>i{display:block;height:100%;width:0%;background:linear-gradient(90deg,#6aa6ff,#9bc2ff);}
+  .kbd{border:1px solid #303949;padding:2px 6px;border-radius:6px;margin:0 4px;font-size:13px;}
+  @media print{
+    body{background:#fff;color:#000;}
+    .slide{display:block;break-after:page;width:auto;height:auto;box-shadow:none;border:1px solid #ddd;}
+    .footer{display:none;}
+  }
+</style>
+</head>
+<body>
+<div class="deck">
+
+  <!-- 0: 目次 -->
+  <section class="slide active" id="toc">
+    <div class="badge">このページは 2025-10-06 週 用</div>
+    <h1>週別 目次</h1>
+    <p class="muted">この1ファイルに各週の内容を蓄積し、目次からジャンプできます。</p>
+    <div class="toc">
+      <a href="#week-2025-10-06">10/6〜10/13：方向性確定／主力商品案／市場調査準備</a>
+      <!-- 今後の週を追加予定 -->
+    </div>
+    <p style="text-align:center; margin-top:30px;">
+      <a href="../index.html" class="btn">← トップページへ戻る</a>
+    </p>
+  </section>
+
+  <!-- 1: タイトル（10/6週） -->
+  <section class="slide" id="week-2025-10-06">
+    <div class="badge">Kickoff Week 2025-10-05〜10-13</div>
+    <h1>企画プロジェクトミーティング</h1>
+    <p class="muted">目的：事業モデル方向性の確定・主力商品案・市場調査準備</p>
+    <div class="grid cols-2" style="margin-top:12px;">
+      <div class="card">
+        <h2>今週の目標</h2>
+        <ul class="check">
+          <li>事業モデルの方向性を確定する</li>
+          <li>主力商品とセールスポイントを明確にする</li>
+          <li>市場背景情報の収集を開始する</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>今後のマイルストーン</h2>
+        <ul>
+          <li>11/03：第1回発表（背景・動機・モデル概要）</li>
+          <li>12/15：第2回発表（改良版）</li>
+          <li>2026/01/09：最終発表・企画書提出</li>
+        </ul>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:8px;">操作：← → でスライド移動 / Pで印刷</p>
+  </section>
+
+  <!-- 2: 経営形態 -->
+  <section class="slide" id="models">
+    <h1>三つの経営形態の検討</h1>
+    <div class="grid cols-3">
+      <div class="card">
+        <h2>① 完全個人経営</h2>
+        <ul>
+          <li>意思決定が迅速で自由度が高い</li>
+          <li>初期コストを抑えやすい</li>
+          <li>資源が限定的で拡張性に制限</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>② 委託経営</h2>
+        <ul>
+          <li>スケール拡大が容易</li>
+          <li>運営負荷を軽減できる</li>
+          <li>統制や品質リスクが増加</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>③ 部分産業委託</h2>
+        <ul>
+          <li>コア部分を内製化できる</li>
+          <li>コストと統制のバランスが良い</li>
+          <li>連携・調整コストが発生</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3: 比較表 -->
+  <section class="slide" id="comparison">
+    <h1>経営形態の比較表</h1>
+    <table>
+      <thead>
+        <tr><th>観点</th><th>完全個人経営</th><th>委託経営</th><th>部分産業委託</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>初期投資</td><td><span class="pill good">低い</span></td><td><span class="pill warn">中〜高</span></td><td><span class="pill warn">中程度</span></td></tr>
+        <tr><td>統制力</td><td><span class="pill good">高い</span></td><td><span class="pill bad">低い</span></td><td><span class="pill warn">中</span></td></tr>
+        <tr><td>スケール拡大</td><td><span class="pill warn">中</span></td><td><span class="pill good">高い</span></td><td><span class="pill warn">中〜高</span></td></tr>
+        <tr><td>ブランド維持</td><td>容易</td><td>監督必要</td><td>基準設計必要</td></tr>
+        <tr><td>リスク</td><td>資金集中</td><td>外部依存</td><td>調整コスト</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 4: 主力商品・価値提案 -->
+  <section class="slide" id="product">
+    <h1>主力商品・価値提案</h1>
+    <div class="grid cols-2">
+      <div class="card">
+        <h2>仮の方向性</h2>
+        <ul>
+          <li>提供価値：顧客の課題をどのように解決するか</li>
+          <li>主要機能・サービス範囲</li>
+          <li>想定価格帯</li>
+          <li>差別化要素（USP）</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>セールスポイント</h2>
+        <ul>
+          <li>効率化・コスト削減</li>
+          <li>品質保証・サポート体制</li>
+          <li>導入の容易さ（PoC→本導入）</li>
+          <li>成果の可視化（KPI・ROI）</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5: 情報収集計画 -->
+  <section class="slide" id="research">
+    <h1>市場背景の情報収集計画</h1>
+    <div class="grid cols-2">
+      <div class="card">
+        <h2>収集項目</h2>
+        <ul>
+          <li>市場規模・成長率</li>
+          <li>顧客セグメント・ペルソナ</li>
+          <li>競合状況・代替品</li>
+          <li>導入事例・価格レンジ</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>主な情報源</h2>
+        <ul>
+          <li>経済産業省・総務省など公的統計</li>
+          <li>民間調査（Statista、矢野経済研究所、日経）</li>
+          <li>一次調査（インタビュー・アンケート）</li>
+          <li>SNS・コミュニティレビュー</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6: 全期間の目標 -->
+  <section class="slide" id="timeline">
+    <h1>全期間の目標と成果物（10月6日〜1月9日）</h1>
+    <table>
+      <thead><tr><th>期間</th><th>主な目標</th><th>成果物</th></tr></thead>
+      <tbody>
+        <tr><td>10/6〜10/13</td><td>事業モデル方向性の確定・主力商品案決定</td><td>PPT方向性版</td></tr>
+        <tr><td>10/14〜10/27</td><td>市場調査・課題整理</td><td>市場分析メモ</td></tr>
+        <tr><td>10/28〜11/2</td><td>初回発表用スライド作成</td><td>第1回発表PPT</td></tr>
+        <tr><td>11/3</td><td>第1回発表（背景・動機・モデル概要）</td><td>発表実施</td></tr>
+        <tr><td>11/4〜11/30</td><td>改良・具体化（収益構造・実行計画）</td><td>改訂版資料</td></tr>
+        <tr><td>12/1〜12/14</td><td>第2回発表準備・練習</td><td>第2回発表PPT</td></tr>
+        <tr><td>12/15</td><td>第2回発表（改良版）</td><td>発表完了</td></tr>
+        <tr><td>12/16〜1/4</td><td>最終版企画書作成</td><td>最終版ドラフト</td></tr>
+        <tr><td>1/5〜1/8</td><td>最終調整・練習</td><td>完成版スライド</td></tr>
+        <tr><td>1/9</td><td>最終発表・企画書提出</td><td>完了報告</td></tr>
+      </tbody>
+    </table>
+    <p style="text-align:center; margin-top:25px;">
+      <a href="#toc" class="btn">↑ 目次へ戻る</a>
+    </p>
+  </section>
+
+</div>
+
+<div class="footer">
+  <div>
+    <span class="kbd">←</span>Prev
+    <span class="kbd">→</span>Next
+    <span class="kbd">P</span>Print
+  </div>
+  <div class="progress"><i style="width:0%"></i></div>
+  <div id="counter">1 / 7</div>
+</div>
+
+<script>
+(function(){
+  const slides=[...document.querySelectorAll('.slide')];
+  const prog=document.querySelector('.progress i');
+  const counter=document.getElementById('counter');
+  let idx=0;
+
+  function indexFromHash(){
+    const h=location.hash.replace('#','').trim();
+    if(!h) return 0;
+    const byId=slides.findIndex(s=>s.id===h);
+    if(byId>=0) return byId;
+    const n=parseInt(h,10);
+    if(!isNaN(n) && n>=1 && n<=slides.length) return n-1;
+    return 0;
+  }
+
+  function show(i, setHash=true){
+    idx=(i+slides.length)%slides.length;
+    slides.forEach((s,j)=>s.classList.toggle('active',j===idx));
+    prog.style.width=((idx+1)/slides.length*100)+'%';
+    counter.textContent=(idx+1)+' / '+slides.length;
+    if(setHash){
+      const id=slides[idx].id || (idx+1);
+      history.replaceState(null,'','#'+id);
+    }
+  }
+
+  function next(){show(idx+1);}
+  function prev(){show(idx-1);}
+  addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight') next();
+    if(e.key==='ArrowLeft') prev();
+    if(e.key.toLowerCase()==='p') window.print();
+  });
+  addEventListener('hashchange',()=>show(indexFromHash(), false));
+  show(indexFromHash());
+})();
+</script>
+</body>
+</html>
