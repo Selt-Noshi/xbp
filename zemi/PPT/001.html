@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>卒業論文テーマ候補について</title>
+  <link rel="stylesheet" href="../CSSfile/main.css">
+  <style>
+    .agenda-item {
+      cursor: pointer;
+    }
+
+    .agenda-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .top-link {
+      position: fixed;
+      right: 22px;
+      top: 22px;
+      z-index: 999;
+      background: #15365f;
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.16);
+    }
+
+    .back-link {
+      top: 68px;
+      background: #64748b;
+    }
+
+    .mini-data {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 26px;
+    }
+
+    .mini-data-card {
+      background: #ffffff;
+      border: 1px solid #d0d7de;
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .mini-data-number {
+      font-size: 32px;
+      font-weight: 800;
+      color: #245b9b;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .mini-data-label {
+      font-size: 16px;
+      color: #475467;
+      line-height: 1.55;
+    }
+
+    .global-data-bar {
+      display: grid;
+      grid-template-columns: 1.2fr 2fr;
+      gap: 18px;
+      align-items: center;
+      background: #f8fafc;
+      border: 1px solid #d0d7de;
+      border-radius: 20px;
+      padding: 22px 26px;
+      margin-bottom: 26px;
+    }
+
+    .global-data-number {
+      font-size: 36px;
+      font-weight: 800;
+      color: #245b9b;
+      line-height: 1.2;
+    }
+
+    .global-data-text {
+      font-size: 19px;
+      color: #475467;
+      line-height: 1.6;
+    }
+
+    .market-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 10px;
+    }
+
+    .market-panel {
+      border: 2px solid #d0d7de;
+      border-radius: 22px;
+      overflow: hidden;
+      background: white;
+    }
+
+    .market-panel.china {
+      border-color: #245b9b;
+    }
+
+    .market-panel.japan {
+      border-color: #64748b;
+    }
+
+    .market-header {
+      padding: 18px 24px;
+      color: white;
+      font-size: 28px;
+      font-weight: 800;
+    }
+
+    .market-panel.china .market-header {
+      background: #245b9b;
+    }
+
+    .market-panel.japan .market-header {
+      background: #64748b;
+    }
+
+    .market-body {
+      padding: 22px 24px;
+    }
+
+    .metric-row {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 16px;
+      padding: 13px 0;
+      border-bottom: 1px solid #e5e7eb;
+      align-items: start;
+    }
+
+    .metric-row:last-child {
+      border-bottom: none;
+    }
+
+    .metric-label {
+      font-size: 15px;
+      font-weight: 800;
+      color: #15365f;
+      background: #eaf2fb;
+      border-radius: 999px;
+      padding: 6px 10px;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .metric-value {
+      font-size: 18px;
+      color: #1f2933;
+      line-height: 1.6;
+    }
+
+    .metric-value strong {
+      color: #15365f;
+      font-size: 21px;
+    }
+
+    .compare-insight {
+      margin-top: 26px;
+      padding: 22px 28px;
+      border-radius: 20px;
+      background: #eaf2fb;
+      border-left: 8px solid #245b9b;
+      font-size: 23px;
+      font-weight: 800;
+      color: #15365f;
+      line-height: 1.45;
+    }
+
+    .stage-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .stage-item {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 18px;
+      align-items: center;
+      background: #f8fafc;
+      border: 1px solid #d0d7de;
+      border-radius: 18px;
+      padding: 18px 22px;
+    }
+
+    .stage-num {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #15365f;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .stage-title {
+      font-size: 23px;
+      font-weight: 800;
+      color: #15365f;
+      margin-bottom: 4px;
+    }
+
+    .stage-desc {
+      font-size: 18px;
+      color: #475467;
+      line-height: 1.55;
+    }
+
+    @media (max-width: 900px) {
+      .mini-data,
+      .global-data-bar,
+      .market-compare {
+        grid-template-columns: 1fr;
+      }
+
+      .stage-item {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <button class="top-link" onclick="jumpToSlide('top')">目次へ</button>
+  <button class="top-link back-link" onclick="window.location.href='../index.html'">← 戻る</button>
+
+  <main class="deck">
+
+    <section id="top" class="slide" data-page="1 / 10">
+      <h1>卒業論文テーマ候補について</h1>
+      <div class="subtitle">― EV時代における自動車産業の変化を中心に ―</div>
+
+      <div class="meta">
+        第一次ゼミ発表<br>
+        2026年5月19日
+      </div>
+
+      <div class="agenda">
+        <div class="agenda-item" onclick="jumpToSlide('motivation')">
+          <div class="agenda-link">
+            <span class="agenda-num">1</span>
+            <div class="agenda-text">研究動機</div>
+          </div>
+        </div>
+
+        <div class="agenda-item" onclick="jumpToSlide('comparison')">
+          <div class="agenda-link">
+            <span class="agenda-num">2</span>
+            <div class="agenda-text">初期データ</div>
+          </div>
+        </div>
+
+        <div class="agenda-item" onclick="jumpToSlide('xiaomi')">
+          <div class="agenda-link">
+            <span class="agenda-num">3</span>
+            <div class="agenda-text">Xiaomi事例</div>
+          </div>
+        </div>
+
+        <div class="agenda-item" onclick="jumpToSlide('stages')">
+          <div class="agenda-link">
+            <span class="agenda-num">4</span>
+            <div class="agenda-text">問題形成</div>
+          </div>
+        </div>
+
+        <div class="agenda-item" onclick="jumpToSlide('problem')">
+          <div class="agenda-link">
+            <span class="agenda-num">5</span>
+            <div class="agenda-text">問題意識</div>
+          </div>
+        </div>
+
+        <div class="agenda-item" onclick="jumpToSlide('direction')">
+          <div class="agenda-link">
+            <span class="agenda-num">6</span>
+            <div class="agenda-text">研究方向</div>
+          </div>
+        </div>
+
+        <div class="agenda-item" onclick="jumpToSlide('rq')">
+          <div class="agenda-link">
+            <span class="agenda-num">7</span>
+            <div class="agenda-text">RQ</div>
+          </div>
+        </div>
+
+        <div class="agenda-item" onclick="jumpToSlide('future')">
+          <div class="agenda-link">
+            <span class="agenda-num">8</span>
+            <div class="agenda-text">今後の調査</div>
+          </div>
+        </div>
+
+        <div class="agenda-item" onclick="jumpToSlide('summary')">
+          <div class="agenda-link">
+            <span class="agenda-num">9</span>
+            <div class="agenda-text">まとめ</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="motivation" class="slide" data-page="2 / 10">
+      <h2>研究動機</h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>出発点</h3>
+          <ul>
+            <li>もともと自動車産業に関心があった</li>
+            <li>近年、中日EV市場の発展差異に注目した</li>
+            <li>中国ではEV化が急速に進み、日本ではHEV中心の市場が続いている</li>
+          </ul>
+        </div>
+
+        <div class="card highlight">
+          <h3>Xiaomi事例による気づき</h3>
+          <ul>
+            <li>スマートフォン企業が自動車産業へ参入</li>
+            <li>ユーザー体験・ソフトウェア価値が拡大</li>
+            <li>自動車産業の境界そのものが変化していると感じた</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="big-message">
+        自動車産業の競争構造が変化しているのではないか
+      </div>
+    </section>
+
+    <section id="comparison" class="slide" data-page="3 / 10">
+      <h2>初期調査：中日EV市場の差異</h2>
+
+      <div class="global-data-bar">
+        <div class="global-data-number">世界：1,700万台超</div>
+        <div class="global-data-text">
+          2024年の世界EV販売規模。EV市場はすでに一部の先進的消費者向けではなく、
+          大衆普及段階へ移行しつつある。
+        </div>
+      </div>
+
+      <div class="market-compare">
+        <div class="market-panel china">
+          <div class="market-header">中国：EV中心へ急速に移行</div>
+          <div class="market-body">
+            <div class="metric-row">
+              <div class="metric-label">販売規模</div>
+              <div class="metric-value"><strong>1,100万台超</strong><br>2024年のEV販売台数。世界最大級のEV市場を形成。</div>
+            </div>
+            <div class="metric-row">
+              <div class="metric-label">普及率</div>
+              <div class="metric-value"><strong>約50％に接近</strong><br>新車販売に占めるEV比率が急速に上昇。</div>
+            </div>
+            <div class="metric-row">
+              <div class="metric-label">主流</div>
+              <div class="metric-value"><strong>BEV / PHEV / EREV</strong><br>純電動だけでなく、PHEV・EREVも拡大。</div>
+            </div>
+            <div class="metric-row">
+              <div class="metric-label">特徴</div>
+              <div class="metric-value"><strong>IT企業・電池企業の関与が強い</strong><br>ソフトウェア、電池、スマート機能が競争軸に。</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="market-panel japan">
+          <div class="market-header">日本：HEV中心の電動化</div>
+          <div class="market-body">
+            <div class="metric-row">
+              <div class="metric-label">販売規模</div>
+              <div class="metric-value"><strong>狭義EVは限定的</strong><br>BEV・PHEVの市場規模は中国と比べて小さい。</div>
+            </div>
+            <div class="metric-row">
+              <div class="metric-label">普及率</div>
+              <div class="metric-value"><strong>BEV/PHEVは低水準</strong><br>一方で、HVを含む広義の電動化率は高い。</div>
+            </div>
+            <div class="metric-row">
+              <div class="metric-label">主流</div>
+              <div class="metric-value"><strong>HEV中心</strong><br>燃費・信頼性に優れたハイブリッド車への支持が強い。</div>
+            </div>
+            <div class="metric-row">
+              <div class="metric-label">特徴</div>
+              <div class="metric-value"><strong>既存メーカー主導</strong><br>EV移行は比較的穏やかで、伝統的自動車企業の影響力が大きい。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="compare-insight">
+        比較の焦点：販売台数の差だけではなく、主流技術・参加企業・産業連携構造の違いに注目する。
+      </div>
+    </section>
+
+    <section id="xiaomi" class="slide" data-page="4 / 10">
+      <h2>Xiaomi事例が示す産業変化</h2>
+
+      <div class="route">
+        <div class="card">
+          <h3>従来の競争</h3>
+          <ul>
+            <li>エンジン</li>
+            <li>機械性能</li>
+            <li>製造技術</li>
+            <li>ブランド信頼</li>
+          </ul>
+        </div>
+
+        <div class="route-center">→</div>
+
+        <div class="card highlight">
+          <h3>Xiaomi EV</h3>
+          <ul>
+            <li>HyperOS</li>
+            <li>OTA更新</li>
+            <li>AI機能</li>
+            <li>IoT・スマホ連携</li>
+            <li>ユーザー体験</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="big-message">
+        XiaomiのEV参入は、自動車がOS・AI・IoTと結びつく「スマート端末」へ変化していることを示している
+      </div>
+    </section>
+
+    <section id="stages" class="slide" data-page="5 / 10">
+      <h2>問題意識の形成プロセス</h2>
+
+      <div class="stage-list">
+        <div class="stage-item">
+          <div class="stage-num">1</div>
+          <div>
+            <div class="stage-title">中日EV発展差異</div>
+            <div class="stage-desc">中国ではEVが急速に普及し、日本ではHEV中心の市場構造が続いている。</div>
+          </div>
+        </div>
+
+        <div class="stage-item">
+          <div class="stage-num">2</div>
+          <div>
+            <div class="stage-title">差異は販売台数だけではない</div>
+            <div class="stage-desc">背景には、ソフトウェア化・開発スピード・サプライチェーン構造の違いがある可能性がある。</div>
+          </div>
+        </div>
+
+        <div class="stage-item">
+          <div class="stage-num">3</div>
+          <div>
+            <div class="stage-title">Xiaomi事例による産業境界の変化</div>
+            <div class="stage-desc">スマートフォン企業の参入により、自動車がソフトウェア・AI・IoTと結びつく産業へ変化している。</div>
+          </div>
+        </div>
+
+        <div class="stage-item">
+          <div class="stage-num">4</div>
+          <div>
+            <div class="stage-title">産業エコシステム間競争へ</div>
+            <div class="stage-desc">EV競争は単独の車両性能ではなく、企業連携・データ・ソフトウェア・サービスを含む生態系競争へ移行しているのではないか。</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="problem" class="slide" data-page="6 / 10">
+      <h2>問題意識</h2>
+
+      <div class="flow">
+        <div class="flow-box">EV化</div>
+        <div class="arrow">→</div>
+        <div class="flow-box">SDV化・<br>ソフトウェア化</div>
+        <div class="arrow">→</div>
+        <div class="flow-box">IT企業参入</div>
+        <div class="arrow">→</div>
+        <div class="flow-box">異業種連携</div>
+        <div class="arrow">→</div>
+        <div class="flow-box">産業エコシステム競争</div>
+      </div>
+
+      <div class="big-message">
+        EV競争は「自動車会社同士」から<br>
+        「産業エコシステム同士」の競争へ変化しているのではないか
+      </div>
+
+      <div class="speaker-note">
+        本研究では、中国企業の優位性を一方的に論じるのではなく、中日で異なる産業連携構造がどのように形成されたのかに注目したい。
+      </div>
+    </section>
+
+    <section id="direction" class="slide" data-page="7 / 10">
+      <h2>研究方向候補</h2>
+
+      <div class="grid-3">
+        <div class="card highlight">
+          <span class="label">主方向</span>
+          <h3>EV時代における産業連携の変化</h3>
+          <p>― 中国EV企業と日本自動車企業の比較研究 ―</p>
+          <div class="keyword-row">
+            <span class="keyword">中日比較</span>
+            <span class="keyword">異業種連携</span>
+            <span class="keyword">産業生態系</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="label">補完方向</span>
+          <h3>日本自動車産業における産業連携の課題</h3>
+          <p>EV時代への適応と企業間協働の課題を検討。</p>
+        </div>
+
+        <div class="card">
+          <span class="label">発展方向</span>
+          <h3>SDV時代における自動車産業のプラットフォーム化</h3>
+          <p>ソフトウェア主導の価値創造に注目。</p>
+        </div>
+      </div>
+
+      <div class="footer-message">
+        現時点では、①「EV時代における産業連携の変化」を中心に考えている。
+      </div>
+    </section>
+
+    <section id="rq" class="slide" data-page="8 / 10">
+      <h2>Research Question</h2>
+
+      <div class="grid-2">
+        <div class="card highlight">
+          <span class="label">RQ1</span>
+          <div class="rq">
+            なぜ中国EV産業では異業種間連携が急速に進んだのか
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="label">RQ2</span>
+          <div class="rq">
+            EV時代に競争力はソフトウェア・エコシステムへ移行しているのか
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-message">
+        今後の文献調査と企業分析を通じて、RQをさらに絞り込みたい。
+      </div>
+    </section>
+
+    <section id="future" class="slide" data-page="9 / 10">
+      <h2>今後の調査予定</h2>
+
+      <div class="grid-3">
+        <div class="card highlight">
+          <h3>企業事例</h3>
+          <ul>
+            <li>中国：Xiaomi、BYD、Huawei、CATL</li>
+            <li>日本：Toyota、Nissan、Sony Honda Mobility</li>
+            <li>企業間連携とソフトウェア戦略を比較</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>資料調査</h3>
+          <ul>
+            <li>企業IR資料</li>
+            <li>市場データ</li>
+            <li>業界レポート</li>
+            <li>新聞・専門誌記事</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>比較視点</h3>
+          <ul>
+            <li>市場規模</li>
+            <li>IT企業の関与</li>
+            <li>ソフトウェア・エコシステム</li>
+            <li>産業連携の形成条件</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="summary" class="slide" data-page="10 / 10">
+      <h2>まとめ</h2>
+
+      <div class="big-message">
+        EV化によって、自動車産業は<br>
+        「企業間競争」から「産業エコシステム間競争」へ変化している可能性がある
+      </div>
+
+      <div class="grid-2" style="margin-top: 28px;">
+        <div class="card">
+          <h3>本発表の位置づけ</h3>
+          <ul>
+            <li>完成した結論ではなく、問題意識の共有</li>
+            <li>中日比較を通じた研究方向の検討</li>
+          </ul>
+        </div>
+
+        <div class="card highlight">
+          <h3>今後の方向性</h3>
+          <ul>
+            <li>企業事例と文献調査を進める</li>
+            <li>産業連携の構造的背景を明らかにする</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="comment-section">
+        <h3>コメント・フィードバック欄</h3>
+        <p>ゼミの意見や改善点をここに記録できます。</p>
+
+        <textarea id="commentInput" class="comment-input"
+          placeholder="コメントを入力してください..."></textarea>
+
+        <div class="comment-actions">
+          <button class="btn" onclick="saveComment()">保存</button>
+          <button class="btn secondary" onclick="clearComments()">全削除</button>
+          <button class="btn secondary" onclick="exportComments()">コメントを書き出す</button>
+        </div>
+
+        <div class="saved-comments" id="savedComments"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    function jumpToSlide(id) {
+      const target = document.getElementById(id);
+
+      if (!target) {
+        alert('該当するページが見つかりません: ' + id);
+        return;
+      }
+
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+
+    function escapeHTML(str) {
+      return str.replace(/[&<>"']/g, function(match) {
+        return {
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#039;'
+        }[match];
+      });
+    }
+
+    function loadComments() {
+      const comments = JSON.parse(localStorage.getItem('seminarComments') || '[]');
+      const container = document.getElementById('savedComments');
+      container.innerHTML = '';
+
+      comments.forEach(comment => {
+        const div = document.createElement('div');
+        div.className = 'saved-comment';
+
+        div.innerHTML = `
+          <div class="comment-time">${escapeHTML(comment.time)}</div>
+          <div class="comment-text">${escapeHTML(comment.text)}</div>
+        `;
+
+        container.appendChild(div);
+      });
+    }
+
+    function saveComment() {
+      const input = document.getElementById('commentInput');
+      const text = input.value.trim();
+
+      if (!text) {
+        alert('コメントを入力してください');
+        return;
+      }
+
+      const comments = JSON.parse(localStorage.getItem('seminarComments') || '[]');
+
+      comments.unshift({
+        text: text,
+        time: new Date().toLocaleString('ja-JP')
+      });
+
+      localStorage.setItem('seminarComments', JSON.stringify(comments));
+
+      input.value = '';
+      loadComments();
+    }
+
+    function clearComments() {
+      if (confirm('コメントをすべて削除しますか？')) {
+        localStorage.removeItem('seminarComments');
+        loadComments();
+      }
+    }
+
+    function exportComments() {
+      const comments = JSON.parse(localStorage.getItem('seminarComments') || '[]');
+
+      if (comments.length === 0) {
+        alert('書き出すコメントがありません');
+        return;
+      }
+
+      const text = comments
+        .map((comment, index) => `${index + 1}. [${comment.time}]\n${comment.text}`)
+        .join('\n\n');
+
+      const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'seminar_comments.txt';
+      a.click();
+
+      URL.revokeObjectURL(url);
+    }
+
+    loadComments();
+  </script>
+
+</body>
+</html>
