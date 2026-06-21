@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ゼミ研究構想について</title>
+  <link rel="stylesheet" href="../CSSfile/main.css">
+  <style>
+    :root {
+      --navy: #15365f;
+      --blue: #245b9b;
+      --gray: #64748b;
+      --light: #f8fafc;
+      --line: #d0d7de;
+      --text: #1f2933;
+      --muted: #475467;
+      --soft-blue: #eaf2fb;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #eef3f8;
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", Meiryo, "Noto Sans JP", sans-serif;
+    }
+
+    .deck {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px 18px 70px;
+    }
+
+    .slide {
+      position: relative;
+      min-height: 760px;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 58px 64px;
+      margin: 0 0 36px;
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.10);
+      overflow: hidden;
+    }
+
+    .slide::after {
+      content: attr(data-page);
+      position: absolute;
+      right: 34px;
+      bottom: 22px;
+      font-size: 14px;
+      color: #94a3b8;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: 48px;
+      line-height: 1.25;
+      color: var(--navy);
+      margin: 88px 0 18px;
+      letter-spacing: 0.01em;
+    }
+
+    h2 {
+      font-size: 38px;
+      color: var(--navy);
+      margin: 0 0 34px;
+      padding-bottom: 14px;
+      border-bottom: 4px solid var(--soft-blue);
+    }
+
+    h3 {
+      font-size: 23px;
+      color: var(--navy);
+      margin: 0 0 14px;
+    }
+
+    p, li {
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1.25em;
+    }
+
+    .subtitle {
+      font-size: 25px;
+      color: var(--muted);
+      line-height: 1.55;
+      margin-bottom: 36px;
+      font-weight: 700;
+    }
+
+    .meta {
+      font-size: 20px;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-top: 46px;
+    }
+
+    .top-link {
+      position: fixed;
+      right: 22px;
+      top: 22px;
+      z-index: 999;
+      background: var(--navy);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.16);
+    }
+
+    .back-link {
+      top: 68px;
+      background: var(--gray);
+    }
+
+    .agenda {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 46px;
+    }
+
+    .agenda-item {
+      cursor: pointer;
+      background: var(--light);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      transition: 0.2s ease;
+      overflow: hidden;
+    }
+
+    .agenda-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+    }
+
+    .agenda-link {
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+      height: 100%;
+      padding: 18px 20px;
+    }
+
+    .agenda-num {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      flex: 0 0 auto;
+    }
+
+    .agenda-text {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 26px 28px;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
+    }
+
+    .card.highlight {
+      background: var(--soft-blue);
+      border-color: #b9d4f0;
+    }
+
+    .big-message {
+      margin-top: 34px;
+      padding: 28px 34px;
+      background: var(--navy);
+      color: #ffffff;
+      border-radius: 24px;
+      font-size: 30px;
+      line-height: 1.45;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .speaker-note {
+      margin-top: 26px;
+      padding: 22px 28px;
+      border-radius: 18px;
+      background: var(--light);
+      border-left: 8px solid var(--gray);
+      font-size: 19px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .label {
+      display: inline-block;
+      background: var(--navy);
+      color: #ffffff;
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .keyword-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .keyword {
+      display: inline-block;
+      background: #ffffff;
+      color: var(--navy);
+      border: 1px solid #b9d4f0;
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+      gap: 14px;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .flow-box {
+      min-height: 104px;
+      background: var(--light);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 16px;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.45;
+    }
+
+    .arrow {
+      font-size: 34px;
+      color: var(--blue);
+      font-weight: 800;
+    }
+
+    .company-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .company-card {
+      border: 2px solid var(--line);
+      border-radius: 22px;
+      overflow: hidden;
+      background: white;
+    }
+
+    .company-head {
+      padding: 17px 22px;
+      background: var(--blue);
+      color: white;
+      font-size: 25px;
+      font-weight: 800;
+    }
+
+    .company-card.gray .company-head { background: var(--gray); }
+    .company-card.navy .company-head { background: var(--navy); }
+
+    .company-body {
+      padding: 20px 24px;
+    }
+
+    .metric-row {
+      display: grid;
+      grid-template-columns: 115px 1fr;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid #e5e7eb;
+      align-items: start;
+    }
+
+    .metric-row:last-child { border-bottom: none; }
+
+    .metric-label {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--navy);
+      background: var(--soft-blue);
+      border-radius: 999px;
+      padding: 6px 10px;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .metric-value {
+      font-size: 17px;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .compare-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      font-size: 16px;
+    }
+
+    .compare-table th {
+      background: var(--navy);
+      color: white;
+      padding: 13px 12px;
+      text-align: left;
+      font-size: 15px;
+    }
+
+    .compare-table td {
+      border-top: 1px solid #e5e7eb;
+      padding: 13px 12px;
+      vertical-align: top;
+      line-height: 1.55;
+    }
+
+    .compare-table tr:nth-child(even) td {
+      background: var(--light);
+    }
+
+    .question-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .question-item {
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--light);
+    }
+
+    .q-num {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .q-text {
+      font-size: 19px;
+      line-height: 1.6;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .footer-message {
+      margin-top: 28px;
+      padding: 22px 28px;
+      border-radius: 20px;
+      background: var(--soft-blue);
+      border-left: 8px solid var(--blue);
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.5;
+    }
+
+    .comment-section {
+      margin-top: 32px;
+      background: var(--light);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 24px;
+    }
+
+    .comment-input {
+      width: 100%;
+      min-height: 96px;
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      font-size: 16px;
+      font-family: inherit;
+      resize: vertical;
+    }
+
+    .comment-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 999px;
+      padding: 10px 18px;
+      background: var(--navy);
+      color: white;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .btn.secondary { background: var(--gray); }
+
+    .saved-comment {
+      margin-top: 14px;
+      padding: 14px 16px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+
+    .comment-time {
+      font-size: 13px;
+      color: var(--gray);
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .comment-text {
+      font-size: 16px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+
+    @media (max-width: 900px) {
+      .slide { padding: 38px 24px; min-height: auto; }
+      h1 { font-size: 34px; margin-top: 60px; }
+      h2 { font-size: 29px; }
+      .agenda, .grid-2, .grid-3, .company-grid, .flow { grid-template-columns: 1fr; }
+      .arrow { transform: rotate(90deg); text-align: center; }
+      .metric-row { grid-template-columns: 1fr; }
+      .top-link { right: 12px; }
+    }
+  </style>
+</head>
+
+<body>
+  <button class="top-link" onclick="jumpToSlide('top')">目次へ</button>
+  <button class="top-link back-link" onclick="window.location.href='../index.html'">← 戻る</button>
+
+  <main class="deck">
+
+    <section id="top" class="slide" data-page="1 / 10">
+      <h1>ゼミ研究構想について</h1>
+      <div class="subtitle">― EV時代における産業連携の変化を中心に ―</div>
+
+      <div class="meta">
+        ゼミ研究発表<br>
+        2026年度<br>
+        研究対象：Nissan・Xiaomi・Huawei・Sony Honda Mobility
+      </div>
+
+      <div class="agenda">
+        <div class="agenda-item" onclick="jumpToSlide('position')"><div class="agenda-link"><span class="agenda-num">1</span><div class="agenda-text">研究の位置づけ</div></div></div>
+        <div class="agenda-item" onclick="jumpToSlide('motivation')"><div class="agenda-link"><span class="agenda-num">2</span><div class="agenda-text">研究動機</div></div></div>
+        <div class="agenda-item" onclick="jumpToSlide('problem')"><div class="agenda-link"><span class="agenda-num">3</span><div class="agenda-text">問題意識</div></div></div>
+        <div class="agenda-item" onclick="jumpToSlide('companies')"><div class="agenda-link"><span class="agenda-num">4</span><div class="agenda-text">対象企業</div></div></div>
+        <div class="agenda-item" onclick="jumpToSlide('framework')"><div class="agenda-link"><span class="agenda-num">5</span><div class="agenda-text">比較枠組み</div></div></div>
+        <div class="agenda-item" onclick="jumpToSlide('rq')"><div class="agenda-link"><span class="agenda-num">6</span><div class="agenda-text">RQ</div></div></div>
+        <div class="agenda-item" onclick="jumpToSlide('interview')"><div class="agenda-link"><span class="agenda-num">7</span><div class="agenda-text">企業調査</div></div></div>
+        <div class="agenda-item" onclick="jumpToSlide('questions')"><div class="agenda-link"><span class="agenda-num">8</span><div class="agenda-text">質問項目</div></div></div>
+        <div class="agenda-item" onclick="jumpToSlide('future')"><div class="agenda-link"><span class="agenda-num">9</span><div class="agenda-text">今後の予定</div></div></div>
+      </div>
+    </section>
+
+    <section id="position" class="slide" data-page="2 / 10">
+      <h2>研究の位置づけ</h2>
+
+      <div class="grid-2">
+        <div class="card highlight">
+          <h3>今回の位置づけ</h3>
+          <ul>
+            <li>卒業論文の完成案ではなく、ゼミ研究として扱う</li>
+            <li>研究範囲を広げすぎず、企業事例を中心に整理する</li>
+            <li>可能であれば企業への問い合わせ・ヒアリングを試みる</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>卒業論文への接続</h3>
+          <ul>
+            <li>ゼミ研究を通じて基礎資料を集める</li>
+            <li>企業比較の視点を確認する</li>
+            <li>回答の有無も含めて、今後の調査可能性を判断する</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="big-message">
+        ゼミ研究では「完成した結論」よりも、研究対象・比較軸・調査方法を明確にすることを目標とする
+      </div>
+    </section>
+
+    <section id="motivation" class="slide" data-page="3 / 10">
+      <h2>研究動機</h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>出発点</h3>
+          <ul>
+            <li>自動車産業は日本経済にとって重要な基幹産業である</li>
+            <li>一方で、中国ではEVやスマートカーの発展が急速に進んでいる</li>
+            <li>中日で電動化の進み方や市場構造に違いが見られる</li>
+          </ul>
+        </div>
+
+        <div class="card highlight">
+          <h3>関心の変化</h3>
+          <ul>
+            <li>単純な販売台数の比較だけでは不十分だと感じた</li>
+            <li>EV化によって、ソフトウェア・通信・AI・エンタメなどの重要性が高まっている</li>
+            <li>自動車産業の競争相手や協力相手が広がっている点に注目したい</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="speaker-note">
+        本研究では、中国企業の優位性を一方的に論じるのではなく、EV時代に企業がどのような相手と連携し、どのように価値を作ろうとしているのかを比較する。
+      </div>
+    </section>
+
+    <section id="problem" class="slide" data-page="4 / 10">
+      <h2>問題意識</h2>
+
+      <div class="flow">
+        <div class="flow-box">EV化</div>
+        <div class="arrow">→</div>
+        <div class="flow-box">SDV化・<br>ソフトウェア化</div>
+        <div class="arrow">→</div>
+        <div class="flow-box">IT企業の関与</div>
+        <div class="arrow">→</div>
+        <div class="flow-box">産業連携の変化</div>
+      </div>
+
+      <div class="big-message">
+        EV時代の競争は、車両そのものの性能だけでなく、企業連携・データ・ソフトウェア・サービスを含む競争へ変化しているのではないか
+      </div>
+
+      <div class="speaker-note">
+        そのため、従来の「自動車メーカー同士の比較」だけではなく、伝統的自動車企業、IT企業、ICT企業、異業種合弁企業を同じ枠組みで比較する必要がある。
+      </div>
+    </section>
+
+    <section id="companies" class="slide" data-page="5 / 10">
+      <h2>研究対象企業</h2>
+
+      <div class="company-grid">
+        <div class="company-card navy">
+          <div class="company-head">Nissan</div>
+          <div class="company-body">
+            <div class="metric-row"><div class="metric-label">位置づけ</div><div class="metric-value">日本の伝統的自動車メーカー</div></div>
+            <div class="metric-row"><div class="metric-label">注目点</div><div class="metric-value">EV化・電池・ソフトウェア化への対応</div></div>
+            <div class="metric-row"><div class="metric-label">意味</div><div class="metric-value">既存自動車企業がどのように外部技術を取り込むかを見る事例</div></div>
+          </div>
+        </div>
+
+        <div class="company-card">
+          <div class="company-head">Xiaomi</div>
+          <div class="company-body">
+            <div class="metric-row"><div class="metric-label">位置づけ</div><div class="metric-value">スマートフォン・IoT企業からの自動車参入</div></div>
+            <div class="metric-row"><div class="metric-label">注目点</div><div class="metric-value">スマホ、家電、OS、EVを結びつける生態系</div></div>
+            <div class="metric-row"><div class="metric-label">意味</div><div class="metric-value">自動車を「スマート端末」として捉える新規参入事例</div></div>
+          </div>
+        </div>
+
+        <div class="company-card">
+          <div class="company-head">Huawei</div>
+          <div class="company-body">
+            <div class="metric-row"><div class="metric-label">位置づけ</div><div class="metric-value">ICT企業・自動車関連技術の提供者</div></div>
+            <div class="metric-row"><div class="metric-label">注目点</div><div class="metric-value">智能運転、通信、スマートコックピット、車載OS</div></div>
+            <div class="metric-row"><div class="metric-label">意味</div><div class="metric-value">自社で完成車を作らず、車企との連携を通じて影響力を持つ事例</div></div>
+          </div>
+        </div>
+
+        <div class="company-card gray">
+          <div class="company-head">Sony Honda Mobility</div>
+          <div class="company-body">
+            <div class="metric-row"><div class="metric-label">位置づけ</div><div class="metric-value">日本における異業種連携の代表的事例</div></div>
+            <div class="metric-row"><div class="metric-label">注目点</div><div class="metric-value">Hondaの車両開発とSonyのセンサー・エンタメ・ソフトウェア</div></div>
+            <div class="metric-row"><div class="metric-label">意味</div><div class="metric-value">日本企業がEV時代に異業種連携をどう試みるかを見る事例</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="framework" class="slide" data-page="6 / 10">
+      <h2>比較枠組み</h2>
+
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>比較項目</th>
+            <th>Nissan</th>
+            <th>Xiaomi</th>
+            <th>Huawei</th>
+            <th>Sony Honda</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>企業タイプ</td>
+            <td>伝統的自動車メーカー</td>
+            <td>IT・スマホ企業</td>
+            <td>ICT・技術提供企業</td>
+            <td>自動車×電機の合弁</td>
+          </tr>
+          <tr>
+            <td>連携の中心</td>
+            <td>電池・ソフトウェア・生産</td>
+            <td>OS・IoT・ユーザー体験</td>
+            <td>智能運転・通信・車載システム</td>
+            <td>車両開発・センサー・エンタメ</td>
+          </tr>
+          <tr>
+            <td>強み</td>
+            <td>製造経験・ブランド・販売網</td>
+            <td>消費者接点・ソフトウェア生態系</td>
+            <td>通信・AI・プラットフォーム技術</td>
+            <td>自動車技術と電子技術の組み合わせ</td>
+          </tr>
+          <tr>
+            <td>課題</td>
+            <td>転換スピードと投資負担</td>
+            <td>自動車製造経験と品質管理</td>
+            <td>完成車メーカーとの関係調整</td>
+            <td>異業種間の役割分担と事業化</td>
+          </tr>
+          <tr>
+            <td>研究上の意味</td>
+            <td>既存企業の変化</td>
+            <td>新規参入の変化</td>
+            <td>周辺技術企業の影響</td>
+            <td>日本型異業種連携の可能性</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="footer-message">
+        同じEV産業でも、企業の立場によって連携の目的・相手・課題が異なる点に注目する。
+      </div>
+    </section>
+
+    <section id="rq" class="slide" data-page="7 / 10">
+      <h2>Research Question</h2>
+
+      <div class="grid-2">
+        <div class="card highlight">
+          <span class="label">Main RQ</span>
+          <h3>EV時代において、自動車産業の連携構造はどのように変化しているのか</h3>
+          <p>完成車メーカーだけではなく、IT・ICT・エンタメ企業がどのように自動車産業へ関与しているのかを整理する。</p>
+        </div>
+
+        <div class="card">
+          <span class="label">Sub RQ</span>
+          <h3>日本企業と中国企業では、産業連携の進め方にどのような違いがあるのか</h3>
+          <p>技術力の単純比較ではなく、市場環境、企業の出発点、連携相手、事業化の方法を比較する。</p>
+        </div>
+      </div>
+
+      <div class="big-message">
+        研究の焦点は「EVの性能比較」ではなく、「EVをめぐる企業間連携の比較」である
+      </div>
+    </section>
+
+    <section id="interview" class="slide" data-page="8 / 10">
+      <h2>企業調査・ヒアリングの方針</h2>
+
+      <div class="grid-3">
+        <div class="card highlight">
+          <h3>調査方法</h3>
+          <ul>
+            <li>公式サイト・IR資料の確認</li>
+            <li>ニュースリリースの整理</li>
+            <li>問い合わせ窓口への連絡</li>
+            <li>可能であればショールーム・展示施設の訪問</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>ヒアリングの目的</h3>
+          <ul>
+            <li>公開資料だけでは分かりにくい連携の考え方を確認する</li>
+            <li>企業がEV時代をどのように捉えているかを聞く</li>
+            <li>今後の卒業論文に使える一次情報を集める</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>現実的な扱い</h3>
+          <ul>
+            <li>回答が得られない可能性もある</li>
+            <li>その場合も、調査過程として記録する</li>
+            <li>企業の反応の違いも研究上の参考資料になる</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="speaker-note">
+        ゼミ研究では、問い合わせの成功・失敗を結論に直結させるのではなく、企業分析と資料収集の一部として位置づける。
+      </div>
+    </section>
+
+    <section id="questions" class="slide" data-page="9 / 10">
+      <h2>ヒアリング質問項目の例</h2>
+
+      <div class="question-list">
+        <div class="question-item">
+          <div class="q-num">1</div>
+          <div class="q-text">EV時代において、貴社が特に重要だと考える外部連携分野は何ですか。</div>
+        </div>
+        <div class="question-item">
+          <div class="q-num">2</div>
+          <div class="q-text">ソフトウェア、AI、通信、電池、充電インフラの中で、今後最も重要になる領域はどこだと考えますか。</div>
+        </div>
+        <div class="question-item">
+          <div class="q-num">3</div>
+          <div class="q-text">自動車企業とIT・ICT企業の連携において、最も難しい点は技術面、組織面、事業モデルのどれだと考えますか。</div>
+        </div>
+        <div class="question-item">
+          <div class="q-num">4</div>
+          <div class="q-text">EVやスマートカーの価値は、今後どの程度ソフトウェアやユーザー体験に移行すると考えますか。</div>
+        </div>
+        <div class="question-item">
+          <div class="q-num">5</div>
+          <div class="q-text">学生研究として公開可能な範囲で、産業連携に関する資料や参考情報をご紹介いただけますか。</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="future" class="slide" data-page="10 / 10">
+      <h2>今後の予定とまとめ</h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>今後の作業</h3>
+          <ul>
+            <li>4社の公開資料を同じ表に整理する</li>
+            <li>問い合わせ先を確認し、簡単な質問文を作成する</li>
+            <li>回答の有無、回答内容、関連資料を記録する</li>
+            <li>ゼミ研究として比較結果をまとめる</li>
+          </ul>
+        </div>
+
+        <div class="card highlight">
+          <h3>現時点の仮説</h3>
+          <ul>
+            <li>日本企業は既存の自動車製造能力を基礎に、外部技術を取り込む形で連携を進めている</li>
+            <li>中国企業はソフトウェア、通信、IoT、生態系を入口に、自動車産業へ関与している</li>
+            <li>EV時代の競争は、単独企業ではなく産業連携の作り方に左右される可能性がある</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="big-message">
+        ゼミ研究を通じて、卒業論文につながる企業比較データと調査方法を蓄積する
+      </div>
+
+      <div class="comment-section">
+        <h3>コメント・フィードバック欄</h3>
+        <p>ゼミの意見や改善点をここに記録できます。</p>
+
+        <textarea id="commentInput" class="comment-input" placeholder="コメントを入力してください..."></textarea>
+
+        <div class="comment-actions">
+          <button class="btn" onclick="saveComment()">保存</button>
+          <button class="btn secondary" onclick="clearComments()">全削除</button>
+          <button class="btn secondary" onclick="exportComments()">コメントを書き出す</button>
+        </div>
+
+        <div class="saved-comments" id="savedComments"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    function jumpToSlide(id) {
+      const target = document.getElementById(id);
+
+      if (!target) {
+        alert('該当するページが見つかりません: ' + id);
+        return;
+      }
+
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+
+    function escapeHTML(str) {
+      return str.replace(/[&<>"']/g, function(match) {
+        return {
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#039;'
+        }[match];
+      });
+    }
+
+    function loadComments() {
+      const comments = JSON.parse(localStorage.getItem('zemiEvComments') || '[]');
+      const container = document.getElementById('savedComments');
+      container.innerHTML = '';
+
+      comments.forEach(comment => {
+        const div = document.createElement('div');
+        div.className = 'saved-comment';
+
+        div.innerHTML = `
+          <div class="comment-time">${escapeHTML(comment.time)}</div>
+          <div class="comment-text">${escapeHTML(comment.text)}</div>
+        `;
+
+        container.appendChild(div);
+      });
+    }
+
+    function saveComment() {
+      const input = document.getElementById('commentInput');
+      const text = input.value.trim();
+
+      if (!text) {
+        alert('コメントを入力してください');
+        return;
+      }
+
+      const comments = JSON.parse(localStorage.getItem('zemiEvComments') || '[]');
+
+      comments.unshift({
+        text: text,
+        time: new Date().toLocaleString('ja-JP')
+      });
+
+      localStorage.setItem('zemiEvComments', JSON.stringify(comments));
+
+      input.value = '';
+      loadComments();
+    }
+
+    function clearComments() {
+      if (confirm('コメントをすべて削除しますか？')) {
+        localStorage.removeItem('zemiEvComments');
+        loadComments();
+      }
+    }
+
+    function exportComments() {
+      const comments = JSON.parse(localStorage.getItem('zemiEvComments') || '[]');
+
+      if (comments.length === 0) {
+        alert('書き出すコメントがありません');
+        return;
+      }
+
+      const text = comments
+        .map((comment, index) => `${index + 1}. [${comment.time}]\n${comment.text}`)
+        .join('\n\n');
+
+      const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'zemi_ev_comments.txt';
+      a.click();
+
+      URL.revokeObjectURL(url);
+    }
+
+    loadComments();
+  </script>
+
+</body>
+</html>
