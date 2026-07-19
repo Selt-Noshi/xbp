@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ゼミ研究中間報告｜EV・SDV時代の産業連携</title>
+  <link rel="stylesheet" href="../CSSfile/main.css">
+  <style>
+    :root {
+      --navy: #15365f;
+      --blue: #245b9b;
+      --gray: #64748b;
+      --light: #f8fafc;
+      --line: #d0d7de;
+      --text: #1f2933;
+      --muted: #475467;
+      --soft-blue: #eaf2fb;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #eef3f8;
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", Meiryo, "Noto Sans JP", sans-serif;
+    }
+
+    .deck {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px 18px 70px;
+    }
+
+    .slide {
+      position: relative;
+      min-height: 760px;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 58px 64px;
+      margin: 0 0 36px;
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.10);
+      overflow: hidden;
+    }
+
+    .slide::after {
+      content: attr(data-page);
+      position: absolute;
+      right: 34px;
+      bottom: 22px;
+      font-size: 14px;
+      color: #94a3b8;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: 48px;
+      line-height: 1.25;
+      color: var(--navy);
+      margin: 88px 0 18px;
+      letter-spacing: 0.01em;
+    }
+
+    h2 {
+      font-size: 38px;
+      color: var(--navy);
+      margin: 0 0 34px;
+      padding-bottom: 14px;
+      border-bottom: 4px solid var(--soft-blue);
+    }
+
+    h3 {
+      font-size: 23px;
+      color: var(--navy);
+      margin: 0 0 14px;
+    }
+
+    p, li {
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1.25em;
+    }
+
+    .subtitle {
+      font-size: 25px;
+      color: var(--muted);
+      line-height: 1.55;
+      margin-bottom: 36px;
+      font-weight: 700;
+    }
+
+    .meta {
+      font-size: 20px;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-top: 46px;
+    }
+
+    .top-link {
+      position: fixed;
+      right: 22px;
+      top: 22px;
+      z-index: 999;
+      background: var(--navy);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.16);
+    }
+
+    .back-link {
+      top: 68px;
+      background: var(--gray);
+    }
+
+    .agenda {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 46px;
+    }
+
+    .agenda-item {
+      cursor: pointer;
+      background: var(--light);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      transition: 0.2s ease;
+      overflow: hidden;
+    }
+
+    .agenda-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+    }
+
+    .agenda-link {
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+      height: 100%;
+      padding: 18px 20px;
+    }
+
+    .agenda-num {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      flex: 0 0 auto;
+    }
+
+    .agenda-text {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 26px 28px;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
+    }
+
+    .card.highlight {
+      background: var(--soft-blue);
+      border-color: #b9d4f0;
+    }
+
+    .big-message {
+      margin-top: 34px;
+      padding: 28px 34px;
+      background: var(--navy);
+      color: #ffffff;
+      border-radius: 24px;
+      font-size: 30px;
+      line-height: 1.45;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .speaker-note {
+      margin-top: 26px;
+      padding: 22px 28px;
+      border-radius: 18px;
+      background: var(--light);
+      border-left: 8px solid var(--gray);
+      font-size: 19px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .label {
+      display: inline-block;
+      background: var(--navy);
+      color: #ffffff;
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .keyword-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .keyword {
+      display: inline-block;
+      background: #ffffff;
+      color: var(--navy);
+      border: 1px solid #b9d4f0;
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+      gap: 14px;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .flow-box {
+      min-height: 104px;
+      background: var(--light);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 16px;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.45;
+    }
+
+    .arrow {
+      font-size: 34px;
+      color: var(--blue);
+      font-weight: 800;
+    }
+
+    .company-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .company-card {
+      border: 2px solid var(--line);
+      border-radius: 22px;
+      overflow: hidden;
+      background: white;
+    }
+
+    .company-head {
+      padding: 17px 22px;
+      background: var(--blue);
+      color: white;
+      font-size: 25px;
+      font-weight: 800;
+    }
+
+    .company-card.gray .company-head { background: var(--gray); }
+    .company-card.navy .company-head { background: var(--navy); }
+
+    .company-body {
+      padding: 20px 24px;
+    }
+
+    .metric-row {
+      display: grid;
+      grid-template-columns: 115px 1fr;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid #e5e7eb;
+      align-items: start;
+    }
+
+    .metric-row:last-child { border-bottom: none; }
+
+    .metric-label {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--navy);
+      background: var(--soft-blue);
+      border-radius: 999px;
+      padding: 6px 10px;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .metric-value {
+      font-size: 17px;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .compare-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      font-size: 16px;
+    }
+
+    .compare-table th {
+      background: var(--navy);
+      color: white;
+      padding: 13px 12px;
+      text-align: left;
+      font-size: 15px;
+    }
+
+    .compare-table td {
+      border-top: 1px solid #e5e7eb;
+      padding: 13px 12px;
+      vertical-align: top;
+      line-height: 1.55;
+    }
+
+    .compare-table tr:nth-child(even) td {
+      background: var(--light);
+    }
+
+    .question-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .question-item {
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--light);
+    }
+
+    .q-num {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .q-text {
+      font-size: 19px;
+      line-height: 1.6;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .footer-message {
+      margin-top: 28px;
+      padding: 22px 28px;
+      border-radius: 20px;
+      background: var(--soft-blue);
+      border-left: 8px solid var(--blue);
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.5;
+    }
+
+    .comment-section {
+      margin-top: 32px;
+      background: var(--light);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 24px;
+    }
+
+    .comment-input {
+      width: 100%;
+      min-height: 96px;
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      font-size: 16px;
+      font-family: inherit;
+      resize: vertical;
+    }
+
+    .comment-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 999px;
+      padding: 10px 18px;
+      background: var(--navy);
+      color: white;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .btn.secondary { background: var(--gray); }
+
+    .saved-comment {
+      margin-top: 14px;
+      padding: 14px 16px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+
+    .comment-time {
+      font-size: 13px;
+      color: var(--gray);
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .comment-text {
+      font-size: 16px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+
+    @media (max-width: 900px) {
+      .slide { padding: 38px 24px; min-height: auto; }
+      h1 { font-size: 34px; margin-top: 60px; }
+      h2 { font-size: 29px; }
+      .agenda, .grid-2, .grid-3, .company-grid, .flow { grid-template-columns: 1fr; }
+      .arrow { transform: rotate(90deg); text-align: center; }
+      .metric-row { grid-template-columns: 1fr; }
+      .top-link { right: 12px; }
+    }
+
+
+    .update-arrow {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 20px;
+      align-items: stretch;
+      margin-top: 18px;
+    }
+
+    .update-center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 42px;
+      color: var(--blue);
+      font-weight: 900;
+    }
+
+    .model-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .model-card {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .model-head {
+      min-height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 13px;
+      background: var(--navy);
+      color: #fff;
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .model-card:nth-child(2) .model-head,
+    .model-card:nth-child(4) .model-head { background: var(--blue); }
+
+    .model-body {
+      padding: 17px;
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .model-key {
+      display: block;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid #e5e7eb;
+      color: var(--navy);
+      font-weight: 800;
+    }
+
+    .status-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      font-size: 15px;
+    }
+
+    .status-table th {
+      background: var(--navy);
+      color: white;
+      padding: 13px 11px;
+      text-align: left;
+      font-size: 15px;
+    }
+
+    .status-table td {
+      padding: 13px 11px;
+      border-top: 1px solid #e5e7eb;
+      vertical-align: top;
+      line-height: 1.6;
+    }
+
+    .status-table tr:nth-child(even) td { background: var(--light); }
+
+    .supplier-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .supplier-card {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 20px;
+      background: white;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
+    }
+
+    .supplier-name {
+      font-size: 25px;
+      color: var(--navy);
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+
+    .supplier-field {
+      display: inline-block;
+      background: var(--soft-blue);
+      color: var(--navy);
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .relation-map {
+      display: grid;
+      grid-template-columns: 1fr 1.35fr 1fr;
+      gap: 16px;
+      align-items: center;
+      margin-top: 18px;
+    }
+
+    .map-column {
+      display: grid;
+      gap: 12px;
+    }
+
+    .map-node {
+      padding: 15px 14px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: var(--light);
+      text-align: center;
+      color: var(--navy);
+      font-weight: 800;
+      line-height: 1.4;
+    }
+
+    .map-center {
+      padding: 28px 22px;
+      border-radius: 24px;
+      background: var(--navy);
+      color: white;
+      text-align: center;
+      font-size: 25px;
+      font-weight: 900;
+      line-height: 1.5;
+    }
+
+    .method-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .method-step {
+      padding: 22px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: var(--light);
+    }
+
+    .method-num {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--blue);
+      color: white;
+      font-weight: 900;
+      margin-bottom: 13px;
+    }
+
+    .source-note {
+      margin-top: 18px;
+      padding: 12px 16px;
+      background: #f8fafc;
+      border-radius: 12px;
+      color: #64748b;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .source-note a { color: var(--blue); }
+
+    .hypothesis {
+      margin-top: 14px;
+      padding: 15px 18px;
+      border-left: 6px solid var(--blue);
+      background: var(--soft-blue);
+      color: var(--navy);
+      font-size: 17px;
+      line-height: 1.6;
+      font-weight: 800;
+      border-radius: 0 14px 14px 0;
+    }
+
+    @media (max-width: 900px) {
+      .update-arrow, .model-grid, .supplier-grid, .relation-map, .method-steps {
+        grid-template-columns: 1fr;
+      }
+      .update-center { transform: rotate(90deg); }
+    }
+
+  </style>
+</head>
+
+<body>
+  <button class="top-link" onclick="jumpToSlide('top')">目次へ</button>
+  <button class="top-link back-link" onclick="history.back()">← 戻る</button>
+
+  <main class="deck">
+
+    <section id="top" class="slide" data-page="1 / 12">
+      <h1>ゼミ研究中間報告</h1>
+      <div class="subtitle">EV・SDV時代における産業連携モデルの比較研究<br>― 日産・Xiaomi・Huawei・Sony Honda Mobilityとサプライチェーンを中心に ―</div>
+
+      <div class="meta">
+        中間グループ発表<br>
+        2026年度<br>
+        対象企業：日産・Xiaomi・Huawei・Sony Honda Mobility
+      </div>
+
+      <div class="agenda">
+        <div class="agenda-item" onclick="jumpToSlide('update')"><div class="agenda-link"><span class="agenda-num">1</span><div class="agenda-text">前回からの更新</div></div></div>
+        <div class="agenda-item" onclick="jumpToSlide('rq')"><div class="agenda-link"><span class="agenda-num">2</span><div class="agenda-text">研究目的・RQ</div></div></div>
+        <div class="agenda-item" onclick="jumpToSlide('models')"><div class="agenda-link"><span class="agenda-num">3</span><div class="agenda-text">4社の位置づけ</div></div></div>
+        <div class="agenda-item" onclick="jumpToSlide('companies1')"><div class="agenda-link"><span class="agenda-num">4</span><div class="agenda-text">日産・Xiaomi</div></div></div>
+        <div class="agenda-item" onclick="jumpToSlide('companies2')"><div class="agenda-link"><span class="agenda-num">5</span><div class="agenda-text">Huawei・SHM</div></div></div>
+        <div class="agenda-item" onclick="jumpToSlide('suppliers')"><div class="agenda-link"><span class="agenda-num">6</span><div class="agenda-text">重点サプライヤー</div></div></div>
+        <div class="agenda-item" onclick="jumpToSlide('supplychain')"><div class="agenda-link"><span class="agenda-num">7</span><div class="agenda-text">サプライチェーン分析</div></div></div>
+        <div class="agenda-item" onclick="jumpToSlide('philosophy')"><div class="agenda-link"><span class="agenda-num">8</span><div class="agenda-text">経営理念の分析</div></div></div>
+        <div class="agenda-item" onclick="jumpToSlide('method')"><div class="agenda-link"><span class="agenda-num">9</span><div class="agenda-text">調査方法</div></div></div>
+        <div class="agenda-item" onclick="jumpToSlide('contact')"><div class="agenda-link"><span class="agenda-num">10</span><div class="agenda-text">企業への連絡</div></div></div>
+        <div class="agenda-item" onclick="jumpToSlide('summary')"><div class="agenda-link"><span class="agenda-num">11</span><div class="agenda-text">まとめ・今後</div></div></div>
+      </div>
+    </section>
+
+    <section id="update" class="slide" data-page="2 / 12">
+      <h2>前回からの更新</h2>
+
+      <div class="update-arrow">
+        <div class="card">
+          <span class="label">前回</span>
+          <h3>完成車企業を中心とした比較</h3>
+          <ul>
+            <li>4社のEV・SDV戦略</li>
+            <li>企業ごとの強みと課題</li>
+            <li>異業種連携の違い</li>
+          </ul>
+        </div>
+
+        <div class="update-center">→</div>
+
+        <div class="card highlight">
+          <span class="label">今回</span>
+          <h3>サプライチェーンまで分析</h3>
+          <ul>
+            <li>電池・半導体・車載計算基盤</li>
+            <li>自社開発・共同開発・外部調達</li>
+            <li>企業理念と実際の経営行動の比較</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="big-message">
+        「どの会社が強いか」ではなく、誰が技術・顧客・リスクを管理しているのかを分析する
+      </div>
+    </section>
+
+    <section id="rq" class="slide" data-page="3 / 12">
+      <h2>研究目的とResearch Question</h2>
+
+      <div class="card highlight">
+        <span class="label">Main RQ</span>
+        <div class="rq">
+          EV・SDV時代において、企業ごとの産業連携モデルは、競争優位と経営上の課題にどのような違いをもたらしているのか。
+        </div>
+      </div>
+
+      <div class="grid-2" style="margin-top:24px;">
+        <div class="card">
+          <h3>企業内部</h3>
+          <ul>
+            <li>何を自社で開発・管理するのか</li>
+            <li>何を共同開発・外部調達するのか</li>
+            <li>ユーザーとの接点を誰が持つのか</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>企業間関係</h3>
+          <ul>
+            <li>サプライヤーは供給者か共同開発者か</li>
+            <li>投資・利益・リスクをどう分担するか</li>
+            <li>連携は新たな依存関係を生むか</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="models" class="slide" data-page="4 / 12">
+      <h2>4社の産業連携モデル</h2>
+
+      <div class="model-grid">
+        <div class="model-card">
+          <div class="model-head">日産</div>
+          <div class="model-body">
+            伝統的完成車企業として、車両統合・生産・安全・ブランドを中心に管理する。
+            <span class="model-key">完成車企業中心型</span>
+          </div>
+        </div>
+        <div class="model-card">
+          <div class="model-head">Xiaomi</div>
+          <div class="model-body">
+            スマートフォン、OS、IoT、データと自動車を一つのユーザー生態系に組み込む。
+            <span class="model-key">デジタル生態系型</span>
+          </div>
+        </div>
+        <div class="model-card">
+          <div class="model-head">Huawei</div>
+          <div class="model-body">
+            ICT・智能運転・車載システムを複数の自動車企業へ提供する。
+            <span class="model-key">プラットフォーム提供型</span>
+          </div>
+        </div>
+        <div class="model-card">
+          <div class="model-head">Sony Honda Mobility</div>
+          <div class="model-body">
+            SonyとHondaの異なる資源を合弁企業で統合し、新しい車内体験を目指した。
+            <span class="model-key">異業種合弁型</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-message">
+        国別比較だけでなく、企業が産業チェーンのどこに位置し、何を主導するかを比較する。
+      </div>
+    </section>
+
+    <section id="companies1" class="slide" data-page="5 / 12">
+      <h2>初期調査①：日産・Xiaomi</h2>
+
+      <table class="status-table">
+        <thead>
+          <tr><th>企業</th><th>現状</th><th>強み</th><th>主な問題</th><th>経営理念の仮説</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>日産</strong></td>
+            <td>Re:Nissanにより、コスト構造・商品戦略・提携関係を再構築中。</td>
+            <td>完成車統合、生産、安全、販売網、量産EVの経験。</td>
+            <td>収益性、開発速度、地域別需要への対応、サプライヤーとの連携効率。</td>
+            <td>車両全体とブランドの主導権を維持し、外部連携で不足技術を補完する。</td>
+          </tr>
+          <tr>
+            <td><strong>Xiaomi</strong></td>
+            <td>EV事業を急速に拡大し、自動車をHuman × Car × Home戦略に統合。</td>
+            <td>ユーザー基盤、OS、IoT、ブランド、ソフトウェア改善速度。</td>
+            <td>量産品質、部品価格、アフターサービス、急速な生産拡大。</td>
+            <td>すべてを内製せず、ユーザー接点・OS・製品定義を重点的に管理する。</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="source-note">
+        主な公開資料：<a href="https://www.nissan-global.com/EN/COMPANY/PLAN/RENISSAN/" target="_blank">Nissan Re:Nissan</a> ／
+        <a href="https://ir.mi.com/events/event-details/xiaomi-corporation-2026-first-quarter-results-announcement" target="_blank">Xiaomi 2026 Q1 Results</a>
+      </div>
+    </section>
+
+    <section id="companies2" class="slide" data-page="6 / 12">
+      <h2>初期調査②：Huawei・Sony Honda Mobility</h2>
+
+      <table class="status-table">
+        <thead>
+          <tr><th>企業</th><th>現状</th><th>強み</th><th>主な問題</th><th>経営理念の仮説</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Huawei</strong></td>
+            <td>智能運転・座席・車控・クラウドなどを複数の車企へ提供。2025年は智能自動車部品を3,800万個以上出荷。</td>
+            <td>通信、AI、OS、クラウド、半導体を統合するICT能力。</td>
+            <td>車企との主導権、ブランド境界、データ管理、技術依存。</td>
+            <td>完成車をすべて自社製造せず、共通ICT基盤を通じて産業全体を組織する。</td>
+          </tr>
+          <tr>
+            <td><strong>Sony Honda Mobility</strong></td>
+            <td>2026年にAFEELA 1等の開発・発売を中止し、事業規模を縮小。</td>
+            <td>Sonyのソフトウェア・エンタメとHondaの車両開発・生産能力。</td>
+            <td>親会社依存、採算性、資産利用、長期的な戦略一致。</td>
+            <td>自動車を移動手段ではなく、ソフトウェアとコンテンツを含む生活空間として再定義する。</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="hypothesis">
+        SHMは、技術的な相互補完だけでは事業継続を保証できず、親会社間の戦略一致と資産管理が重要であることを示す事例となる。
+      </div>
+
+      <div class="source-note">
+        主な公開資料：<a href="https://www.huawei.com/en/annual-report/2025" target="_blank">Huawei 2025 Annual Report</a> ／
+        <a href="https://www.sony.com/en/SonyInfo/News/Press/202604/26-0421E/" target="_blank">Sony・Honda・SHM 2026年4月発表</a>
+      </div>
+    </section>
+
+    <section id="suppliers" class="slide" data-page="7 / 12">
+      <h2>重点的に調査するサプライヤー</h2>
+
+      <div class="supplier-grid">
+        <div class="supplier-card">
+          <div class="supplier-name">CATL</div>
+          <div class="supplier-field">電池</div>
+          <p>Xiaomiとの関係を中心に、電池技術・規模・価格交渉・完成車企業への影響を調査する。</p>
+        </div>
+        <div class="supplier-card">
+          <div class="supplier-name">AESC</div>
+          <div class="supplier-field">電池</div>
+          <p>日産との歴史的関係を通じて、グループ内電池事業から外部連携への変化を確認する。</p>
+        </div>
+        <div class="supplier-card">
+          <div class="supplier-name">NVIDIA</div>
+          <div class="supplier-field">AI・車載計算</div>
+          <p>Xiaomiと日産の採用事例から、智能運転の計算基盤への依存と開発速度を分析する。</p>
+        </div>
+        <div class="supplier-card">
+          <div class="supplier-name">Qualcomm</div>
+          <div class="supplier-field">SDV基盤</div>
+          <p>SHMとの連携を中心に、座席・ADAS・通信を統合するプラットフォームの役割を見る。</p>
+        </div>
+      </div>
+
+      <div class="footer-message">
+        Huawei自体が巨大なプラットフォーム型サプライヤーであるため、追加企業は4社に限定する。
+      </div>
+
+      <div class="source-note">
+        関係資料：<a href="https://www.catl.com/en/uploads/1/file/public/202507/20250730231151_fuityq6ysb.pdf" target="_blank">CATL顧客資料</a> ／
+        <a href="https://www.aesc-group.com/jp/item/6379ece8cd33c50e30cb3227/" target="_blank">AESC・日産</a> ／
+        <a href="https://nvidianews.nvidia.com/news/wave-of-ev-makers-choose-nvidia-drive-for-automated-driving" target="_blank">NVIDIA・Xiaomi</a> ／
+        <a href="https://www.qualcomm.com/news/releases/2025/01/sony-honda-mobility-and-qualcomm-extend-technology-collaboration" target="_blank">Qualcomm・SHM</a>
+      </div>
+    </section>
+
+    <section id="supplychain" class="slide" data-page="8 / 12">
+      <h2>サプライチェーンの分析枠組み</h2>
+
+      <div class="relation-map">
+        <div class="map-column">
+          <div class="map-node">電池<br>CATL・AESC</div>
+          <div class="map-node">半導体・AI<br>NVIDIA・Qualcomm</div>
+          <div class="map-node">ソフトウェア・データ</div>
+        </div>
+
+        <div class="map-center">
+          4つの連携関係で分類<br><br>
+          自社開発<br>共同開発<br>外部調達<br>相手企業への依存
+        </div>
+
+        <div class="map-column">
+          <div class="map-node">製造・生産設備</div>
+          <div class="map-node">販売・修理・充電</div>
+          <div class="map-node">ユーザー・ブランド</div>
+        </div>
+      </div>
+
+      <div class="big-message">
+        最終的に比較するのは、技術の数ではなく「誰が重要な意思決定権を持っているか」
+      </div>
+    </section>
+
+    <section id="philosophy" class="slide" data-page="9 / 12">
+      <h2>経営理念の推定方法</h2>
+
+      <div class="method-steps">
+        <div class="method-step">
+          <div class="method-num">1</div>
+          <h3>企業が語る内容</h3>
+          <p>経営理念、CEO発言、IR資料、技術責任者インタビューから重視する価値を整理する。</p>
+        </div>
+        <div class="method-step">
+          <div class="method-num">2</div>
+          <h3>実際の経営行動</h3>
+          <p>研究開発、工場、提携、調達、組織変更、事業中止などの資源配分を確認する。</p>
+        </div>
+        <div class="method-step">
+          <div class="method-num">3</div>
+          <h3>一致と矛盾を比較</h3>
+          <p>発言と行動が一致する部分を理念の証拠とし、矛盾は経営上の制約として分析する。</p>
+        </div>
+      </div>
+
+      <div class="footer-message">
+        「理念を推測する」のではなく、公開発言と経営行動から検証可能な仮説を作る。
+      </div>
+    </section>
+
+    <section id="method" class="slide" data-page="10 / 12">
+      <h2>調査方法：公開資料と共起ネットワーク</h2>
+
+      <div class="grid-2">
+        <div class="card highlight">
+          <h3>現段階：公開情報による基礎調査</h3>
+          <ul>
+            <li>企業公式サイト・IR・年次報告書</li>
+            <li>経営者・技術責任者のインタビュー</li>
+            <li>提携・調達・工場・事業変更の発表</li>
+            <li>サプライヤー側から見た協業情報</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>予備案：共起ネットワーク</h3>
+          <ul>
+            <li>4社は各10～15件を目標</li>
+            <li>重点サプライヤーは各5～8件</li>
+            <li>広告文ではなく、発言者が明確な資料を優先</li>
+            <li>「技術・顧客・コスト・連携・安全」の結び付きを比較</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="speaker-note">
+        特にSony Honda Mobilityは、開発中止前後で語彙のネットワークを分け、重視される概念がどう変化したかを確認する。
+      </div>
+    </section>
+
+    <section id="contact" class="slide" data-page="11 / 12">
+      <h2>企業への連絡と今後の予定</h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>企業への質問方針</h3>
+          <ul>
+            <li>自社開発を重視する領域</li>
+            <li>サプライヤー選定の基準</li>
+            <li>速度・コスト・品質の両立</li>
+            <li>企業理念と提携戦略の関係</li>
+          </ul>
+        </div>
+        <div class="card highlight">
+          <h3>次の作業</h3>
+          <ul>
+            <li>4社と4サプライヤーの基礎資料整理</li>
+            <li>企業・技術・調達関係の図式化</li>
+            <li>インタビュー語料の収集基準を統一</li>
+            <li>問い合わせ文と企業別質問を作成</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="big-message">
+        EV・SDV時代の競争力は、技術をすべて保有することではなく、重要な技術・顧客関係・リスクをどのように組織するかによって決まるのではないか
+      </div>
+
+      <div class="comment-section">
+        <h3>コメント・フィードバック欄</h3>
+        <textarea id="commentInput" class="comment-input" placeholder="コメントを入力してください..."></textarea>
+        <div class="comment-actions">
+          <button class="btn" onclick="saveComment()">保存</button>
+          <button class="btn secondary" onclick="clearComments()">全削除</button>
+          <button class="btn secondary" onclick="exportComments()">コメントを書き出す</button>
+        </div>
+        <div class="saved-comments" id="savedComments"></div>
+      </div>
+    </section>
+
+
+    <section id="summary" class="slide" data-page="12 / 12">
+      <h2>現段階でのまとめ</h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>初期仮説</h3>
+          <ul>
+            <li>日産：完成車企業中心型</li>
+            <li>Xiaomi：デジタル生態系型</li>
+            <li>Huawei：プラットフォーム提供型</li>
+            <li>SHM：異業種合弁型</li>
+          </ul>
+        </div>
+        <div class="card highlight">
+          <h3>今後の検証点</h3>
+          <ul>
+            <li>誰が重要技術を管理しているか</li>
+            <li>誰がユーザーとの関係を持つか</li>
+            <li>投資とリスクを誰が負担するか</li>
+            <li>連携関係を長期的に維持できるか</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="big-message">
+        EV・SDV時代の競争力は、技術をすべて保有することではなく、重要な技術・顧客関係・リスクをどのように組織するかによって決まるのではないか
+      </div>
+
+      <div class="speaker-note">
+        次回までに4社と4サプライヤーの公開資料を統一した形式で整理し、企業への問い合わせと共起ネットワーク用の語料収集を開始する。
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    function jumpToSlide(id) {
+      const target = document.getElementById(id);
+
+      if (!target) {
+        alert('該当するページが見つかりません: ' + id);
+        return;
+      }
+
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+
+    function escapeHTML(str) {
+      return str.replace(/[&<>"']/g, function(match) {
+        return {
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#039;'
+        }[match];
+      });
+    }
+
+    function loadComments() {
+      const comments = JSON.parse(localStorage.getItem('zemiEvComments') || '[]');
+      const container = document.getElementById('savedComments');
+      container.innerHTML = '';
+
+      comments.forEach(comment => {
+        const div = document.createElement('div');
+        div.className = 'saved-comment';
+
+        div.innerHTML = `
+          <div class="comment-time">${escapeHTML(comment.time)}</div>
+          <div class="comment-text">${escapeHTML(comment.text)}</div>
+        `;
+
+        container.appendChild(div);
+      });
+    }
+
+    function saveComment() {
+      const input = document.getElementById('commentInput');
+      const text = input.value.trim();
+
+      if (!text) {
+        alert('コメントを入力してください');
+        return;
+      }
+
+      const comments = JSON.parse(localStorage.getItem('zemiEvComments') || '[]');
+
+      comments.unshift({
+        text: text,
+        time: new Date().toLocaleString('ja-JP')
+      });
+
+      localStorage.setItem('zemiEvComments', JSON.stringify(comments));
+
+      input.value = '';
+      loadComments();
+    }
+
+    function clearComments() {
+      if (confirm('コメントをすべて削除しますか？')) {
+        localStorage.removeItem('zemiEvComments');
+        loadComments();
+      }
+    }
+
+    function exportComments() {
+      const comments = JSON.parse(localStorage.getItem('zemiEvComments') || '[]');
+
+      if (comments.length === 0) {
+        alert('書き出すコメントがありません');
+        return;
+      }
+
+      const text = comments
+        .map((comment, index) => `${index + 1}. [${comment.time}]\n${comment.text}`)
+        .join('\n\n');
+
+      const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'zemi_ev_comments.txt';
+      a.click();
+
+      URL.revokeObjectURL(url);
+    }
+
+    loadComments();
+  </script>
+
+</body>
+</html>
