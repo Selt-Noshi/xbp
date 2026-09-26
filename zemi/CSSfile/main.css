@@ -594,3 +594,320 @@ flex-direction: column;
 transform: rotate(90deg);
 }
 }
+
+/* =========================================================
+   Research report extension
+   Used by summer_preliminary_research_report_v3.html
+   Keeps the original slide styles intact and only overrides
+   elements inside .report-page.
+   ========================================================= */
+
+.report-page {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 34px 0 64px;
+}
+
+.report-page .report-hero,
+.report-page .report-section {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  box-shadow: 0 10px 28px rgba(21, 54, 95, 0.06);
+}
+
+.report-page .report-hero {
+  padding: 42px 48px;
+  margin-bottom: 24px;
+}
+
+.report-page .report-section {
+  padding: 34px 40px;
+  margin: 24px 0;
+}
+
+/* Report typography: intentionally smaller than slide typography */
+.report-page h1 {
+  font-size: clamp(30px, 3.2vw, 42px);
+  line-height: 1.35;
+  margin-bottom: 16px;
+}
+
+.report-page h2 {
+  font-size: 28px;
+  margin-bottom: 24px;
+  border-left-width: 6px;
+  padding-left: 14px;
+}
+
+.report-page h3 {
+  font-size: 20px;
+  margin-top: 28px;
+  margin-bottom: 12px;
+}
+
+.report-page p {
+  font-size: 17px;
+  line-height: 1.9;
+  margin: 0 0 14px;
+}
+
+.report-page li {
+  font-size: 16.5px;
+  line-height: 1.8;
+  margin: 7px 0;
+}
+
+.report-page table {
+  font-size: 15.5px;
+  line-height: 1.65;
+  margin: 18px 0 24px;
+}
+
+.report-page th,
+.report-page td {
+  padding: 12px 14px;
+}
+
+/* Header / lead */
+.report-page .tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.report-page .badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: var(--light-blue);
+  color: var(--navy);
+  border: 1px solid #cfe0f4;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.report-page .sub {
+  color: var(--muted);
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.report-page .lead,
+.report-page .finding {
+  margin-top: 20px;
+  padding: 20px 22px;
+  border-radius: 16px;
+  background: var(--light-blue);
+  border-left: 5px solid var(--blue);
+}
+
+.report-page .lead > strong,
+.report-page .finding > strong {
+  display: block;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.report-page .lead p:last-child,
+.report-page .finding p:last-child {
+  margin-bottom: 0;
+}
+
+/* Cards */
+.report-page .card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.report-page .card {
+  border-radius: 16px;
+  padding: 20px;
+}
+
+/* Relationship diagram */
+.report-page .relationship-map {
+  width: min(900px, 100%);
+  margin: 24px auto 28px;
+  padding: 18px;
+  background: #fbfcfe;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+}
+
+.report-page .relationship-map svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 470px;
+  margin: 8px auto 0;
+}
+
+.report-page .relationship-map figcaption {
+  font-size: 15px;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+/* Images: compact by default so they support the argument rather than dominate it */
+.report-page figure {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.report-page .photo-block {
+  margin: 18px auto 24px;
+  padding: 12px;
+  background: #fbfcfe;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  text-align: center;
+}
+
+.report-page .photo-block img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: 360px;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 10px;
+  background: #f6f8fb;
+}
+
+.report-page .photo-block figcaption {
+  max-width: 760px;
+  margin: 10px auto 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.65;
+  text-align: left;
+}
+
+.report-page .photo-block figcaption a {
+  color: var(--blue);
+  overflow-wrap: anywhere;
+}
+
+/* Two-column evidence grid. Images are deliberately thumbnail-sized. */
+.report-page .photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  align-items: start;
+  margin: 18px 0 28px;
+}
+
+.report-page .photo-grid .photo-block {
+  width: 100%;
+  margin: 0;
+}
+
+.report-page .photo-grid .photo-block img {
+  max-height: 270px;
+}
+
+/* Final browsing gallery: even smaller thumbnails */
+.report-page .gallery-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.report-page .gallery-grid .photo-block img {
+  max-height: 190px;
+}
+
+.report-page .gallery-grid .photo-block figcaption {
+  font-size: 12px;
+  text-align: center;
+}
+
+.report-page .source-note {
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.6;
+  margin-top: 8px;
+}
+
+.report-page .ref-list {
+  padding-left: 1.25em;
+}
+
+.report-page .ref-list li {
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.report-page .next li {
+  margin-bottom: 9px;
+}
+
+/* Make large tables usable on narrow screens */
+.report-page .report-section {
+  overflow-x: auto;
+}
+
+@media (max-width: 900px) {
+  .report-page {
+    width: min(100% - 24px, 1180px);
+    padding-top: 16px;
+  }
+
+  .report-page .report-hero,
+  .report-page .report-section {
+    padding: 24px 20px;
+    border-radius: 16px;
+  }
+
+  .report-page h1 {
+    font-size: 29px;
+  }
+
+  .report-page h2 {
+    font-size: 24px;
+  }
+
+  .report-page p {
+    font-size: 16px;
+  }
+
+  .report-page .card-grid,
+  .report-page .photo-grid,
+  .report-page .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .report-page .photo-block img,
+  .report-page .photo-grid .photo-block img {
+    max-height: 300px;
+  }
+
+  .report-page .gallery-grid .photo-block img {
+    max-height: 220px;
+  }
+}
+
+@media print {
+  .report-page {
+    width: 100%;
+    padding: 0;
+  }
+
+  .report-page .report-hero,
+  .report-page .report-section {
+    box-shadow: none;
+    break-inside: auto;
+  }
+
+  .report-page .photo-block img {
+    max-height: 260px;
+  }
+
+  .report-page .gallery-grid .photo-block img {
+    max-height: 160px;
+  }
+}
