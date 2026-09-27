@@ -5,245 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>卒業論文テーマ候補について</title>
   <link rel="stylesheet" href="../CSSfile/main.css">
-  <style>
-    .agenda-item {
-      cursor: pointer;
-    }
-
-    .agenda-link {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
-
-    .top-link {
-      position: fixed;
-      right: 22px;
-      top: 22px;
-      z-index: 999;
-      background: #15365f;
-      color: #fff;
-      border: none;
-      border-radius: 999px;
-      padding: 10px 16px;
-      font-size: 14px;
-      font-weight: 700;
-      cursor: pointer;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.16);
-    }
-
-    .back-link {
-      top: 68px;
-      background: #64748b;
-    }
-
-    .mini-data {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 26px;
-    }
-
-    .mini-data-card {
-      background: #ffffff;
-      border: 1px solid #d0d7de;
-      border-radius: 18px;
-      padding: 20px;
-    }
-
-    .mini-data-number {
-      font-size: 32px;
-      font-weight: 800;
-      color: #245b9b;
-      line-height: 1.2;
-      margin-bottom: 8px;
-    }
-
-    .mini-data-label {
-      font-size: 16px;
-      color: #475467;
-      line-height: 1.55;
-    }
-
-    .global-data-bar {
-      display: grid;
-      grid-template-columns: 1.2fr 2fr;
-      gap: 18px;
-      align-items: center;
-      background: #f8fafc;
-      border: 1px solid #d0d7de;
-      border-radius: 20px;
-      padding: 22px 26px;
-      margin-bottom: 26px;
-    }
-
-    .global-data-number {
-      font-size: 36px;
-      font-weight: 800;
-      color: #245b9b;
-      line-height: 1.2;
-    }
-
-    .global-data-text {
-      font-size: 19px;
-      color: #475467;
-      line-height: 1.6;
-    }
-
-    .market-compare {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-      margin-top: 10px;
-    }
-
-    .market-panel {
-      border: 2px solid #d0d7de;
-      border-radius: 22px;
-      overflow: hidden;
-      background: white;
-    }
-
-    .market-panel.china {
-      border-color: #245b9b;
-    }
-
-    .market-panel.japan {
-      border-color: #64748b;
-    }
-
-    .market-header {
-      padding: 18px 24px;
-      color: white;
-      font-size: 28px;
-      font-weight: 800;
-    }
-
-    .market-panel.china .market-header {
-      background: #245b9b;
-    }
-
-    .market-panel.japan .market-header {
-      background: #64748b;
-    }
-
-    .market-body {
-      padding: 22px 24px;
-    }
-
-    .metric-row {
-      display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 16px;
-      padding: 13px 0;
-      border-bottom: 1px solid #e5e7eb;
-      align-items: start;
-    }
-
-    .metric-row:last-child {
-      border-bottom: none;
-    }
-
-    .metric-label {
-      font-size: 15px;
-      font-weight: 800;
-      color: #15365f;
-      background: #eaf2fb;
-      border-radius: 999px;
-      padding: 6px 10px;
-      text-align: center;
-      white-space: nowrap;
-    }
-
-    .metric-value {
-      font-size: 18px;
-      color: #1f2933;
-      line-height: 1.6;
-    }
-
-    .metric-value strong {
-      color: #15365f;
-      font-size: 21px;
-    }
-
-    .compare-insight {
-      margin-top: 26px;
-      padding: 22px 28px;
-      border-radius: 20px;
-      background: #eaf2fb;
-      border-left: 8px solid #245b9b;
-      font-size: 23px;
-      font-weight: 800;
-      color: #15365f;
-      line-height: 1.45;
-    }
-
-    .stage-list {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-
-    .stage-item {
-      display: grid;
-      grid-template-columns: 72px 1fr;
-      gap: 18px;
-      align-items: center;
-      background: #f8fafc;
-      border: 1px solid #d0d7de;
-      border-radius: 18px;
-      padding: 18px 22px;
-    }
-
-    .stage-num {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      background: #15365f;
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      font-weight: 800;
-    }
-
-    .stage-title {
-      font-size: 23px;
-      font-weight: 800;
-      color: #15365f;
-      margin-bottom: 4px;
-    }
-
-    .stage-desc {
-      font-size: 18px;
-      color: #475467;
-      line-height: 1.55;
-    }
-
-    @media (max-width: 900px) {
-      .mini-data,
-      .global-data-bar,
-      .market-compare {
-        grid-template-columns: 1fr;
-      }
-
-      .stage-item {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
 </head>
 
-<body>
-  <button class="top-link" onclick="jumpToSlide('top')">目次へ</button>
-  <button class="top-link back-link" onclick="window.location.href='../index.html'">← 戻る</button>
+<body class="seminar-page">
+<a class="report-back" href="../index.html" aria-label="ゼミ研究ポータルに戻る">
+    <span class="report-back-arrow">←</span>
+    <span>ゼミ研究ポータルに戻る</span>
+  </a>
 
-  <main class="deck">
+  <button class="seminar-toc" onclick="jumpToSlide('top')" aria-label="目次へ戻る">
+    目次へ
+  </button>
+
+  <main class="deck seminar-deck">
 
     <section id="top" class="slide" data-page="1 / 10">
+      <div class="tag-row">
+        <span class="badge">第1回ゼミ</span>
+        <span class="badge">研究テーマ形成</span>
+        <span class="badge">EV / SDV × 産業連携</span>
+      </div>
       <h1>卒業論文テーマ候補について</h1>
       <div class="subtitle">― EV時代における自動車産業の変化を中心に ―</div>
 
