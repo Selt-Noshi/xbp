@@ -1,56 +1,61 @@
-<pre><code>
+<!DOCTYPE html><html lang="ja"><head><title>Arduino：光センサーとモーター制御 | Noshi Workplace</title>
+<link rel="stylesheet" href="../../css/portfolio.css?v=cream-1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head><body class="portfolio"><a class="skip-link" href="#content">本文へスキップ</a>
+<header class="site-header" id="top"><a class="brand" href="../../index.html"><span class="brand-mark" aria-hidden="true">n.</span>Noshi Workplace</a><nav class="site-nav" aria-label="メインナビゲーション"><a href="../../index.html#works">Works</a><a href="../../zemi/index.html">ゼミ ↗</a></nav></header><main class="article-wrap" id="content"><nav class="breadcrumb" aria-label="パンくず"><a href="../../index.html">Home</a> / <a href="../index.html">デザイン演習Ⅲ・Ⅳ</a></nav><article class="article-content"><p class="article-kicker">DESIGN III / IV / PROJECT NOTES</p><h1>Arduino：光センサーとモーター制御</h1><pre><code>
     #include <Adafruit_NeoPixel.h>
 
         // CdS
         const int lightSensorPin = A1;
-        
+
         // MORTOR
         const int DIR  = 8;
         const int STEP = 9;
-        
+
         // NeoPixel
         const int NEOPIXEL_PIN = 6;
         const int NUMPIXELS = 5; 
-        
+
         Adafruit_NeoPixel pixels(NUMPIXELS, NEOPIXEL_PIN, NEO_GRB + NEO_KHZ800);
-        
+
         // LV
         const int threshold = 500;
-        
+
         // RD
         unsigned long lastSwitchTime = 0; 
         bool direction = true; 
-        
+
         // DV
         bool isDark = false;  
-        
+
         // LC
         int colorPos = 0;
-        
+
         void setup() {
           Serial.begin(9600);
-        
+
           // MORTOR SETUP
           pinMode(DIR, OUTPUT);
           pinMode(STEP, OUTPUT);
           digitalWrite(DIR, LOW);
           digitalWrite(STEP, LOW);
-        
+
           // NeoPixel SETUP
           pixels.begin();
           pixels.clear();
           pixels.show();
         }
-        
+
         void loop() {
           int lightValue = analogRead(lightSensorPin);
           Serial.println(lightValue);
-        
+
           if (lightValue > threshold) {
             // DARK
             moveMotor(100);         
             rainbowCycle();         
-        
+
             if (!isDark) {
               Serial.println("PLAY"); 
               isDark = true;
@@ -60,42 +65,42 @@
             digitalWrite(STEP, LOW);   
             pixels.clear();           
             pixels.show();
-        
+
             if (isDark) {
               Serial.println("PAUSE"); 
               isDark = false;
             }
           }
-        
+
           delay(10);
         }
-        
+
         // MC
         void moveMotor(int delaytime) {
           unsigned long currentTime = millis();
-        
+
           if (currentTime - lastSwitchTime >= 500) { // CT
             direction = !direction;                   // CD
             lastSwitchTime = currentTime;
           }
-        
+
           if (direction) {
             digitalWrite(DIR, HIGH); 
           } else {
             digitalWrite(DIR, LOW); 
           }
-        
+
           digitalWrite(STEP, HIGH);
           delayMicroseconds(delaytime);
           digitalWrite(STEP, LOW);
           delayMicroseconds(delaytime);
         }
-        
+
         //  NeoPixel RC
         void rainbowCycle() {
           colorPos++;
           if (colorPos > 255) colorPos = 0;
-        
+
           uint32_t color = Wheel(colorPos);
           for (int i = 0; i < NUMPIXELS; i++) {
             pixels.setPixelColor(i, color);
@@ -103,7 +108,7 @@
           pixels.show();
           delay(5); // CS
         }
-        
+
         // RC
         uint32_t Wheel(byte WheelPos) {
           WheelPos = 255 - WheelPos;
@@ -117,4 +122,4 @@
           WheelPos -= 170;
           return pixels.Color(WheelPos * 3, 255 - WheelPos * 3, 0);
         }
-</code></pre>
+</code></pre></article><nav class="article-bottom" aria-label="記事ナビゲーション"><a href="../index.html">← デザイン演習Ⅲ・Ⅳの一覧</a><a href="#top">ページ上部へ ↑</a></nav></main><footer class="site-footer"><span>Noshi Workplace</span><span>XBP / DESIGN &amp; MAKING</span><a href="#top">ページ上部へ ↑</a></footer></body></html>

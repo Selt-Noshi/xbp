@@ -1,4 +1,9 @@
-<pre><code>
+<!DOCTYPE html><html lang="ja"><head><title>Python：音楽の再生・一時停止 | Noshi Workplace</title>
+<link rel="stylesheet" href="../../css/portfolio.css?v=cream-1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head><body class="portfolio"><a class="skip-link" href="#content">本文へスキップ</a>
+<header class="site-header" id="top"><a class="brand" href="../../index.html"><span class="brand-mark" aria-hidden="true">n.</span>Noshi Workplace</a><nav class="site-nav" aria-label="メインナビゲーション"><a href="../../index.html#works">Works</a><a href="../../zemi/index.html">ゼミ ↗</a></nav></header><main class="article-wrap" id="content"><nav class="breadcrumb" aria-label="パンくず"><a href="../../index.html">Home</a> / <a href="../index.html">デザイン演習Ⅲ・Ⅳ</a></nav><article class="article-content"><p class="article-kicker">DESIGN III / IV / PROJECT NOTES</p><h1>Python：音楽の再生・一時停止</h1><pre><code>
 import serial
 import time
 import pyautogui  
@@ -13,12 +18,12 @@ while True:
     if ser.in_waiting:
         line = ser.readline().decode('utf-8').strip()
         print(f"Received: {line}")
-        
+
         if line == "PLAY":
             pyautogui.hotkey('space')  
             print("Triggered PLAY")
-        
+
         elif line == "PAUSE":
             pyautogui.hotkey('space') 
             print("Triggered PAUSE")
-</code></pre>
+</code></pre></article><nav class="article-bottom" aria-label="記事ナビゲーション"><a href="../index.html">← デザイン演習Ⅲ・Ⅳの一覧</a><a href="#top">ページ上部へ ↑</a></nav></main><footer class="site-footer"><span>Noshi Workplace</span><span>XBP / DESIGN &amp; MAKING</span><a href="#top">ページ上部へ ↑</a></footer></body></html>

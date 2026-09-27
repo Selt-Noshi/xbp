@@ -1,64 +1,67 @@
 <!DOCTYPE html>
-<html lang="jp">
+<html lang="ja">
 <head>
-<link rel="stylesheet" href="../../css for assignment/A1.css">
-<title>Noshiのfinal assignment T2-B-0616</title>
+
+<title>Type-2 テスト進捗（2025年6月16日） | Noshi Workplace</title>
+
+<link rel="stylesheet" href="../../../css/portfolio.css?v=cream-1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body>
-    <h1>Type-2 テスト進捗（2025年6月16日）</h1>
-    <div>
-        <h3>ステップ1：</h3>
-        <h4>CP2102 USB-UART変換器を通してESP32-CAMをPCに接続<br>→ 失敗</h4>
-        <li><b>問題：</b></li>
-        <h4>問題： PCが新しいデバイスとして認識しなかった</h4>
-        <li><b>考察：</b> </li>
-        <h4>CP2102のドライバがPCにインストールされていない</h4>
-        <img src="../../images for assignment/AF/027.png" alt="" width="35%">
-        <hr>
-        <h3>ステップ2：</h3>
-        <h4>再度CP2102でESP32-CAMをPCに接続<br>→ 失敗</h4>
-        <li><b>問題：</b></li>
-        <h4>デバイスは検出されたが、接続できなかった</h4>
-        <li><b>考察：</b></li>
-        <h4>CP2102がUSB-TTLモードに設定されていなかった</h4>
-        <img src="../../images for assignment/AF/028.jpg" alt="" width="35%">
-        <hr>
-        <h3>ステップ3：</h3>
-        <h4>再度CP2102でESP32-CAMをPCに接続 <br>→ 成功</h4>
-        <hr>
-        <h3>ステップ4：</h3>
-        <h4><a href="../Data-AF/T2-0616-1.html">【テスト20250616-1】</a>を書き込み、距離センサーの接続を確認 <br>→ 失敗</h4>
-        <li><b>考察： </b></li>
-        <h4>ESP32-CAMはGPIO0をGNDに接続した状態でリセットボタンを押すことで書き込みモードに入る必要がある</h4>
-        <hr>
-        <h3>ステップ5：</h3>
-        <h4><a href="../Data-AF/T2-0616-1.html">【テスト20250616-1】</a>を再度書き込み、距離センサーの接続を確認 <br>→ 失敗</h4>
-        <li><b>考察： </b></li>
-        <h4>書き込み後はGPIO0の接続を解除し、再起動する必要がある</h4>
-        <hr>
-        <h3>ステップ6： </h3>
-        <h4><a href="../Data-AF/T2-0616-1.html">【テスト20250616-1】</a>を再度書き込み、距離センサーの接続を確認 <br>→ 失敗</h4>
-        <li><b>問題： </b></li>
-        <h4>RCWL-1655からの戻り値が一回限りで、かつ内容が文字化けしていた</h4>
-        <li><b>考察：</b></li>
-        <h4>やはりRX_TRIG_SCL_IOピンをESP32-CAMに接続する必要がある</h4>
-        <hr>
-        <h3>ステップ7： </h3>
-        <h4><a href="../Data-AF/T2-0616-2.html">【テスト20250616-2】</a>を書き込み、距離センサーの接続を確認 <br>→ 成功</h4>
-        <hr>
-        <h3>ステップ8：</h3>
-        <h4><a href="../Data-AF/T2-0616-3.html">【テスト20250616-3】</a>を書き込み、Bluetoothによる接続テストを実施 <br>→ 失敗</h4>
-        <hr>
-        <h3>ステップ9： </h3>
-        <h4><a href="../Data-AF/T2-0616-4.html">【テスト20250616-4】</a>を書き込み、Wi-Fiによる接続テストを実施 <br>→ 一部成功</h4>
-        <li><b>問題：</b></li>
-        <h4>iPadにてESP32-CAMのデータストリームを受信することに成功。しかし、購入したカメラがESP32-CAMに対応しておらず、プロジェクトは一時中断状態。</h4>
-        <img src="../../images for assignment/AF/029.png" alt="" width="35%">
-        <hr>
-        <h3>ステップ10：</h3>
-        <h4><a href="../Data-AF/T2-0616-5.html">【テスト20250616-5】</a>を書き込み、動作パラメータの調整でカメラ互換性を試みる <br>→ 失敗</h4>
+<body class="portfolio"><a class="skip-link" href="#content">本文へスキップ</a>
+<header class="site-header" id="top"><a class="brand" href="../../../index.html"><span class="brand-mark" aria-hidden="true">n.</span>Noshi Workplace</a><nav class="site-nav" aria-label="メインナビゲーション"><a href="../../../index.html#works">Works</a><a href="../../../zemi/index.html">ゼミ ↗</a></nav></header><main class="article-wrap" id="content"><nav class="breadcrumb" aria-label="パンくず"><a href="../../../index.html">Home</a> / <a href="../../index.html">デザイン演習Ⅲ・Ⅳ</a></nav><article class="article-content"><p class="article-kicker">DESIGN III / IV / PROJECT NOTES</p><h1>Type-2 テスト進捗（2025年6月16日）</h1>
 
-
-    </div>
-     <a href="../AF-TOP.html">戻る</a>
-</body>
+<div>
+<h3>ステップ1：</h3>
+<div class="article-prose">CP2102 USB-UART変換器を通してESP32-CAMをPCに接続<br/>→ 失敗</div>
+<li><b>問題：</b></li>
+<div class="article-prose">問題： PCが新しいデバイスとして認識しなかった</div>
+<li><b>考察：</b> </li>
+<div class="article-prose">CP2102のドライバがPCにインストールされていない</div>
+<div class="media-gallery single"><a aria-label="画像を元のサイズで開く" href="../../images for assignment/AF/027.png"><img alt="" decoding="async" loading="lazy" src="../../images for assignment/AF/027.png"/></a></div>
+<hr/>
+<h3>ステップ2：</h3>
+<div class="article-prose">再度CP2102でESP32-CAMをPCに接続<br/>→ 失敗</div>
+<li><b>問題：</b></li>
+<div class="article-prose">デバイスは検出されたが、接続できなかった</div>
+<li><b>考察：</b></li>
+<div class="article-prose">CP2102がUSB-TTLモードに設定されていなかった</div>
+<div class="media-gallery single"><a aria-label="画像を元のサイズで開く" href="../../images for assignment/AF/028.jpg"><img alt="" decoding="async" loading="lazy" src="../../images for assignment/AF/028.jpg"/></a></div>
+<hr/>
+<h3>ステップ3：</h3>
+<div class="article-prose">再度CP2102でESP32-CAMをPCに接続 <br/>→ 成功</div>
+<hr/>
+<h3>ステップ4：</h3>
+<div class="article-prose"><a href="../Data-AF/T2-0616-1.html">【テスト20250616-1】</a>を書き込み、距離センサーの接続を確認 <br/>→ 失敗</div>
+<li><b>考察： </b></li>
+<div class="article-prose">ESP32-CAMはGPIO0をGNDに接続した状態でリセットボタンを押すことで書き込みモードに入る必要がある</div>
+<hr/>
+<h3>ステップ5：</h3>
+<div class="article-prose"><a href="../Data-AF/T2-0616-1.html">【テスト20250616-1】</a>を再度書き込み、距離センサーの接続を確認 <br/>→ 失敗</div>
+<li><b>考察： </b></li>
+<div class="article-prose">書き込み後はGPIO0の接続を解除し、再起動する必要がある</div>
+<hr/>
+<h3>ステップ6： </h3>
+<div class="article-prose"><a href="../Data-AF/T2-0616-1.html">【テスト20250616-1】</a>を再度書き込み、距離センサーの接続を確認 <br/>→ 失敗</div>
+<li><b>問題： </b></li>
+<div class="article-prose">RCWL-1655からの戻り値が一回限りで、かつ内容が文字化けしていた</div>
+<li><b>考察：</b></li>
+<div class="article-prose">やはりRX_TRIG_SCL_IOピンをESP32-CAMに接続する必要がある</div>
+<hr/>
+<h3>ステップ7： </h3>
+<div class="article-prose"><a href="../Data-AF/T2-0616-2.html">【テスト20250616-2】</a>を書き込み、距離センサーの接続を確認 <br/>→ 成功</div>
+<hr/>
+<h3>ステップ8：</h3>
+<div class="article-prose"><a href="../Data-AF/T2-0616-3.html">【テスト20250616-3】</a>を書き込み、Bluetoothによる接続テストを実施 <br/>→ 失敗</div>
+<hr/>
+<h3>ステップ9： </h3>
+<div class="article-prose"><a href="../Data-AF/T2-0616-4.html">【テスト20250616-4】</a>を書き込み、Wi-Fiによる接続テストを実施 <br/>→ 一部成功</div>
+<li><b>問題：</b></li>
+<div class="article-prose">iPadにてESP32-CAMのデータストリームを受信することに成功。しかし、購入したカメラがESP32-CAMに対応しておらず、プロジェクトは一時中断状態。</div>
+<div class="media-gallery single"><a aria-label="画像を元のサイズで開く" href="../../images for assignment/AF/029.png"><img alt="" decoding="async" loading="lazy" src="../../images for assignment/AF/029.png"/></a></div>
+<hr/>
+<h3>ステップ10：</h3>
+<div class="article-prose"><a href="../Data-AF/T2-0616-5.html">【テスト20250616-5】</a>を書き込み、動作パラメータの調整でカメラ互換性を試みる <br/>→ 失敗</div>
+</div>
+<a href="../AF-TOP.html">戻る</a>
+</article><nav class="article-bottom" aria-label="記事ナビゲーション"><a href="../../index.html">← デザイン演習Ⅲ・Ⅳの一覧</a><a href="#top">ページ上部へ ↑</a></nav></main><footer class="site-footer"><span>Noshi Workplace</span><span>XBP / DESIGN &amp; MAKING</span><a href="#top">ページ上部へ ↑</a></footer></body>

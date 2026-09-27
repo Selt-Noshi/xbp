@@ -1,259 +1,32 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>ゼミ研究ポータル</title>
-
-  <link rel="stylesheet" href="./CSSfile/main.css">
-
-  <style>
-    body {
-      background:
-        linear-gradient(135deg, #eef4fb 0%, #f8fafc 100%);
-    }
-
-    .home-container {
-      min-height: 100vh;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      padding: 60px 40px;
-    }
-
-    .home-title {
-      font-size: 56px;
-      font-weight: 800;
-
-      color: #15365f;
-
-      margin-bottom: 18px;
-      text-align: center;
-    }
-
-    .home-subtitle {
-      font-size: 22px;
-      color: #667085;
-
-      margin-bottom: 60px;
-      text-align: center;
-    }
-
-    .seminar-grid {
-      width: 100%;
-      max-width: 1200px;
-
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-
-      gap: 28px;
-    }
-
-    .seminar-card {
-      background: white;
-
-      border-radius: 24px;
-      border: 1px solid #d0d7de;
-
-      padding: 30px;
-
-      text-decoration: none;
-      color: inherit;
-
-      transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        border-color 0.25s ease;
-
-      box-shadow:
-        0 8px 24px rgba(0,0,0,0.05);
-    }
-
-    .seminar-card:hover {
-      transform: translateY(-6px);
-
-      border-color: #245b9b;
-
-      box-shadow:
-        0 18px 36px rgba(36,91,155,0.16);
-    }
-
-    .seminar-tag {
-      display: inline-block;
-
-      padding: 6px 12px;
-
-      border-radius: 999px;
-
-      background: #dbeafe;
-      color: #15365f;
-
-      font-size: 14px;
-      font-weight: 700;
-
-      margin-bottom: 18px;
-    }
-
-    .seminar-title {
-      font-size: 28px;
-      font-weight: 800;
-
-      color: #15365f;
-
-      line-height: 1.35;
-
-      margin-bottom: 14px;
-    }
-
-    .seminar-desc {
-      font-size: 17px;
-      line-height: 1.7;
-
-      color: #475467;
-    }
-
-    .footer-note {
-      margin-top: 70px;
-
-      font-size: 15px;
-      color: #98a2b3;
-
-      text-align: center;
-    }
-
-    @media (max-width: 700px) {
-      .home-title {
-        font-size: 38px;
-      }
-
-      .home-subtitle {
-        font-size: 18px;
-      }
-
-      .seminar-title {
-        font-size: 24px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ゼミ研究ポータル | Noshi Workplace</title>
+<link rel="stylesheet" href="../css/portfolio.css?v=cream-1">
+<link rel="stylesheet" href="CSSfile/archive.css?v=3">
 </head>
-
-<body>
-
-  <main class="home-container">
-
-    <div class="home-title">
-      ゼミ研究ポータル
-    </div>
-
-    <div class="home-subtitle">
-      卒業論文・ゼミ発表アーカイブ
-    </div>
-
-    <div class="seminar-grid">
-
-      <!-- 第一回 -->
-      <a class="seminar-card"
-         href="./PPT/001.html">
-
-        <div class="seminar-tag">
-          第1回ゼミ
-        </div>
-
-        <div class="seminar-title">
-          卒業論文テーマ候補について
-        </div>
-
-        <div class="seminar-desc">
-          EV時代における自動車産業の変化、
-          中日EV市場比較、
-          Xiaomi事例、
-          産業エコシステム競争に関する問題意識。
-        </div>
-      </a>
-
-
-      <!-- 第二回 -->
-      <a class="seminar-card"
-         href="./PPT/002.html">
-
-        <div class="seminar-tag">
-          第2回ゼミ
-        </div>
-
-        <div class="seminar-title">
-          EV時代における産業連携の変化
-        </div>
-
-        <div class="seminar-desc">
-          中国ICT企業と日本自動車企業の事例比較を通じて、
-          EV時代における産業連携の変化を考察する。<br>
-          日産、Sony Honda Mobility、Huawei、小米を対象に、
-          企業間競争から産業エコシステム競争への移行に注目する。
-        </div>
-      </a>
-
-
-      <!-- 第三回 -->
-      <a class="seminar-card"
-         href="./PPT/003.html">
-
-        <div class="seminar-tag">
-          第3回ゼミ
-        </div>
-
-        <div class="seminar-title">
-          EV・SDV時代における産業連携モデルの比較研究
-        </div>
-
-        <div class="seminar-desc">
-          日産、Xiaomi、Huawei、Sony Honda Mobilityを中心に、
-          CATL、AESC、NVIDIA、Qualcommなどのサプライヤーも対象として、
-          EV・SDV時代における企業間連携とサプライチェーンの変化を整理。<br>
-          公開インタビューを用いた共起ネットワーク分析の方向性について検討した。
-        </div>
-      </a>
-
-
-      <!-- 第四回 -->
-      <a class="seminar-card"
-         href="./PPT/004.html">
-
-        <div class="seminar-tag">
-          第4回ゼミ
-        </div>
-
-        <div class="seminar-title">
-          夏季予備調査による研究枠組みの修正
-        </div>
-
-        <div class="seminar-desc">
-          夏季休暇中に天津でHuawei、Xiaomi、BYDを現地調査。
-          Nissan、Honda、Sony Honda Mobilityの公開資料・インタビューと比較し、
-          「連携の多さ」ではなく、
-          「技術の共通化・外部化と製品差別化」という観点へ研究枠組みを修正。<br>
-          CATLの一体型智能底盤も補足事例として取り上げ、
-          OEMとサプライヤーの役割変化について検討する。
-        </div>
-      </a>
-
-    </div>
-
-    <div class="footer-note">
-      Seminar Research Archive / EV & Industrial Ecosystem Research
-    </div>
-
-  </main>
-
+<body class="portfolio seminar-archive">
+<a class="skip-link" href="#content">本文へスキップ</a>
+<header class="site-header" id="site-top"><a class="brand" href="../index.html"><span aria-hidden="true" class="brand-mark">n.</span>Noshi Workplace</a>
+<nav aria-label="メインナビゲーション" class="site-nav"><a href="../index.html#works">Works</a><a href="../zemi/index.html">ゼミ ↗</a>
+</nav>
+</header>
+<main class="archive-shell" id="content">
+<nav class="breadcrumb" aria-label="パンくず"><a href="../index.html">Home</a> / Seminar</nav>
+<section class="archive-hero research-hero">
+<div><p class="eyebrow">ONGOING / SEMINAR RESEARCH</p><h1 class="research-title">ゼミ・<br>研究<span>アーカイブ</span></h1><p class="research-motto">Question. Explore. <em>Understand.</em></p></div>
+<div class="hero-note"><p class="eyebrow">RESEARCH FOCUS</p><strong>自動車産業の変化から、<br>企業のつながりを考える。</strong><p>EV・SDV時代の産業連携と競争を、中日企業の比較・現地調査から探る研究記録。</p><a class="latest-link" href="./PPT/004.html">最新の報告を読む <span aria-hidden="true">↗</span></a></div>
+</section>
+<section><div class="section-heading"><h2>研究・発表の記録</h2><span>RESEARCH JOURNAL / 01—04</span></div>
+<div class="research-grid">
+<a class="research-card" href="./PPT/001.html"><div class="eyebrow"><span>SEMINAR / 01</span><span>第1回ゼミ ↗</span></div><h3>卒業論文テーマ候補について</h3><p>中日EV市場の違いとXiaomiの参入事例を手がかりに、産業エコシステム競争への問題意識を整理。</p></a>
+<a class="research-card" href="./PPT/002.html"><div class="eyebrow"><span>SEMINAR / 02</span><span>第2回ゼミ ↗</span></div><h3>EV時代における産業連携の変化</h3><p>日産、Sony Honda Mobility、Huawei、Xiaomiを比較。中国ICT企業と日本自動車企業の連携から、産業エコシステム競争への移行を考察。</p></a>
+<a class="research-card" href="./PPT/003.html"><div class="eyebrow"><span>SEMINAR / 03</span><span>第3回ゼミ ↗</span></div><h3>EV・SDV時代における産業連携モデルの比較研究</h3><p>自動車・ICT企業とCATL、AESC、NVIDIA、Qualcommの連携を比較。サプライチェーンの変化と、公開インタビューによる共起ネットワーク分析の方向性を検討。</p></a>
+<a class="research-card research-card-latest" href="./PPT/004.html"><div class="eyebrow"><span>LATEST / SEMINAR 04</span><span>第4回ゼミ ↗</span></div><h3>夏季予備調査による研究枠組みの修正</h3><p>天津でのHuawei・Xiaomi・BYDの現地調査を、日本企業の公開資料・発言と比較。「連携の多さ」から「技術の共通化・外部化と製品差別化」へ研究枠組みを見直し、CATLを補足事例に役割変化を検討。</p></a>
+</div></section></main>
+<footer class="site-footer"><span>Noshi Workplace</span><span>XBP / DESIGN &amp; MAKING</span><a href="#site-top">ページ上部へ ↑</a>
+</footer>
 </body>
 </html>
-"""
-
-out_index = base / "index.html"
-out_index.write_text(index_html, encoding="utf-8")
-
-print(f"Created: {out004}")
-print(f"Created: {out_index}")

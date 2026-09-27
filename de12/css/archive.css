@@ -1,0 +1,19 @@
+/* Design I / II: quiet reading layouts and clearer learning notes. */
+.foundations .course-hero { max-width:900px; }
+.foundations .course-hero h1 { font-weight:500; }
+.foundations .course-path { display:flex; flex-wrap:wrap; gap:10px; margin:26px 0 0; }
+.foundations .course-path span { padding:6px 14px; background:#f1e7d6; border:1px solid var(--line); border-radius:3px; font-size:12px; color:#79503c; }
+.foundations .entry-list a { padding-top:25px; padding-bottom:25px; }
+.foundations .article-wrap { max-width:960px; }
+.foundations .article-content { font-size:16px; line-height:1.95; }
+.foundations .article-content h2 { font-weight:500; margin-top:46px; }
+.foundations .article-content h3 { font-weight:600; font-size:18px; }
+.foundations .article-content .note-intro { color:var(--muted); font-size:16px; max-width:680px; padding:0 0 24px; border-bottom:1px solid var(--line); margin:0 0 28px; }
+.foundations .article-content > ul { padding:20px 24px 20px 42px; background:var(--white); border:1px solid var(--line); border-radius:6px; }
+.foundations .article-content .network-results { list-style:none; padding:0; border:0; background:none; display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.foundations .network-results li { margin:0; }
+.foundations .network-results a { display:block; padding:24px; background:var(--white); border:1px solid var(--line); border-radius:6px; text-decoration:none; }
+.foundations .network-results a:hover { border-color:var(--accent); }
+.foundations .article-content .media-gallery.single { max-width:740px; margin-inline:auto; }
+.foundations .article-content .media-gallery img { max-height:420px; }
+@media(max-width:640px) { .foundations .article-content .network-results { grid-template-columns:1fr; } }

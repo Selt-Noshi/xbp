@@ -1,4 +1,10 @@
-<pre><code>import random
+<!DOCTYPE html><html lang="ja"><head><title>Python演習：ランダム戦闘ゲーム | Noshi Workplace</title>
+<link rel="stylesheet" href="../../css/portfolio.css?v=cream-3">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/archive.css">
+</head><body class="portfolio foundations"><a class="skip-link" href="#content">本文へスキップ</a>
+<header class="site-header" id="top"><a class="brand" href="../../index.html"><span class="brand-mark" aria-hidden="true">n.</span>Noshi Workplace</a><nav class="site-nav" aria-label="メインナビゲーション"><a href="../../index.html#works">Works</a><a href="../../zemi/index.html">ゼミ ↗</a></nav></header><main class="article-wrap" id="content"><nav class="breadcrumb" aria-label="パンくず"><a href="../../index.html">Home</a> / <a href="../index.html">デザイン演習Ⅰ・Ⅱ</a></nav><article class="article-content"><p class="article-kicker">DESIGN I / II / PROJECT NOTES</p><h1>Python演習：ランダム戦闘ゲーム</h1><p class="note-intro">ランダムな要素を取り入れた戦闘ゲームのPythonコードです。</p><pre><code>import random
 
     list1 = [
         "100-神", "90-魔王", "80-精霊王", "70-天使", "60-悪魔", "80-巨人", "70-精霊", 
@@ -12,7 +18,7 @@
     list3 = [
         "5-UR", "4-SSR", "3-SR", "2-R", "1-N"
     ]
-    
+
     def extract_value(item):
         try:
             parts = item.split('-')
@@ -22,36 +28,36 @@
         except (ValueError, IndexError):
             print(f"warn '{item}' wrong num")
             return 0 
-    
+
     # 1. 
     num_people = int(input("参加人数を入力してください: "))
-    
+
     # 2. 
     participants = {}
-    
+
     # 3. 
     for i in range(num_people):
         name = input(f" {i+1} 名前を入力してください: ")
         weapon = input(f" {name} 武器を入力してください: ")
-        
+
         # 種族
         race_draw = random.choice(list1)
         race_value = extract_value(race_draw) 
         race_name = race_draw.split('-')[1] if '-' in race_draw else "？？？"
-    
+
         # 加護
         blessing_draw = random.choice(list2)
         blessing_value = extract_value(blessing_draw)
         blessing_name = blessing_draw.split('-')[1] if '-' in blessing_draw else "？？？"
-    
+
         # 資質
         potential_draw = random.choice(list3)
         potential_value = extract_value(potential_draw) 
         potential_name = potential_draw.split('-')[1] if '-' in potential_draw else "？？？"
-    
+
         # 戦闘力
         power = (race_value + blessing_value) * potential_value
-    
+
         # 結果
         participants[name] = {
             'weapon': weapon,
@@ -63,41 +69,41 @@
             'potential_value': potential_value,
             'power': power
         }
-    
+
     # プリント
     print("\nみんなの結果:")
     for name, details in participants.items():
         print(f"{name}，あなたの種族は {details['race']}，あなたの加護は{details['blessing']}，あなたの資質は {details['potential']}。")
         print(f"戦闘力: {details['power']}")
-    
+
     # 4. 
     names = list(participants.keys())
     random.shuffle(names)
-    
+
     print("\n战斗结果:")
-    
+
     while len(names) > 1:
         # 
         fighter1 = names.pop()
         fighter2 = names.pop()
-    
+
         # 
         power1 = participants[fighter1]['power']
         power2 = participants[fighter2]['power']
-    
+
         if power1 > power2:
             winner = fighter1
             loser = fighter2
         else:
             winner = fighter2
             loser = fighter1
-    
+
         # 結果
         print(f"{winner} は {participants[winner]['weapon']} を使用して {loser}を倒した！！！")
-    
+
         # 
         names.insert(0, winner)
-    
+
     # 最终胜者
     print(f"\n勝利者は{names[0]}！")
-    </code></pre>
+    </code></pre></article><nav class="article-bottom" aria-label="記事ナビゲーション"><a href="../index.html">← デザイン演習Ⅰ・Ⅱの一覧</a><a href="#top">ページ上部へ ↑</a></nav></main><footer class="site-footer"><span>Noshi Workplace</span><span>XBP / DESIGN &amp; MAKING</span><a href="#top">ページ上部へ ↑</a></footer></body></html>

@@ -1,37 +1,35 @@
 <!DOCTYPE html>
-<html lang="jp">
+<html lang="ja">
 <head>
-<link rel="stylesheet" href="../css for assignment/A1.css">
-<title>Noshiのassignment4</title>
+
+<title>光センサーで連動するパーティー装置 | Noshi Workplace</title>
+
+<link rel="stylesheet" href="../../css/portfolio.css?v=cream-1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body>
-    <h1>Noshiのassignment4</h1>
-    <div>
-        <iframe width="560" height="315"
-        src="https://www.youtube.com/embed/B9K5O1surOA"
-        title="YouTube video player" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen>
-      </iframe>
+<body class="portfolio"><a class="skip-link" href="#content">本文へスキップ</a>
+<header class="site-header" id="top"><a class="brand" href="../../index.html"><span class="brand-mark" aria-hidden="true">n.</span>Noshi Workplace</a><nav class="site-nav" aria-label="メインナビゲーション"><a href="../../index.html#works">Works</a><a href="../../zemi/index.html">ゼミ ↗</a></nav></header><main class="article-wrap" id="content"><nav class="breadcrumb" aria-label="パンくず"><a href="../../index.html">Home</a> / <a href="../index.html">デザイン演習Ⅲ・Ⅳ</a></nav><article class="article-content"><p class="article-kicker">DESIGN III / IV / PROJECT NOTES</p><h1>光センサーで連動するパーティー装置</h1>
 
-    </div>
-    <div>
-        <h2>説明</h2>
-       <h4>これはパーティー用装置（たぶんそうです）。<br>
-        基本的な機能としては、CdSセンサーを使って室内の明るさを検知し、設定した明るさ以下になると、<br>
-         RGB LEDとディスコボール（少なくとも構想はディスコボール）を起動し、<br>
-          同時にSpotifyに音楽再生の指示を送ります。逆に、室内が明るくなると、すべての機器が停止します。<br>
-    </h4> <br>
-        <li>RGB LEDについては、最も基本的な虹色の発光設定と、センサーとの連動によるオン・オフ機能のみを実装しました。</li>
-        <li>ディスコボール、もしくはモーターについては、最初はセンサーとの連動によるオン・オフ制御だけを行っていましたが、現場での材料不足により球体の固定ができなかったため、最終的には左右に揺れる動作に調整しました。</li>
-        <li>Spotifyの再生制御は、Pythonでシリアルポートのデータを監視することで実現しています。設定値を超えると、pyautoguiのキーボード操作シミュレーション機能を使ってスペースキー（Spotifyの再生・一時停止のショートカット）を入力し、自動で再生を一時停止するようにしています。</li>
-
-    </div>
 <div>
-    <h2>コード</h2>
-    <li><a href="./A4-1.html">Arduino</a></li>
-    <li><a href="./A4-2.html">Python</a></li>
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/B9K5O1surOA" title="YouTube video player" width="560">
+</iframe>
 </div>
-
-</body>
+<div>
+<h2>説明</h2>
+<div class="article-prose">これはパーティー用装置（たぶんそうです）。<br/>
+        基本的な機能としては、CdSセンサーを使って室内の明るさを検知し、設定した明るさ以下になると、<br/>
+         RGB LEDとディスコボール（少なくとも構想はディスコボール）を起動し、<br/>
+          同時にSpotifyに音楽再生の指示を送ります。逆に、室内が明るくなると、すべての機器が停止します。<br/>
+</div>
+<li>RGB LEDについては、最も基本的な虹色の発光設定と、センサーとの連動によるオン・オフ機能のみを実装しました。</li>
+<li>ディスコボール、もしくはモーターについては、最初はセンサーとの連動によるオン・オフ制御だけを行っていましたが、現場での材料不足により球体の固定ができなかったため、最終的には左右に揺れる動作に調整しました。</li>
+<li>Spotifyの再生制御は、Pythonでシリアルポートのデータを監視することで実現しています。設定値を超えると、pyautoguiのキーボード操作シミュレーション機能を使ってスペースキー（Spotifyの再生・一時停止のショートカット）を入力し、自動で再生を一時停止するようにしています。</li>
+</div>
+<div>
+<h2>コード</h2>
+<li><a href="./A4-1.html">Arduino</a></li>
+<li><a href="./A4-2.html">Python</a></li>
+</div>
+</article><nav class="article-bottom" aria-label="記事ナビゲーション"><a href="../index.html">← デザイン演習Ⅲ・Ⅳの一覧</a><a href="#top">ページ上部へ ↑</a></nav></main><footer class="site-footer"><span>Noshi Workplace</span><span>XBP / DESIGN &amp; MAKING</span><a href="#top">ページ上部へ ↑</a></footer></body>

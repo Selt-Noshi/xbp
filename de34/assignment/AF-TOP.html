@@ -1,212 +1,209 @@
 <!DOCTYPE html>
-<html lang="jp">
+<html lang="ja">
 <head>
-<link rel="stylesheet" href="../css for assignment/A1.css">
-<title>Noshiのfinal assignment</title>
+
+<title>外付け型パーキングレーダー | Noshi Workplace</title>
+
+<link rel="stylesheet" href="../../css/portfolio.css?v=cream-1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body>
-    <h1>Noshi の Fianl Assignment</h1>
- <div>
-    <h2>目標：自動車関連のIoTデバイス</h2>
- </div>
- <div>
-     <h2>外付け型パーキングレーダー（Prototype）</h2>
-    
-      <h2>紹介動画</h2>
-      <div style="position: relative; padding-bottom: 56.25%; height: 0;">
-    <iframe src="https://www.youtube.com/embed/SRee2XVlIiY" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen 
-            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-    </iframe>
-   
-  </div>
-  <a href="https://youtu.be/SRee2XVlIiY" target="_blank" style="display: inline-block; padding: 10px 20px; background-color: #cc0000; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">
+<body class="portfolio"><a class="skip-link" href="#content">本文へスキップ</a>
+<header class="site-header" id="top"><a class="brand" href="../../index.html"><span class="brand-mark" aria-hidden="true">n.</span>Noshi Workplace</a><nav class="site-nav" aria-label="メインナビゲーション"><a href="../../index.html#works">Works</a><a href="../../zemi/index.html">ゼミ ↗</a></nav></header><main class="article-wrap" id="content"><nav class="breadcrumb" aria-label="パンくず"><a href="../../index.html">Home</a> / <a href="../index.html">デザイン演習Ⅲ・Ⅳ</a></nav><article class="article-content"><p class="article-kicker">DESIGN III / IV / PROJECT NOTES</p><h1>外付け型パーキングレーダー</h1><details class="article-toc"><summary>このページの内容</summary><ol><li><a href="#note-section-1">目標：自動車関連のIoTデバイス</a></li><li><a href="#note-section-2">外付け型パーキングレーダー（Prototype）</a></li><li><a href="#note-section-3">紹介動画</a></li><li><a href="#note-section-4">機能説明：</a></li><li><a href="#note-section-5">WHAT –</a></li><li><a href="#note-section-6">HOW –</a></li><li><a href="#note-section-7">WHY –</a></li><li><a href="#note-section-8">WHAT'S NEXT –</a></li><li><a href="#note-section-9">外付け型パーキングレーダー（最初構想）</a></li><li><a href="#note-section-10">技術的構成と更新履歴：</a></li><li><a href="#note-section-11">他の構想</a></li></ol></details>
+
+<div>
+<h2 id="note-section-1">目標：自動車関連のIoTデバイス</h2>
+</div>
+<div>
+<h2 id="note-section-2">外付け型パーキングレーダー（Prototype）</h2>
+<h2 id="note-section-3">紹介動画</h2>
+<div style="position: relative; padding-bottom: 56.25%; height: 0;">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/SRee2XVlIiY" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+</iframe>
+</div>
+<a href="https://youtu.be/SRee2XVlIiY" style="display: inline-block; padding: 10px 20px; background-color: #cc0000; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;" target="_blank">
   外付け型パーキングレーダー GTA編 ▶
 </a>
-
-<h2>機能説明：</h2>
-<h4>QRコードを読み取ることで、デバイスに素早く接続することができます。<br>
-操作画面では、システムのオン／オフを切り替えるほか、車幅の選択も可能です。<br>
-選択された車幅の値は、距離に応じたカラー表示（警告色）に影響を与えます。<br>
-デバイスにWi-Fi接続している端末が存在しない場合、システムは自動的に待機モードに移行します。<br>
-</h4>
+<h2 id="note-section-4">機能説明：</h2>
+<div class="article-prose">QRコードを読み取ることで、デバイスに素早く接続することができます。<br/>
+操作画面では、システムのオン／オフを切り替えるほか、車幅の選択も可能です。<br/>
+選択された車幅の値は、距離に応じたカラー表示（警告色）に影響を与えます。<br/>
+デバイスにWi-Fi接続している端末が存在しない場合、システムは自動的に待機モードに移行します。<br/>
+</div>
 ※注1：カラー表示のアルゴリズムでは、左右のセンサーは「車幅 ÷ 2」に基づき、距離が一定値以下になると色が変化して警告します。
 中央センサーは、起動後の最初の計測値を基準として、距離の変化に応じて警告表示を行います。
 
-    
-    <h2>WHAT –</h2>
-    <h4>これはIoT技術を活用して実現した外付け型バックレーダーシステムです。<br>
-磁石による取り付け方式により、車体を傷つけることなく、一時的かつ迅速にレーダーシステムを追加できます。<br>
-本体には3つの超音波距離センサーと1つのカメラを搭載しており、距離情報と映像の両方を同時に取得・送信可能です。<br></h4>
-<hr>
-<h2>HOW –</h2>
-<h4>スマートフォンで2つのQRコードをそれぞれ読み取ることで、デバイスに接続できます。<br>
-接続後はスマートフォンのブラウザで専用ページにアクセスし、情報の確認やシステムの操作が可能です。<br></h4>
-<hr>
-<h2>WHY –</h2>
-<h4>日本国内においては、2023年以降に製造された車両は原則バックレーダーシステムを搭載していますが、
-中古車、個性派車両、レンタカーなどには未搭載のものが依然として多く見られます。<br>
-この外付けレーダーは、車両を傷つけることなく簡単に取り付けられるため、
-「一時的な装着」や「非破壊での追加」を求めるニーズに応えることができます。<br><br>
-また、世界的に見れば、発展途上国では都市化による人口集中が進み、公共交通の整備が不十分な中で、
-駐車スペースの不足・混雑が問題となるケースが多くあります。<br>
-このシステムは、設置と使用が非常に簡単であり、そうした環境における駐車支援ツールとしての有効性も期待できます。</h4>
-<hr>
-<h2>WHAT'S NEXT –</h2>
-<h4>今後は、センサーの精度向上およびカメラ機能の正常動作を目指します。<br>
-内部の空間配置を見直すことで、装置全体のサイズは50％以上の小型化が可能です。<br>
-また、接続をより簡単・効率的にするためのスマートフォンアプリの開発も予定しています。<br>
-さらに、太陽光充電などの追加機能を導入することで、より便利で完成度の高い製品を目指します。<br>
-</h4>
-<hr>
- <h3>最終更新（2025年6月14日〜2025年7月13日）</h3>
-    <h4>プロトタイプの製作を完了</h4>
-    <h4><a href="./html-AF/TFB.html">組み立て進捗</a></h4>
-    <h4><a href="./html-AF/TFT.html">テスト進捗</a></h4>
-    <img src="../../de34/images for assignment/AF/web.png" alt="" width="34%">WIFI接続QRコード
-    <img src="../images for assignment/AF/qr-code.png" alt="" width="34%">ウェッブサイトQRコード
-   
-</h3>
-</h3>
- </div>
- <div>
-    <h2>外付け型パーキングレーダー（最初構想）</h2><br><hr>
-    <h3>説明</h3>
-    <h4>磁石などを利用して非破壊的に取り付け可能な、小型・高集積のバックレーダーを開発。<br>
-       IoT技術を用いて有線接続を廃し、レーダー情報を無線で運転者に伝達することで、バックレーダーが装備されていない車両にも簡単にシステムを追加できる。</h4>
-    <br><hr>
-   <h3>ビジネスモデルとターゲット層：</h3>
-   <h4>本製品は取り付け方法の違いによって2タイプに分類される。
-      <br><br>
-      <li><b>タイプ1：一時的装着型</b></li>
-        磁石とクリップでナンバープレートに一時的に装着。<br>
-        主に個人向けで、特に駐車が苦手なドライバーを対象とする。<br>
-        料金モデルは、本体価格とアプリのサブスクリプション課金。<br>
-        <br>
-      <li><b>タイプ2：半永久装着型</b></li>
-      装置をナンバープレートブラケットとして設計し、車体を傷つけずに取り付けられるようにした。<br>
-      広い設置面積を活かし、バックカメラや太陽光充電機能を追加。 <br>
-      ターゲットはレンタカー会社。コストを抑えながら車両機能を強化できる。<br>
-       オプション機能として顧客に課金することも可能。<br>
-</h4>
- </div>
- <div>
-   <li>移動観察(2025-05-27)（失敗）</li>
-   <li><a href="./html-AF/AF-R.html">移動観察(2025-05-30)</a></li>
- </div>
- <div>
-   <h2>技術的構成と更新履歴：</h2><br><hr><hr>
-   <h3>基本構想：</h3>
-   <h4>磁石でナンバープレートに固定し、位置情報を測定。 <br>
-       Wi-FiまたはBluetoothを用いてスマートフォンに送信し、スマートフォンで位置情報を表示。</h4>
-        <img src="../images for assignment/AF/001.jpg" alt="">
-       <li><b>使用部品：</b></li>
-       <h4>ESP32×1、HC-SR04×2、電池ボックス、昇圧モジュール</h4>
-       <li><b>考察：</b></li>
-       <h4>UNO R3と比較して、通信機能（Wi-Fi・Bluetooth）を内蔵するESP32は小型かつ通信手段が充実しているため、ESP32を採用。 <br>
-           距離センサーは一般車両と同様の超音波センサーを採用。<br>
-           ただし、センサーが至近距離での使用は精度低下の恐れがあるため、2つのセンサーは約100msの間隔でポーリング動作。</h4>
-       <li><b>反省：</b></li>
-       <h4>駐車時の障害物は水平面に限らず、Z軸方向にも存在するため、追加のセンサーで汎用性と安全性を確保する必要がある。<br>
-           また、乾電池からリチウム電池へ変更することで再利用可能にしたい。</h4>
-   <hr>
-   <h3>更新1(2025-05-19)</h3>
-   <h4>Z軸認識用センサーの追加、電源をリチウム電池化</h4>
-   <img src="../images for assignment/AF/002.jpg" alt="">
-       <li><b>使用部品：</b></li>
-       <h4>ESP32×1、HC-SR04×4、18650リチウム電池×1、MT3608昇圧モジュール×1</h4>
-       <li><b>考察：</b></li>
-       <h4>左右2つの新しいセンサーを追加し、各センサーを下方に10°、左右センサーを60°傾けて死角と誤差を軽減。<br>
-           電源は18650リチウム電池に変更し、繰り返し使用に対応。</h4>
-       <li><b>反省：</b></li>
-       <h4>磁石でナンバープレートに装着する場合、設置面が垂直でないことが多く、測定精度に影響を与える可能性がある。</h4>
-   <hr>
-   <h3>更新2(2025-05-19)</h3>
-   <h4>傾斜角センサーの追加</h4>
-   <img src="../images for assignment/AF/003.jpg" alt="">
-       <li><b>使用部品：</b></li>
-       <h4>ESP32×1、HC-SR04×4、18650リチウム電池×1、MT3608昇圧モジュール×1、MPU6050三軸加速度センサー×1</h4>
-       <li><b>考察：</b></li>
-       <h4>取り付け角度を確認するために傾斜センサーを追加。下向きの角度も12°に変更し、測定精度を向上。</h4>
-       <hr>
-    <h3>更新3(2025-05-19)</h3>
-    <h4>センサーをRCWL-1670に変更</h4>
-    <img src="../images for assignment/AF/004.jpg" alt="">
-       <li><b>使用部品： </b></li>
-       <h4> ESP32×1、RCWL-1670×4、18650リチウム電池×1、MT3608昇圧モジュール×1、MPU6050×1</h4>
-       <li><b>考察：</b></li>
-       <h4>透湿防水膜などを追加設計するよりも、防水型距離センサーに直接置き換える方が簡単で信頼性が高い。</h4>
-       <li><b>反省：</b></li>
-       <h4>ここまでで、下層の動作ロジックは確定。次は商品化の検討、すなわち“意味を与える工程”へ移る。</h4>
-       <hr>
-    <h3>更新4(2025-05-20)</h3>
-    <h4>ターゲット顧客に合わせた設計詳細化</h4>
-    <img src="../images for assignment/AF/005.jpg" alt="">
-       <li><b>主要部品（Type-1）：</b></li>
-       <h4> ESP32-S3×1、RCWL-1670×4、18650リチウム電池×2、MT3608×1、MPU6050×1、TP4056充電モジュール×1、18650電池ボックス×1</h4>
-       <li><b>主要部品（Type-2）：</b></li>
-       <h4>ESP32-CAM×1、OV2640カメラ×1、RCWL-1670×4、18650リチウム電池×2、MT3608×1、MPU6050×1、TP4056×1、18650電池ボックス×1、5V 60mAソーラーパネル×2、SS14バイパスダイオード×2</h4>
-       <li><b>考察：</b></li>
-       <h4>ターゲットは、レンタカー利用者や旧型車ユーザーなど一時的にバックレーダーが必要な人（Type-1）と、長期使用を前提に設置したいレンタカー会社（Type-2）。Type-2はソーラー＋カメラを搭載可能に。</h4>
-       <li><b>反省：</b></li>
-       <h4>構造・目標・完成度がかなり高まった。今後は部品の購入、組み立て、筐体設計に進む。</h4>
-       <hr>
-    <h3>更新5(2025-05-21)</h3>
-    <h4>センサーをRCWL-1655＋防水超音波センサへ変更</h4>
-       <li><b>主要部品（Type-1）：</b></li>
-       <h4>ESP32-S3×1、防水超音波センサ×4、RCWL-1655×4、18650×2、MT3608×1、MPU6050×1、TP4056×1、18650電池ボックス×1</h4>
-       <li><b>主要部品（Type-2）： </b></li>
-       <h4>ESP32-CAM×1、OV2640×1、防水超音波センサ×4、RCWL-1655×4、18650×2、MT3608×1、MPU6050×1、TP4056×1、18650電池ボックス×1、5V 60mAソーラーパネル×2、SS14×2</h4>
-       <li><b>考察：</b></li>
-       <h4>RCWL-1655＋防水超音波センサはコストが安く、構造が安定し、複雑な環境下でも優れたパフォーマンスを発揮できる（と予想される）。</h4>
-       <hr>
-    <h3>更新6(2025-06-03)</h3>
-    <h4>Type-1の初期組立とテスト</h4>
-    <li><b>Type-1：</b></li>
-    <h4><a href="./html-AF/T1B-20250603.html">Type-1組立進捗</a></h4>
-    <img src="../images for assignment/AF/008.jpg" alt="" width=35%>
-    <h4><a href="./html-AF/T1T-20250603.html">Type-1 テスト進捗</a></h4>
-    <li><b>Type-2:</b></li>
-    <h4>USB-UART変換器の購入忘れ、ソーラーパネルの取り付け方法に未解決な点があったため、本日は進捗を一時停止</h4>
-<hr>
-   <h3>更新7(2025-06-09)</h3>
-   <h4>Type-1にリチウム電池モジュールを接続と接続テスト <br>
-       Type-2の部品組み立て。</h4>
-       <li><b>Type-1</b></li>
-       <h4><a href="./html-AF/T1B-20250609.html">Type-1 組立進捗</a></h4>
-       <h4><a href="./html-AF/T1T-20250609.html">Type-1 テスト進捗</a></h4>
-       <li><b>Type-2</b></li>
-       <h4><a href="./html-AF/T2B-20250609.html">Type-2 組立進捗</a></h4>
-<hr>
-   <h3>更新8(2025-06-16)</h3>
-   <h4>Type-2の接続テストを完了し、接続方式の検討と最適化を実施</h4>
-   <li><b>Type-1</b></li>
-   <h4>変更なし</h4>
-   <li><b>Type-2</b></li>
-   <h4><a href="./html-AF/T2B-20250616.html">Type-2 組み立て進捗</a></h4>
-   <h4><a href="./html-AF/T2T-20250616.html">Type-2 テスト進捗</a></h4>
-   <li><b>考察</b></li>
-   <h4>今週の進捗は停滞。最大の問題点は、購入したESP32-CAMモジュールに付属していたカメラがESP32-CAMに対応していなかったことである。<br>
-       新しいカメラモジュールを購入したが、到着までに約2週間かかる見込み。<br>
-       来週は、スマートフォン用のフロントエンド開発や、外装設計・製作の事前準備に重点を置くことで、最終成果物の完成度を確保する予定。</h4>
-<hr>
-   <h3>更新9(2025-06-23)</h3>
-   <h4>外装ケースのモデリングを完了</h4>
-   <li><b>考察</b></li>
-   <h4>最初は2種類の異なるバージョンの試作品を製作する予定だったが、モデリングの途中で使用中の3Dプリンタでは大型部品の出力が困難であることに気づいたため、最終的な設計案を統合することにした。<br>
-       最終デザインは、3つの超音波センサーとカメラを基盤とし、磁石で取り付ける形式の外付けバックレーダーとする。</h4>
-       <img src="../images for assignment/AF/31.png" alt="" width="35%"><br>
-       design for Type-1 <br>
-       <img src="../images for assignment/AF/30.png" alt="" width="35%"><br>
-       design for final <br>
-<hr>
 
- </div>
- <div>
-    <h2>他の構想</h2>
-    <li><a href="../assignment/html-AF/AF-1.html">構想1：駐車支援プログラム</a></li>
- </div>
-</body>  
+    <h2 id="note-section-5">WHAT –</h2>
+<div class="article-prose">これはIoT技術を活用して実現した外付け型バックレーダーシステムです。<br/>
+磁石による取り付け方式により、車体を傷つけることなく、一時的かつ迅速にレーダーシステムを追加できます。<br/>
+本体には3つの超音波距離センサーと1つのカメラを搭載しており、距離情報と映像の両方を同時に取得・送信可能です。<br/></div>
+<hr/>
+<h2 id="note-section-6">HOW –</h2>
+<div class="article-prose">スマートフォンで2つのQRコードをそれぞれ読み取ることで、デバイスに接続できます。<br/>
+接続後はスマートフォンのブラウザで専用ページにアクセスし、情報の確認やシステムの操作が可能です。<br/></div>
+<hr/>
+<h2 id="note-section-7">WHY –</h2>
+<div class="article-prose">日本国内においては、2023年以降に製造された車両は原則バックレーダーシステムを搭載していますが、
+中古車、個性派車両、レンタカーなどには未搭載のものが依然として多く見られます。<br/>
+この外付けレーダーは、車両を傷つけることなく簡単に取り付けられるため、
+「一時的な装着」や「非破壊での追加」を求めるニーズに応えることができます。<br/>
+また、世界的に見れば、発展途上国では都市化による人口集中が進み、公共交通の整備が不十分な中で、
+駐車スペースの不足・混雑が問題となるケースが多くあります。<br/>
+このシステムは、設置と使用が非常に簡単であり、そうした環境における駐車支援ツールとしての有効性も期待できます。</div>
+<hr/>
+<h2 id="note-section-8">WHAT'S NEXT –</h2>
+<div class="article-prose">今後は、センサーの精度向上およびカメラ機能の正常動作を目指します。<br/>
+内部の空間配置を見直すことで、装置全体のサイズは50％以上の小型化が可能です。<br/>
+また、接続をより簡単・効率的にするためのスマートフォンアプリの開発も予定しています。<br/>
+さらに、太陽光充電などの追加機能を導入することで、より便利で完成度の高い製品を目指します。<br/>
+</div>
+<hr/>
+<h3>最終更新（2025年6月14日〜2025年7月13日）</h3>
+<div class="article-prose">プロトタイプの製作を完了</div>
+<div class="article-prose"><a href="./html-AF/TFB.html">組み立て進捗</a></div>
+<div class="article-prose"><a href="./html-AF/TFT.html">テスト進捗</a></div>
+<div class="media-gallery single"><a aria-label="画像を元のサイズで開く" href="../../de34/images for assignment/AF/web.png"><img alt="" decoding="async" loading="lazy" src="../../de34/images for assignment/AF/web.png"/></a></div>WIFI接続QRコード
+    <div class="media-gallery single"><a aria-label="画像を元のサイズで開く" href="../images for assignment/AF/qr-code.png"><img alt="" decoding="async" loading="lazy" src="../images for assignment/AF/qr-code.png"/></a></div>ウェッブサイトQRコード
+
+
+
+</div>
+<div>
+<h2 id="note-section-9">外付け型パーキングレーダー（最初構想）</h2><hr/>
+<h3>説明</h3>
+<div class="article-prose">磁石などを利用して非破壊的に取り付け可能な、小型・高集積のバックレーダーを開発。<br/>
+       IoT技術を用いて有線接続を廃し、レーダー情報を無線で運転者に伝達することで、バックレーダーが装備されていない車両にも簡単にシステムを追加できる。</div>
+<hr/>
+<h3>ビジネスモデルとターゲット層：</h3>
+<div class="article-prose">本製品は取り付け方法の違いによって2タイプに分類される。
+      <br/>
+<li><b>タイプ1：一時的装着型</b></li>
+        磁石とクリップでナンバープレートに一時的に装着。<br/>
+        主に個人向けで、特に駐車が苦手なドライバーを対象とする。<br/>
+        料金モデルは、本体価格とアプリのサブスクリプション課金。<br/>
+
+<li><b>タイプ2：半永久装着型</b></li>
+      装置をナンバープレートブラケットとして設計し、車体を傷つけずに取り付けられるようにした。<br/>
+      広い設置面積を活かし、バックカメラや太陽光充電機能を追加。 <br/>
+      ターゲットはレンタカー会社。コストを抑えながら車両機能を強化できる。<br/>
+       オプション機能として顧客に課金することも可能。<br/>
+</div>
+</div>
+<div>
+<li>移動観察(2025-05-27)（失敗）</li>
+<li><a href="./html-AF/AF-R.html">移動観察(2025-05-30)</a></li>
+</div>
+<div>
+<h2 id="note-section-10">技術的構成と更新履歴：</h2><hr/><hr/>
+<h3>基本構想：</h3>
+<div class="article-prose">磁石でナンバープレートに固定し、位置情報を測定。 <br/>
+       Wi-FiまたはBluetoothを用いてスマートフォンに送信し、スマートフォンで位置情報を表示。</div>
+<div class="media-gallery single"><a aria-label="画像を元のサイズで開く" href="../images for assignment/AF/001.jpg"><img alt="" decoding="async" loading="lazy" src="../images for assignment/AF/001.jpg"/></a></div>
+<li><b>使用部品：</b></li>
+<div class="article-prose">ESP32×1、HC-SR04×2、電池ボックス、昇圧モジュール</div>
+<li><b>考察：</b></li>
+<div class="article-prose">UNO R3と比較して、通信機能（Wi-Fi・Bluetooth）を内蔵するESP32は小型かつ通信手段が充実しているため、ESP32を採用。 <br/>
+           距離センサーは一般車両と同様の超音波センサーを採用。<br/>
+           ただし、センサーが至近距離での使用は精度低下の恐れがあるため、2つのセンサーは約100msの間隔でポーリング動作。</div>
+<li><b>反省：</b></li>
+<div class="article-prose">駐車時の障害物は水平面に限らず、Z軸方向にも存在するため、追加のセンサーで汎用性と安全性を確保する必要がある。<br/>
+           また、乾電池からリチウム電池へ変更することで再利用可能にしたい。</div>
+<hr/>
+<h3>更新1(2025-05-19)</h3>
+<div class="article-prose">Z軸認識用センサーの追加、電源をリチウム電池化</div>
+<div class="media-gallery single"><a aria-label="画像を元のサイズで開く" href="../images for assignment/AF/002.jpg"><img alt="" decoding="async" loading="lazy" src="../images for assignment/AF/002.jpg"/></a></div>
+<li><b>使用部品：</b></li>
+<div class="article-prose">ESP32×1、HC-SR04×4、18650リチウム電池×1、MT3608昇圧モジュール×1</div>
+<li><b>考察：</b></li>
+<div class="article-prose">左右2つの新しいセンサーを追加し、各センサーを下方に10°、左右センサーを60°傾けて死角と誤差を軽減。<br/>
+           電源は18650リチウム電池に変更し、繰り返し使用に対応。</div>
+<li><b>反省：</b></li>
+<div class="article-prose">磁石でナンバープレートに装着する場合、設置面が垂直でないことが多く、測定精度に影響を与える可能性がある。</div>
+<hr/>
+<h3>更新2(2025-05-19)</h3>
+<div class="article-prose">傾斜角センサーの追加</div>
+<div class="media-gallery single"><a aria-label="画像を元のサイズで開く" href="../images for assignment/AF/003.jpg"><img alt="" decoding="async" loading="lazy" src="../images for assignment/AF/003.jpg"/></a></div>
+<li><b>使用部品：</b></li>
+<div class="article-prose">ESP32×1、HC-SR04×4、18650リチウム電池×1、MT3608昇圧モジュール×1、MPU6050三軸加速度センサー×1</div>
+<li><b>考察：</b></li>
+<div class="article-prose">取り付け角度を確認するために傾斜センサーを追加。下向きの角度も12°に変更し、測定精度を向上。</div>
+<hr/>
+<h3>更新3(2025-05-19)</h3>
+<div class="article-prose">センサーをRCWL-1670に変更</div>
+<div class="media-gallery single"><a aria-label="画像を元のサイズで開く" href="../images for assignment/AF/004.jpg"><img alt="" decoding="async" loading="lazy" src="../images for assignment/AF/004.jpg"/></a></div>
+<li><b>使用部品： </b></li>
+<div class="article-prose"> ESP32×1、RCWL-1670×4、18650リチウム電池×1、MT3608昇圧モジュール×1、MPU6050×1</div>
+<li><b>考察：</b></li>
+<div class="article-prose">透湿防水膜などを追加設計するよりも、防水型距離センサーに直接置き換える方が簡単で信頼性が高い。</div>
+<li><b>反省：</b></li>
+<div class="article-prose">ここまでで、下層の動作ロジックは確定。次は商品化の検討、すなわち“意味を与える工程”へ移る。</div>
+<hr/>
+<h3>更新4(2025-05-20)</h3>
+<div class="article-prose">ターゲット顧客に合わせた設計詳細化</div>
+<div class="media-gallery single"><a aria-label="画像を元のサイズで開く" href="../images for assignment/AF/005.jpg"><img alt="" decoding="async" loading="lazy" src="../images for assignment/AF/005.jpg"/></a></div>
+<li><b>主要部品（Type-1）：</b></li>
+<div class="article-prose"> ESP32-S3×1、RCWL-1670×4、18650リチウム電池×2、MT3608×1、MPU6050×1、TP4056充電モジュール×1、18650電池ボックス×1</div>
+<li><b>主要部品（Type-2）：</b></li>
+<div class="article-prose">ESP32-CAM×1、OV2640カメラ×1、RCWL-1670×4、18650リチウム電池×2、MT3608×1、MPU6050×1、TP4056×1、18650電池ボックス×1、5V 60mAソーラーパネル×2、SS14バイパスダイオード×2</div>
+<li><b>考察：</b></li>
+<div class="article-prose">ターゲットは、レンタカー利用者や旧型車ユーザーなど一時的にバックレーダーが必要な人（Type-1）と、長期使用を前提に設置したいレンタカー会社（Type-2）。Type-2はソーラー＋カメラを搭載可能に。</div>
+<li><b>反省：</b></li>
+<div class="article-prose">構造・目標・完成度がかなり高まった。今後は部品の購入、組み立て、筐体設計に進む。</div>
+<hr/>
+<h3>更新5(2025-05-21)</h3>
+<div class="article-prose">センサーをRCWL-1655＋防水超音波センサへ変更</div>
+<li><b>主要部品（Type-1）：</b></li>
+<div class="article-prose">ESP32-S3×1、防水超音波センサ×4、RCWL-1655×4、18650×2、MT3608×1、MPU6050×1、TP4056×1、18650電池ボックス×1</div>
+<li><b>主要部品（Type-2）： </b></li>
+<div class="article-prose">ESP32-CAM×1、OV2640×1、防水超音波センサ×4、RCWL-1655×4、18650×2、MT3608×1、MPU6050×1、TP4056×1、18650電池ボックス×1、5V 60mAソーラーパネル×2、SS14×2</div>
+<li><b>考察：</b></li>
+<div class="article-prose">RCWL-1655＋防水超音波センサはコストが安く、構造が安定し、複雑な環境下でも優れたパフォーマンスを発揮できる（と予想される）。</div>
+<hr/>
+<h3>更新6(2025-06-03)</h3>
+<div class="article-prose">Type-1の初期組立とテスト</div>
+<li><b>Type-1：</b></li>
+<div class="article-prose"><a href="./html-AF/T1B-20250603.html">Type-1組立進捗</a></div>
+<div class="media-gallery single"><a aria-label="画像を元のサイズで開く" href="../images for assignment/AF/008.jpg"><img alt="" decoding="async" loading="lazy" src="../images for assignment/AF/008.jpg"/></a></div>
+<div class="article-prose"><a href="./html-AF/T1T-20250603.html">Type-1 テスト進捗</a></div>
+<li><b>Type-2:</b></li>
+<div class="article-prose">USB-UART変換器の購入忘れ、ソーラーパネルの取り付け方法に未解決な点があったため、本日は進捗を一時停止</div>
+<hr/>
+<h3>更新7(2025-06-09)</h3>
+<div class="article-prose">Type-1にリチウム電池モジュールを接続と接続テスト <br/>
+       Type-2の部品組み立て。</div>
+<li><b>Type-1</b></li>
+<div class="article-prose"><a href="./html-AF/T1B-20250609.html">Type-1 組立進捗</a></div>
+<div class="article-prose"><a href="./html-AF/T1T-20250609.html">Type-1 テスト進捗</a></div>
+<li><b>Type-2</b></li>
+<div class="article-prose"><a href="./html-AF/T2B-20250609.html">Type-2 組立進捗</a></div>
+<hr/>
+<h3>更新8(2025-06-16)</h3>
+<div class="article-prose">Type-2の接続テストを完了し、接続方式の検討と最適化を実施</div>
+<li><b>Type-1</b></li>
+<div class="article-prose">変更なし</div>
+<li><b>Type-2</b></li>
+<div class="article-prose"><a href="./html-AF/T2B-20250616.html">Type-2 組み立て進捗</a></div>
+<div class="article-prose"><a href="./html-AF/T2T-20250616.html">Type-2 テスト進捗</a></div>
+<li><b>考察</b></li>
+<div class="article-prose">今週の進捗は停滞。最大の問題点は、購入したESP32-CAMモジュールに付属していたカメラがESP32-CAMに対応していなかったことである。<br/>
+       新しいカメラモジュールを購入したが、到着までに約2週間かかる見込み。<br/>
+       来週は、スマートフォン用のフロントエンド開発や、外装設計・製作の事前準備に重点を置くことで、最終成果物の完成度を確保する予定。</div>
+<hr/>
+<h3>更新9(2025-06-23)</h3>
+<div class="article-prose">外装ケースのモデリングを完了</div>
+<li><b>考察</b></li>
+<div class="article-prose">最初は2種類の異なるバージョンの試作品を製作する予定だったが、モデリングの途中で使用中の3Dプリンタでは大型部品の出力が困難であることに気づいたため、最終的な設計案を統合することにした。<br/>
+       最終デザインは、3つの超音波センサーとカメラを基盤とし、磁石で取り付ける形式の外付けバックレーダーとする。</div>
+<div class="media-gallery single"><a aria-label="画像を元のサイズで開く" href="../images for assignment/AF/31.png"><img alt="" decoding="async" loading="lazy" src="../images for assignment/AF/31.png"/></a></div>
+       design for Type-1 <br/>
+<div class="media-gallery single"><a aria-label="画像を元のサイズで開く" href="../images for assignment/AF/30.png"><img alt="" decoding="async" loading="lazy" src="../images for assignment/AF/30.png"/></a></div>
+       design for final <br/>
+<hr/>
+</div>
+<div>
+<h2 id="note-section-11">他の構想</h2>
+<li><a href="../assignment/html-AF/AF-1.html">構想1：駐車支援プログラム</a></li>
+</div>
+</article><nav class="article-bottom" aria-label="記事ナビゲーション"><a href="../index.html">← デザイン演習Ⅲ・Ⅳの一覧</a><a href="#top">ページ上部へ ↑</a></nav></main><footer class="site-footer"><span>Noshi Workplace</span><span>XBP / DESIGN &amp; MAKING</span><a href="#top">ページ上部へ ↑</a></footer></body>

@@ -3,14 +3,14 @@ scroll-behavior: smooth;
 }
 
 :root {
---navy: #15365f;
---blue: #245b9b;
---light-blue: #eaf2fb;
---gray: #f4f6f8;
---dark: #1f2933;
---muted: #667085;
---accent: #dbeafe;
---line: #d0d7de;
+--navy: #252923;
+--blue: #b54b2e;
+--light-blue: #f2e8d8;
+--gray: #faf5eb;
+--dark: #252923;
+--muted: #6b7066;
+--seminar-tint: #f2e8d8;
+--line: #e1d8c9;
 }
 
 * {
@@ -28,7 +28,7 @@ BlinkMacSystemFont,
 "Noto Sans JP",
 sans-serif;
 
-background: #eef2f7;
+background: #faf5eb;
 color: var(--dark);
 line-height: 1.65;
 }
@@ -41,8 +41,8 @@ width: 100%;
 width: 100%;
 min-height: 100vh;
 padding: 56px 72px;
-background: #ffffff;
-border-bottom: 1px solid #d9e2ec;
+background: #fffefa;
+border-bottom: 1px solid #e1d8c9;
 
 display: flex;
 flex-direction: column;
@@ -58,7 +58,7 @@ position: absolute;
 right: 36px;
 bottom: 24px;
 
-color: #98a2b3;
+color: #6b7066;
 font-size: 14px;
 }
 
@@ -137,7 +137,7 @@ margin-top: 54px;
 .agenda-item {
 background: var(--gray);
 border: 1px solid var(--line);
-border-radius: 18px;
+border-radius: 4px;
 
 padding: 22px 18px;
 min-height: 130px;
@@ -151,10 +151,9 @@ border-color 0.2s ease;
 .agenda-item:hover {
 transform: translateY(-4px);
 
-box-shadow:
-0 12px 24px rgba(0,0,0,0.08);
+box-shadow: none;
 
-border-color: #b7c5d8;
+border-color: #e1d8c9;
 }
 
 .agenda-item a {
@@ -217,7 +216,7 @@ gap: 24px;
 background: var(--gray);
 
 border: 1px solid var(--line);
-border-radius: 22px;
+border-radius: 4px;
 
 padding: 28px;
 }
@@ -227,8 +226,7 @@ background: var(--light-blue);
 
 border: 2px solid var(--blue);
 
-box-shadow:
-0 10px 26px rgba(36, 91, 155, 0.12);
+box-shadow: none;
 }
 
 .label {
@@ -238,7 +236,7 @@ padding: 6px 12px;
 
 border-radius: 999px;
 
-background: var(--accent);
+background: var(--seminar-tint);
 color: var(--navy);
 
 font-weight: 700;
@@ -260,7 +258,7 @@ color: var(--navy);
 background: var(--light-blue);
 
 border-left: 8px solid var(--blue);
-border-radius: 20px;
+border-radius: 4px;
 
 padding: 28px 34px;
 margin-top: 34px;
@@ -273,9 +271,9 @@ margin-top: 40px;
 
 padding: 24px 30px;
 
-border-radius: 20px;
+border-radius: 4px;
 
-background: #f8fafc;
+background: #faf5eb;
 border: 1px solid var(--line);
 
 color: var(--navy);
@@ -297,11 +295,10 @@ font-size: 19px;
 
 background: white;
 
-border-radius: 18px;
+border-radius: 4px;
 overflow: hidden;
 
-box-shadow:
-0 0 0 1px var(--line);
+box-shadow: none;
 }
 
 th {
@@ -322,7 +319,7 @@ vertical-align: top;
 }
 
 tr:nth-child(even) td {
-background: #f8fafc;
+background: #faf5eb;
 }
 
 /* -------------------- */
@@ -344,7 +341,7 @@ flex: 1;
 
 min-height: 96px;
 
-border-radius: 18px;
+border-radius: 4px;
 
 background: var(--gray);
 border: 1px solid var(--line);
@@ -446,7 +443,7 @@ padding: 16px 20px;
 background: #fff8e6;
 
 border-left: 5px solid #f59e0b;
-border-radius: 12px;
+border-radius: 4px;
 
 font-size: 16px;
 color: #6b4e00;
@@ -459,10 +456,10 @@ color: #6b4e00;
 .comment-section {
 margin-top: 40px;
 
-background: #f8fafc;
+background: #faf5eb;
 
 border: 1px solid var(--line);
-border-radius: 20px;
+border-radius: 4px;
 
 padding: 28px;
 }
@@ -471,8 +468,8 @@ padding: 28px;
 width: 100%;
 min-height: 140px;
 
-border: 1px solid #cbd5e1;
-border-radius: 14px;
+border: 1px solid #e1d8c9;
+border-radius: 4px;
 
 padding: 18px;
 
@@ -496,7 +493,7 @@ background: var(--blue);
 color: white;
 
 border: none;
-border-radius: 12px;
+border-radius: 4px;
 
 padding: 12px 22px;
 
@@ -516,7 +513,7 @@ opacity: 0.92;
 }
 
 .btn.secondary {
-background: #64748b;
+background: #6b7066;
 }
 
 .saved-comments {
@@ -529,7 +526,7 @@ background: white;
 border: 1px solid var(--line);
 border-left: 6px solid var(--blue);
 
-border-radius: 14px;
+border-radius: 4px;
 
 padding: 18px;
 margin-bottom: 16px;
@@ -612,13 +609,12 @@ transform: rotate(90deg);
 
 .report-page .report-hero {
   background:
-    linear-gradient(135deg, #ffffff 0%, #f6f9fd 100%);
+    linear-gradient(135deg, #fffefa 0%, #faf5eb 100%);
   border: 1px solid var(--line);
-  border-radius: 24px;
+  border-radius: 4px;
   padding: 38px 42px;
   margin-bottom: 24px;
-  box-shadow:
-    0 12px 32px rgba(21, 54, 95, 0.07);
+  box-shadow: none;
 }
 
 .report-page .tag-row {
@@ -636,7 +632,7 @@ transform: rotate(90deg);
   border-radius: 999px;
 
   background: var(--light-blue);
-  border: 1px solid #d5e5f8;
+  border: 1px solid #e1d8c9;
 
   color: var(--navy);
   font-size: 13px;
@@ -665,10 +661,10 @@ transform: rotate(90deg);
   margin-top: 26px;
   padding: 22px 24px;
 
-  background: #f4f8fd;
-  border: 1px solid #dce8f5;
+  background: #faf5eb;
+  border: 1px solid #e1d8c9;
   border-left: 5px solid var(--blue);
-  border-radius: 16px;
+  border-radius: 4px;
 }
 
 .report-page .lead > strong {
@@ -682,15 +678,14 @@ transform: rotate(90deg);
 /* ---------- report sections ---------- */
 
 .report-page .report-section {
-  background: #ffffff;
+  background: #fffefa;
   border: 1px solid var(--line);
-  border-radius: 22px;
+  border-radius: 4px;
 
   padding: 34px 38px;
   margin: 22px 0;
 
-  box-shadow:
-    0 8px 24px rgba(31, 41, 51, 0.045);
+  box-shadow: none;
 
   scroll-margin-top: 24px;
 }
@@ -709,7 +704,7 @@ transform: rotate(90deg);
   margin: 30px 0 12px;
   padding-bottom: 7px;
 
-  border-bottom: 1px solid #e8edf3;
+  border-bottom: 1px solid #e1d8c9;
 
   font-size: 20px;
   line-height: 1.45;
@@ -723,7 +718,7 @@ transform: rotate(90deg);
 }
 
 .report-page strong {
-  color: #173f70;
+  color: #252923;
 }
 
 /* ---------- lists ---------- */
@@ -757,7 +752,7 @@ transform: rotate(90deg);
   font-size: 14.5px;
 
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 4px;
   overflow: hidden;
 
   box-shadow: none;
@@ -766,8 +761,8 @@ transform: rotate(90deg);
 .report-page th {
   padding: 11px 12px;
 
-  background: #15365f;
-  color: #ffffff;
+  background: #252923;
+  color: #fffefa;
 
   font-size: 14px;
   line-height: 1.45;
@@ -776,14 +771,14 @@ transform: rotate(90deg);
 .report-page td {
   padding: 11px 12px;
 
-  border-top: 1px solid #e3e8ef;
+  border-top: 1px solid #e1d8c9;
 
   font-size: 14px;
   line-height: 1.65;
 }
 
 .report-page tr:nth-child(even) td {
-  background: #fafbfd;
+  background: #fffefa;
 }
 
 /* ---------- findings / cards ---------- */
@@ -792,25 +787,25 @@ transform: rotate(90deg);
   margin: 22px 0 4px;
   padding: 18px 20px;
 
-  background: #eef7f3;
-  border: 1px solid #d5ebe1;
-  border-left: 5px solid #2f7d68;
-  border-radius: 14px;
+  background: #f5eadb;
+  border: 1px solid #e7d4bd;
+  border-left: 5px solid #996348;
+  border-radius: 4px;
 }
 
 .report-page .finding > strong {
   display: block;
   margin-bottom: 6px;
 
-  color: #236553;
+  color: #79503c;
 }
 
 .report-page .card {
   padding: 20px 22px;
 
-  background: #f7f9fc;
-  border: 1px solid #dfe5ed;
-  border-radius: 16px;
+  background: #faf5eb;
+  border: 1px solid #e1d8c9;
+  border-radius: 4px;
 }
 
 .report-page .card p:last-child {
@@ -830,9 +825,9 @@ transform: rotate(90deg);
   margin: 24px auto 28px;
   padding: 18px;
 
-  background: #fbfcfe;
+  background: #fffefa;
   border: 1px solid var(--line);
-  border-radius: 18px;
+  border-radius: 4px;
 
   text-align: center;
   overflow-x: auto;
@@ -864,9 +859,9 @@ transform: rotate(90deg);
 .report-page .photo-block {
   margin: 22px auto;
 
-  background: #fbfcfe;
+  background: #fffefa;
   border: 1px solid var(--line);
-  border-radius: 16px;
+  border-radius: 4px;
   overflow: hidden;
 }
 
@@ -882,13 +877,13 @@ transform: rotate(90deg);
   object-fit: contain;
   object-position: center;
 
-  border-radius: 10px;
+  border-radius: 4px;
 }
 
 .report-page .photo-block figcaption {
   padding: 12px 16px 15px;
 
-  color: #5f6b7a;
+  color: #6b7066;
   font-size: 12.5px;
   line-height: 1.65;
   text-align: center;
@@ -918,7 +913,7 @@ transform: rotate(90deg);
   margin: 0;
   padding: 10px;
 
-  background: #f8fafc;
+  background: #faf5eb;
   border-radius: 0;
 
   object-fit: contain;
@@ -982,7 +977,7 @@ transform: rotate(90deg);
   .report-page .report-hero,
   .report-page .report-section {
     padding: 24px 22px;
-    border-radius: 18px;
+    border-radius: 4px;
   }
 
   .report-page .report-hero h1 {
@@ -1099,8 +1094,7 @@ transform: rotate(90deg);
   font-weight: 700;
   line-height: 1;
 
-  box-shadow:
-    0 8px 22px rgba(21, 54, 95, 0.12);
+  box-shadow: none;
 
   backdrop-filter: blur(10px);
 
@@ -1113,11 +1107,10 @@ transform: rotate(90deg);
 
 .report-back:hover {
   transform: translateY(-2px);
-  background: #ffffff;
-  border-color: #9fb9d8;
+  background: #fffefa;
+  border-color: #e1d8c9;
 
-  box-shadow:
-    0 12px 28px rgba(21, 54, 95, 0.16);
+  box-shadow: none;
 }
 
 .report-back-arrow {
@@ -1154,7 +1147,7 @@ transform: rotate(90deg);
 
 .seminar-page {
   background:
-    linear-gradient(135deg, #eef4fb 0%, #f7f9fc 55%, #eef2f7 100%);
+    linear-gradient(135deg, #faf5eb 0%, #faf5eb 55%, #faf5eb 100%);
 }
 
 .seminar-deck {
@@ -1171,12 +1164,11 @@ transform: rotate(90deg);
   margin: 0 0 28px;
   padding: 48px 54px 58px;
 
-  background: #ffffff;
+  background: #fffefa;
   border: 1px solid var(--line);
-  border-radius: 24px;
+  border-radius: 4px;
 
-  box-shadow:
-    0 12px 32px rgba(21, 54, 95, 0.07);
+  box-shadow: none;
 
   overflow: hidden;
   scroll-margin-top: 22px;
@@ -1186,7 +1178,7 @@ transform: rotate(90deg);
   right: 24px;
   bottom: 18px;
 
-  color: #98a2b3;
+  color: #6b7066;
   font-size: 12px;
   font-weight: 700;
 }
@@ -1207,7 +1199,7 @@ transform: rotate(90deg);
 
   padding: 5px 11px;
 
-  border: 1px solid #d5e5f8;
+  border: 1px solid #e1d8c9;
   border-radius: 999px;
   background: var(--light-blue);
 
@@ -1306,8 +1298,7 @@ transform: rotate(90deg);
 
   cursor: pointer;
 
-  box-shadow:
-    0 8px 22px rgba(21, 54, 95, 0.12);
+  box-shadow: none;
 
   backdrop-filter: blur(10px);
 
@@ -1319,10 +1310,9 @@ transform: rotate(90deg);
 
 .seminar-toc:hover {
   transform: translateY(-2px);
-  border-color: #9fb9d8;
+  border-color: #e1d8c9;
 
-  box-shadow:
-    0 12px 28px rgba(21, 54, 95, 0.16);
+  box-shadow: none;
 }
 
 /* ---------- agenda ---------- */
@@ -1338,9 +1328,9 @@ transform: rotate(90deg);
 .seminar-deck .agenda-item {
   min-height: 76px;
 
-  background: #f8fafc;
+  background: #faf5eb;
   border: 1px solid var(--line);
-  border-radius: 16px;
+  border-radius: 4px;
 
   cursor: pointer;
   overflow: hidden;
@@ -1355,11 +1345,10 @@ transform: rotate(90deg);
 .seminar-deck .agenda-item:hover {
   transform: translateY(-3px);
 
-  background: #ffffff;
-  border-color: #b8cbe2;
+  background: #fffefa;
+  border-color: #e1d8c9;
 
-  box-shadow:
-    0 10px 22px rgba(21, 54, 95, 0.09);
+  box-shadow: none;
 }
 
 .seminar-deck .agenda-link {
@@ -1386,7 +1375,7 @@ transform: rotate(90deg);
 
   border-radius: 50%;
   background: var(--navy);
-  color: #ffffff;
+  color: #fffefa;
 
   font-size: 13px;
   font-weight: 800;
@@ -1416,19 +1405,18 @@ transform: rotate(90deg);
 .seminar-deck .card {
   padding: 20px 22px;
 
-  background: #f8fafc;
-  border: 1px solid #dfe5ed;
-  border-radius: 17px;
+  background: #faf5eb;
+  border: 1px solid #e1d8c9;
+  border-radius: 4px;
 
   box-shadow: none;
 }
 
 .seminar-deck .card.highlight {
-  background: #eef5fc;
-  border: 1px solid #bfd4eb;
+  background: #f2e8d8;
+  border: 1px solid #e1d8c9;
 
-  box-shadow:
-    0 8px 20px rgba(36, 91, 155, 0.08);
+  box-shadow: none;
 }
 
 .seminar-deck .label {
@@ -1438,7 +1426,7 @@ transform: rotate(90deg);
   padding: 5px 10px;
 
   border-radius: 999px;
-  background: var(--accent);
+  background: var(--seminar-tint);
   color: var(--navy);
 
   font-size: 12px;
@@ -1449,10 +1437,10 @@ transform: rotate(90deg);
   margin-top: 24px;
   padding: 20px 24px;
 
-  background: linear-gradient(135deg, #15365f, #245b9b);
-  border-radius: 17px;
+  background: linear-gradient(135deg, #252923, #b54b2e);
+  border-radius: 4px;
 
-  color: #ffffff;
+  color: #fffefa;
   font-size: 23px;
   font-weight: 750;
   line-height: 1.55;
@@ -1464,9 +1452,9 @@ transform: rotate(90deg);
   padding: 17px 20px;
 
   background: var(--light-blue);
-  border: 1px solid #d3e4f5;
+  border: 1px solid #e1d8c9;
   border-left: 5px solid var(--blue);
-  border-radius: 14px;
+  border-radius: 4px;
 
   color: var(--navy);
   font-size: 17px;
@@ -1481,7 +1469,7 @@ transform: rotate(90deg);
   background: #fff9eb;
   border: 1px solid #f7e6b9;
   border-left: 5px solid #e3a316;
-  border-radius: 13px;
+  border-radius: 4px;
 
   color: #6b5106;
   font-size: 14.5px;
@@ -1508,9 +1496,9 @@ transform: rotate(90deg);
   min-height: 82px;
   padding: 14px;
 
-  background: #f8fafc;
+  background: #faf5eb;
   border: 1px solid var(--line);
-  border-radius: 15px;
+  border-radius: 4px;
 
   color: var(--navy);
   font-size: 16px;
@@ -1560,8 +1548,8 @@ transform: rotate(90deg);
 
   padding: 6px 10px;
 
-  background: #ffffff;
-  border: 1px solid #c5d7ea;
+  background: #fffefa;
+  border: 1px solid #e1d8c9;
   border-radius: 999px;
 
   color: var(--navy);
@@ -1586,9 +1574,9 @@ transform: rotate(90deg);
   border-collapse: separate;
   border-spacing: 0;
 
-  background: #ffffff;
+  background: #fffefa;
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 4px;
   overflow: hidden;
 
   box-shadow: none;
@@ -1602,7 +1590,7 @@ transform: rotate(90deg);
   padding: 10px 11px;
 
   background: var(--navy);
-  color: #ffffff;
+  color: #fffefa;
 
   font-size: 13px;
   font-weight: 750;
@@ -1615,7 +1603,7 @@ transform: rotate(90deg);
 .seminar-deck .status-table td {
   padding: 10px 11px;
 
-  border-top: 1px solid #e5e9ef;
+  border-top: 1px solid #e1d8c9;
 
   font-size: 13.5px;
   line-height: 1.6;
@@ -1625,7 +1613,7 @@ transform: rotate(90deg);
 .seminar-deck table tr:nth-child(even) td,
 .seminar-deck .compare-table tr:nth-child(even) td,
 .seminar-deck .status-table tr:nth-child(even) td {
-  background: #fafbfd;
+  background: #fffefa;
 }
 
 /* ---------- company / metrics ---------- */
@@ -1639,23 +1627,23 @@ transform: rotate(90deg);
 .seminar-deck .company-card {
   overflow: hidden;
 
-  background: #ffffff;
+  background: #fffefa;
   border: 1px solid var(--line);
-  border-radius: 17px;
+  border-radius: 4px;
 }
 
 .seminar-deck .company-head {
   padding: 13px 17px;
 
   background: var(--blue);
-  color: #ffffff;
+  color: #fffefa;
 
   font-size: 20px;
   font-weight: 800;
 }
 
 .seminar-deck .company-card.gray .company-head {
-  background: #64748b;
+  background: #6b7066;
 }
 
 .seminar-deck .company-card.navy .company-head {
@@ -1673,7 +1661,7 @@ transform: rotate(90deg);
   align-items: start;
 
   padding: 10px 0;
-  border-bottom: 1px solid #e6eaf0;
+  border-bottom: 1px solid #e1d8c9;
 }
 
 .seminar-deck .metric-row:last-child {
@@ -1719,9 +1707,9 @@ transform: rotate(90deg);
 
   padding: 13px 15px;
 
-  background: #f8fafc;
+  background: #faf5eb;
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 4px;
 }
 
 .seminar-deck .q-num {
@@ -1735,7 +1723,7 @@ transform: rotate(90deg);
   background: var(--blue);
   border-radius: 50%;
 
-  color: #ffffff;
+  color: #fffefa;
   font-size: 14px;
   font-weight: 800;
 }
@@ -1753,9 +1741,9 @@ transform: rotate(90deg);
   margin-top: 24px;
   padding: 18px;
 
-  background: #f8fafc;
+  background: #faf5eb;
   border: 1px solid var(--line);
-  border-radius: 16px;
+  border-radius: 4px;
 }
 
 .seminar-deck .comment-section > h3 {
@@ -1769,10 +1757,10 @@ transform: rotate(90deg);
   margin-top: 10px;
   padding: 13px;
 
-  border: 1px solid #cbd5e1;
-  border-radius: 11px;
+  border: 1px solid #e1d8c9;
+  border-radius: 4px;
 
-  background: #ffffff;
+  background: #fffefa;
 
   font-family: inherit;
   font-size: 14px;
@@ -1796,7 +1784,7 @@ transform: rotate(90deg);
   border-radius: 999px;
 
   background: var(--blue);
-  color: #ffffff;
+  color: #fffefa;
 
   font-family: inherit;
   font-size: 13px;
@@ -1806,7 +1794,7 @@ transform: rotate(90deg);
 }
 
 .seminar-deck .btn.secondary {
-  background: #64748b;
+  background: #6b7066;
 }
 
 .seminar-deck .saved-comments {
@@ -1817,10 +1805,10 @@ transform: rotate(90deg);
   margin-top: 10px;
   padding: 12px 14px;
 
-  background: #ffffff;
+  background: #fffefa;
   border: 1px solid var(--line);
   border-left: 4px solid var(--blue);
-  border-radius: 11px;
+  border-radius: 4px;
 }
 
 .seminar-deck .comment-time {
@@ -1851,9 +1839,9 @@ transform: rotate(90deg);
 .seminar-deck .mini-data-card {
   padding: 17px;
 
-  background: #f8fafc;
+  background: #faf5eb;
   border: 1px solid var(--line);
-  border-radius: 15px;
+  border-radius: 4px;
 }
 
 .seminar-deck .mini-data-number {
@@ -1866,7 +1854,7 @@ transform: rotate(90deg);
 }
 
 .seminar-deck .mini-data-label {
-  color: #475467;
+  color: #6b7066;
   font-size: 14px;
   line-height: 1.6;
 }
@@ -1880,9 +1868,9 @@ transform: rotate(90deg);
   margin-bottom: 20px;
   padding: 18px 20px;
 
-  background: #f8fafc;
+  background: #faf5eb;
   border: 1px solid var(--line);
-  border-radius: 16px;
+  border-radius: 4px;
 }
 
 .seminar-deck .global-data-number {
@@ -1893,7 +1881,7 @@ transform: rotate(90deg);
 }
 
 .seminar-deck .global-data-text {
-  color: #475467;
+  color: #6b7066;
   font-size: 15px;
   line-height: 1.65;
 }
@@ -1909,23 +1897,23 @@ transform: rotate(90deg);
 .seminar-deck .market-panel {
   overflow: hidden;
 
-  background: #ffffff;
+  background: #fffefa;
   border: 1px solid var(--line);
-  border-radius: 17px;
+  border-radius: 4px;
 }
 
 .seminar-deck .market-panel.china {
-  border-color: #8eb7df;
+  border-color: #e1d8c9;
 }
 
 .seminar-deck .market-panel.japan {
-  border-color: #b6bec9;
+  border-color: #e1d8c9;
 }
 
 .seminar-deck .market-header {
   padding: 14px 18px;
 
-  color: #ffffff;
+  color: #fffefa;
   font-size: 19px;
   font-weight: 800;
 }
@@ -1935,7 +1923,7 @@ transform: rotate(90deg);
 }
 
 .seminar-deck .market-panel.japan .market-header {
-  background: #64748b;
+  background: #6b7066;
 }
 
 .seminar-deck .market-body {
@@ -1948,7 +1936,7 @@ transform: rotate(90deg);
 
   background: var(--light-blue);
   border-left: 5px solid var(--blue);
-  border-radius: 14px;
+  border-radius: 4px;
 
   color: var(--navy);
   font-size: 17px;
@@ -1969,9 +1957,9 @@ transform: rotate(90deg);
 
   padding: 14px 16px;
 
-  background: #f8fafc;
+  background: #faf5eb;
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 4px;
 }
 
 .seminar-deck .stage-num {
@@ -1985,7 +1973,7 @@ transform: rotate(90deg);
   background: var(--navy);
   border-radius: 50%;
 
-  color: #ffffff;
+  color: #fffefa;
   font-size: 16px;
   font-weight: 800;
 }
@@ -1999,7 +1987,7 @@ transform: rotate(90deg);
 }
 
 .seminar-deck .stage-desc {
-  color: #475467;
+  color: #6b7066;
   font-size: 14px;
   line-height: 1.6;
 }
@@ -2036,9 +2024,9 @@ transform: rotate(90deg);
 .seminar-deck .model-card {
   overflow: hidden;
 
-  background: #ffffff;
+  background: #fffefa;
   border: 1px solid var(--line);
-  border-radius: 15px;
+  border-radius: 4px;
 }
 
 .seminar-deck .model-head {
@@ -2050,7 +2038,7 @@ transform: rotate(90deg);
   padding: 10px 11px;
 
   background: var(--navy);
-  color: #ffffff;
+  color: #fffefa;
 
   font-size: 16px;
   font-weight: 800;
@@ -2076,7 +2064,7 @@ transform: rotate(90deg);
   margin-top: 8px;
   padding-top: 8px;
 
-  border-top: 1px solid #e5e9ef;
+  border-top: 1px solid #e1d8c9;
 
   color: var(--navy);
   font-weight: 800;
@@ -2091,9 +2079,9 @@ transform: rotate(90deg);
 .seminar-deck .supplier-card {
   padding: 16px;
 
-  background: #ffffff;
+  background: #fffefa;
   border: 1px solid var(--line);
-  border-radius: 15px;
+  border-radius: 4px;
 }
 
 .seminar-deck .supplier-name {
@@ -2140,9 +2128,9 @@ transform: rotate(90deg);
 .seminar-deck .map-node {
   padding: 12px;
 
-  background: #f8fafc;
+  background: #faf5eb;
   border: 1px solid var(--line);
-  border-radius: 13px;
+  border-radius: 4px;
 
   color: var(--navy);
   font-size: 13.5px;
@@ -2155,9 +2143,9 @@ transform: rotate(90deg);
   padding: 20px 17px;
 
   background: linear-gradient(135deg, var(--navy), var(--blue));
-  border-radius: 17px;
+  border-radius: 4px;
 
-  color: #ffffff;
+  color: #fffefa;
   font-size: 17px;
   font-weight: 800;
   line-height: 1.55;
@@ -2173,9 +2161,9 @@ transform: rotate(90deg);
 .seminar-deck .method-step {
   padding: 17px;
 
-  background: #f8fafc;
+  background: #faf5eb;
   border: 1px solid var(--line);
-  border-radius: 15px;
+  border-radius: 4px;
 }
 
 .seminar-deck .method-num {
@@ -2190,7 +2178,7 @@ transform: rotate(90deg);
   background: var(--blue);
   border-radius: 50%;
 
-  color: #ffffff;
+  color: #fffefa;
   font-size: 13px;
   font-weight: 900;
 }
@@ -2203,11 +2191,11 @@ transform: rotate(90deg);
   margin-top: 14px;
   padding: 10px 12px;
 
-  background: #f8fafc;
-  border: 1px solid #e6eaf0;
-  border-radius: 10px;
+  background: #faf5eb;
+  border: 1px solid #e1d8c9;
+  border-radius: 4px;
 
-  color: #64748b;
+  color: #6b7066;
   font-size: 11.5px;
   line-height: 1.55;
   overflow-wrap: anywhere;
@@ -2242,7 +2230,7 @@ transform: rotate(90deg);
   .seminar-deck .slide {
     min-height: auto;
     padding: 34px 24px 48px;
-    border-radius: 19px;
+    border-radius: 4px;
   }
 
   .seminar-deck h1 {
@@ -2331,7 +2319,7 @@ transform: rotate(90deg);
 
 @media print {
   .seminar-page {
-    background: #ffffff;
+    background: #fffefa;
   }
 
   .seminar-deck {

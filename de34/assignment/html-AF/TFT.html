@@ -1,26 +1,31 @@
 <!DOCTYPE html>
-<html lang="jp">
+<html lang="ja">
 <head>
-<link rel="stylesheet" href="../../css for assignment/A1.css">
-<title>Noshiのfinal assignment T2-B-0616</title>
+
+<title>テスト進捗 | Noshi Workplace</title>
+
+<link rel="stylesheet" href="../../../css/portfolio.css?v=cream-1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body>
-    <h2>テスト進捗</h2>
-    <div> 
-        <h2>説明</h2>
-        <h4>
-         最終的なプログラミングは、VS CodeとPLATFORMIOプラグインを使用して行いました。<br>
-         環境内にウェブファイルをアップロードすることで、アクセス時にウェブページが表示され、ページ上からデバイスの制御も可能となります。<br>
-        <br>
-         合計で35時間以上の試行錯誤を重ね、多数の方法を試したため、今回は最終的な成果のみを公開しています。<br>
-        </h4>
-        なお、カメラの起動には成功しませんでした。原因としては、ESP32-CAMのフラッシュメモリ容量不足が疑われます。<br>
+<body class="portfolio"><a class="skip-link" href="#content">本文へスキップ</a>
+<header class="site-header" id="top"><a class="brand" href="../../../index.html"><span class="brand-mark" aria-hidden="true">n.</span>Noshi Workplace</a><nav class="site-nav" aria-label="メインナビゲーション"><a href="../../../index.html#works">Works</a><a href="../../../zemi/index.html">ゼミ ↗</a></nav></header><main class="article-wrap" id="content"><nav class="breadcrumb" aria-label="パンくず"><a href="../../../index.html">Home</a> / <a href="../../index.html">デザイン演習Ⅲ・Ⅳ</a></nav><article class="article-content"><p class="article-kicker">DESIGN III / IV / PROJECT NOTES</p><h1>テスト進捗</h1><details class="article-toc"><summary>このページの内容</summary><ol><li><a href="#note-section-1">テスト進捗</a></li><li><a href="#note-section-2">説明</a></li><li><a href="#note-section-3">cppファイル</a></li><li><a href="#note-section-4">jsファイル</a></li><li><a href="#note-section-5">iniファイル</a></li><li><a href="#note-section-6">htmlファイル</a></li><li><a href="#note-section-7">cssファイル</a></li><li><a href="#note-section-8">csvファイル</a></li></ol></details>
+<h2 id="note-section-1">テスト進捗</h2>
+<div>
+<h2 id="note-section-2">説明</h2>
+<div class="article-prose">
+         最終的なプログラミングは、VS CodeとPLATFORMIOプラグインを使用して行いました。<br/>
+         環境内にウェブファイルをアップロードすることで、アクセス時にウェブページが表示され、ページ上からデバイスの制御も可能となります。<br/>
+
+         合計で35時間以上の試行錯誤を重ね、多数の方法を試したため、今回は最終的な成果のみを公開しています。<br/>
+</div>
+        なお、カメラの起動には成功しませんでした。原因としては、ESP32-CAMのフラッシュメモリ容量不足が疑われます。<br/>
         今後、技術的なスキルが向上した際には、あらためてカメラ機能の実装に挑戦する予定です。
 
     </div>
-    <div>
-     <h2>cppファイル</h2>
-     <code>#include <Arduino.h>
+<div>
+<h2 id="note-section-3">cppファイル</h2>
+<code>#include <Arduino.h>
 #include <WiFi.h>
 #include <WebServer.h>
 #include <SPIFFS.h>
@@ -183,10 +188,10 @@ void loop() {
   server.handleClient();
 }
 </code>
-     </div>
-     <div>
-        <h2>jsファイル</h2>
-        <code>#include <Arduino.h>
+</div>
+<div>
+<h2 id="note-section-4">jsファイル</h2>
+<code>#include <Arduino.h>
 #include <WiFi.h>
 #include <WebServer.h>
 #include <SPIFFS.h>
@@ -349,10 +354,10 @@ void loop() {
   server.handleClient();
 }
 </code>
-     </div>
-     <div>
-        <h2>iniファイル</h2>
-        <code>
+</div>
+<div>
+<h2 id="note-section-5">iniファイル</h2>
+<code>
             [env:esp32cam]
 platform = espressif32
 board = esp32cam
@@ -371,14 +376,14 @@ platform_packages = platformio/tool-mkspiffs@^2.230.0
 monitor_filters = esp32_exception_decoder
 
         </code>
-     </div>
-     <div>
-        <h2>htmlファイル</h2>
-        <a href="../Data-AF/TFT-HTML.html">htmlファイル</a>
-     </div>
-     <div>
-        <h2>cssファイル</h2>
-        <code>body {
+</div>
+<div>
+<h2 id="note-section-6">htmlファイル</h2>
+<a href="../Data-AF/TFT-HTML.html">htmlファイル</a>
+</div>
+<div>
+<h2 id="note-section-7">cssファイル</h2>
+<code>body {
     background-color: #2c3e50;
     color: #ecf0f1;
     font-family: Arial, sans-serif;
@@ -502,14 +507,14 @@ select {
     }
 }
 </code>
-     </div>
-     <div>
-        <h2>csvファイル</h2>
-        <code># Name,   Type, SubType, Offset,  Size, Flags
+</div>
+<div>
+<h2 id="note-section-8">csvファイル</h2>
+<code># Name,   Type, SubType, Offset,  Size, Flags
 nvs,      data, nvs,     0x9000,  0x5000,
 otadata,  data, ota,     0xe000,  0x2000,
 app0,     app,  ota_0,   0x10000, 0x1F0000,
 spiffs,   data, spiffs,  0x200000,0x1F0000,</code>
-     </div>
-     <a href="../AF-TOP.html">戻る</a>
-</body>
+</div>
+<a href="../AF-TOP.html">戻る</a>
+</article><nav class="article-bottom" aria-label="記事ナビゲーション"><a href="../../index.html">← デザイン演習Ⅲ・Ⅳの一覧</a><a href="#top">ページ上部へ ↑</a></nav></main><footer class="site-footer"><span>Noshi Workplace</span><span>XBP / DESIGN &amp; MAKING</span><a href="#top">ページ上部へ ↑</a></footer></body>

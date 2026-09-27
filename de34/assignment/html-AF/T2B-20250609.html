@@ -1,32 +1,37 @@
 <!DOCTYPE html>
-<html lang="jp">
+<html lang="ja">
 <head>
-<link rel="stylesheet" href="../../css for assignment/A1.css">
-<title>Noshiのfinal assignment T2-B-0609</title>
+
+<title>Type-2組立進捗（2025年6月9日） | Noshi Workplace</title>
+
+<link rel="stylesheet" href="../../../css/portfolio.css?v=cream-1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body>
-     <h1>Type-2組立進捗（2025年6月9日）</h1>
-     <div>
-        <h3>組立手順：</h3>
-        <li><b>ステップ1：</b></li>
-        <h4>TP4056充電モジュールにピンヘッダーをはんだ付けし、電池ボックスの+/-配線をB+/B-に接続</h4>
-        <img src="../../images for assignment/AF/023.jpg" alt="" width="35%">
-        <li><b>ステップ2：</b></li>
-        <h4>HW-183B昇圧モジュールを用意し、TP4056のOUT+/OUT-をIN+/IN-のピンヘッダーに接続。HW-183BのOUT+/OUT-をブレッドボードの赤/青レールに接続して電源供給</h4>
-          <img src="../../images for assignment/AF/024.jpg" alt="" width="35%">
-        <li><b>ステップ3：</b></li>
-        <h4>RCWL-1655超音波センサーのVCCを赤レールに、GNDを青レールに接続。TX EchoピンをESP32のGPIO12およびGPIO13に接続</h4>
-        <li><b>ステップ4：</b></li>
-        <h4>ESP32-CAMの5Vを赤レール、GNDを青レールに接続し給電</h4>
-        <img src="../../images for assignment/AF/025.jpg" width="35%" alt="">
-        <hr>
-        <li><b>考察1:</b></li>
-        <h4>まだデバッグ段階に入っていないため、ソーラーパネルは未接続。充電機能については、今後のテスト結果に応じて導入を検討予定</h4>
-        <li><b>考察2:</b></li>
-        <h4> ESP32-CAMの基板上では多くのピンがTFカードスロットやカメラ用に使用されているため、センサーの数を2個に減らし、主に車両の左右の障害物を検出する構成とした</h4>
-        <li><b>考察3：</b></li>
-        <h4>センサー数を2個に減らしたことで、相互干渉が少なくなったため、RX_TRIG_SCL_IO入力端子をESP32-CAMへ接続しない構成でも問題ないと判断した</h4>
-    </div>
-    <a href="../AF-TOP.html">戻る</a>
-</body>
+<body class="portfolio"><a class="skip-link" href="#content">本文へスキップ</a>
+<header class="site-header" id="top"><a class="brand" href="../../../index.html"><span class="brand-mark" aria-hidden="true">n.</span>Noshi Workplace</a><nav class="site-nav" aria-label="メインナビゲーション"><a href="../../../index.html#works">Works</a><a href="../../../zemi/index.html">ゼミ ↗</a></nav></header><main class="article-wrap" id="content"><nav class="breadcrumb" aria-label="パンくず"><a href="../../../index.html">Home</a> / <a href="../../index.html">デザイン演習Ⅲ・Ⅳ</a></nav><article class="article-content"><p class="article-kicker">DESIGN III / IV / PROJECT NOTES</p><h1>Type-2組立進捗（2025年6月9日）</h1>
+
+<div>
+<h3>組立手順：</h3>
+<li><b>ステップ1：</b></li>
+<div class="article-prose">TP4056充電モジュールにピンヘッダーをはんだ付けし、電池ボックスの+/-配線をB+/B-に接続</div>
+<div class="media-gallery single"><a aria-label="画像を元のサイズで開く" href="../../images for assignment/AF/023.jpg"><img alt="" decoding="async" loading="lazy" src="../../images for assignment/AF/023.jpg"/></a></div>
+<li><b>ステップ2：</b></li>
+<div class="article-prose">HW-183B昇圧モジュールを用意し、TP4056のOUT+/OUT-をIN+/IN-のピンヘッダーに接続。HW-183BのOUT+/OUT-をブレッドボードの赤/青レールに接続して電源供給</div>
+<div class="media-gallery single"><a aria-label="画像を元のサイズで開く" href="../../images for assignment/AF/024.jpg"><img alt="" decoding="async" loading="lazy" src="../../images for assignment/AF/024.jpg"/></a></div>
+<li><b>ステップ3：</b></li>
+<div class="article-prose">RCWL-1655超音波センサーのVCCを赤レールに、GNDを青レールに接続。TX EchoピンをESP32のGPIO12およびGPIO13に接続</div>
+<li><b>ステップ4：</b></li>
+<div class="article-prose">ESP32-CAMの5Vを赤レール、GNDを青レールに接続し給電</div>
+<div class="media-gallery single"><a aria-label="画像を元のサイズで開く" href="../../images for assignment/AF/025.jpg"><img alt="" decoding="async" loading="lazy" src="../../images for assignment/AF/025.jpg"/></a></div>
+<hr/>
+<li><b>考察1:</b></li>
+<div class="article-prose">まだデバッグ段階に入っていないため、ソーラーパネルは未接続。充電機能については、今後のテスト結果に応じて導入を検討予定</div>
+<li><b>考察2:</b></li>
+<div class="article-prose"> ESP32-CAMの基板上では多くのピンがTFカードスロットやカメラ用に使用されているため、センサーの数を2個に減らし、主に車両の左右の障害物を検出する構成とした</div>
+<li><b>考察3：</b></li>
+<div class="article-prose">センサー数を2個に減らしたことで、相互干渉が少なくなったため、RX_TRIG_SCL_IO入力端子をESP32-CAMへ接続しない構成でも問題ないと判断した</div>
+</div>
+<a href="../AF-TOP.html">戻る</a>
+</article><nav class="article-bottom" aria-label="記事ナビゲーション"><a href="../../index.html">← デザイン演習Ⅲ・Ⅳの一覧</a><a href="#top">ページ上部へ ↑</a></nav></main><footer class="site-footer"><span>Noshi Workplace</span><span>XBP / DESIGN &amp; MAKING</span><a href="#top">ページ上部へ ↑</a></footer></body>

@@ -4,10 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ゼミ研究構想について</title>
-  <link rel="stylesheet" href="../CSSfile/main.css">
+  <link rel="stylesheet" href="../CSSfile/main.css?v=archive-2">
+<link rel="stylesheet" href="../../css/portfolio.css?v=cream-1">
+<link rel="stylesheet" href="../CSSfile/archive.css?v=3">
 </head>
 
-<body class="seminar-page">
+<body class="portfolio seminar-archive seminar-page">
+<a class="skip-link" href="#content">本文へスキップ</a>
+<header class="site-header" id="site-top"><a class="brand" href="../../index.html"><span aria-hidden="true" class="brand-mark">n.</span>Noshi Workplace</a>
+<nav aria-label="メインナビゲーション" class="site-nav"><a href="../../index.html#works">Works</a><a href="../../zemi/index.html">ゼミ ↗</a>
+</nav>
+</header>
 <a class="report-back" href="../index.html" aria-label="ゼミ研究ポータルに戻る">
     <span class="report-back-arrow">←</span>
     <span>ゼミ研究ポータルに戻る</span>
@@ -17,7 +24,7 @@
     目次へ
   </button>
 
-  <main class="deck seminar-deck">
+  <main id="content" class="deck seminar-deck">
 
     <section id="top" class="slide" data-page="1 / 10">
       <div class="tag-row">
@@ -35,15 +42,15 @@
       </div>
 
       <div class="agenda">
-        <div class="agenda-item" onclick="jumpToSlide('position')"><div class="agenda-link"><span class="agenda-num">1</span><div class="agenda-text">研究の位置づけ</div></div></div>
-        <div class="agenda-item" onclick="jumpToSlide('motivation')"><div class="agenda-link"><span class="agenda-num">2</span><div class="agenda-text">研究動機</div></div></div>
-        <div class="agenda-item" onclick="jumpToSlide('problem')"><div class="agenda-link"><span class="agenda-num">3</span><div class="agenda-text">問題意識</div></div></div>
-        <div class="agenda-item" onclick="jumpToSlide('companies')"><div class="agenda-link"><span class="agenda-num">4</span><div class="agenda-text">対象企業</div></div></div>
-        <div class="agenda-item" onclick="jumpToSlide('framework')"><div class="agenda-link"><span class="agenda-num">5</span><div class="agenda-text">比較枠組み</div></div></div>
-        <div class="agenda-item" onclick="jumpToSlide('rq')"><div class="agenda-link"><span class="agenda-num">6</span><div class="agenda-text">RQ</div></div></div>
-        <div class="agenda-item" onclick="jumpToSlide('interview')"><div class="agenda-link"><span class="agenda-num">7</span><div class="agenda-text">企業調査</div></div></div>
-        <div class="agenda-item" onclick="jumpToSlide('questions')"><div class="agenda-link"><span class="agenda-num">8</span><div class="agenda-text">質問項目</div></div></div>
-        <div class="agenda-item" onclick="jumpToSlide('future')"><div class="agenda-link"><span class="agenda-num">9</span><div class="agenda-text">今後の予定</div></div></div>
+        <div class="agenda-item"><a class="agenda-anchor" href="#position"><div class="agenda-link"><span class="agenda-num">1</span><div class="agenda-text">研究の位置づけ</div></div></a></div>
+        <div class="agenda-item"><a class="agenda-anchor" href="#motivation"><div class="agenda-link"><span class="agenda-num">2</span><div class="agenda-text">研究動機</div></div></a></div>
+        <div class="agenda-item"><a class="agenda-anchor" href="#problem"><div class="agenda-link"><span class="agenda-num">3</span><div class="agenda-text">問題意識</div></div></a></div>
+        <div class="agenda-item"><a class="agenda-anchor" href="#companies"><div class="agenda-link"><span class="agenda-num">4</span><div class="agenda-text">対象企業</div></div></a></div>
+        <div class="agenda-item"><a class="agenda-anchor" href="#framework"><div class="agenda-link"><span class="agenda-num">5</span><div class="agenda-text">比較枠組み</div></div></a></div>
+        <div class="agenda-item"><a class="agenda-anchor" href="#rq"><div class="agenda-link"><span class="agenda-num">6</span><div class="agenda-text">RQ</div></div></a></div>
+        <div class="agenda-item"><a class="agenda-anchor" href="#interview"><div class="agenda-link"><span class="agenda-num">7</span><div class="agenda-text">企業調査</div></div></a></div>
+        <div class="agenda-item"><a class="agenda-anchor" href="#questions"><div class="agenda-link"><span class="agenda-num">8</span><div class="agenda-text">質問項目</div></div></a></div>
+        <div class="agenda-item"><a class="agenda-anchor" href="#future"><div class="agenda-link"><span class="agenda-num">9</span><div class="agenda-text">今後の予定</div></div></a></div>
       </div>
     </section>
 
@@ -457,5 +464,7 @@
     loadComments();
   </script>
 
+<footer class="site-footer"><span>Noshi Workplace</span><span>XBP / DESIGN &amp; MAKING</span><a href="#site-top">ページ上部へ ↑</a>
+</footer>
 </body>
 </html>
