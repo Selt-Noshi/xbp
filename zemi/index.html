@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
@@ -140,92 +139,121 @@
       }
     }
   </style>
-
 </head>
 
 <body>
 
   <main class="home-container">
 
-```
-<div class="home-title">
-  ゼミ研究ポータル
-</div>
-
-<div class="home-subtitle">
-  卒業論文・ゼミ発表アーカイブ
-</div>
-
-<div class="seminar-grid">
-
-  <!-- 第一回 -->
-  <a class="seminar-card"
-     href="./PPT/001.html">
-
-    <div class="seminar-tag">
-      第1回ゼミ
+    <div class="home-title">
+      ゼミ研究ポータル
     </div>
 
-    <div class="seminar-title">
-      卒業論文テーマ候補について
+    <div class="home-subtitle">
+      卒業論文・ゼミ発表アーカイブ
     </div>
 
-    <div class="seminar-desc">
-      EV時代における自動車産業の変化、
-      中日EV市場比較、
-      Xiaomi事例、
-      産業エコシステム競争に関する問題意識。
+    <div class="seminar-grid">
+
+      <!-- 第一回 -->
+      <a class="seminar-card"
+         href="./PPT/001.html">
+
+        <div class="seminar-tag">
+          第1回ゼミ
+        </div>
+
+        <div class="seminar-title">
+          卒業論文テーマ候補について
+        </div>
+
+        <div class="seminar-desc">
+          EV時代における自動車産業の変化、
+          中日EV市場比較、
+          Xiaomi事例、
+          産業エコシステム競争に関する問題意識。
+        </div>
+      </a>
+
+
+      <!-- 第二回 -->
+      <a class="seminar-card"
+         href="./PPT/002.html">
+
+        <div class="seminar-tag">
+          第2回ゼミ
+        </div>
+
+        <div class="seminar-title">
+          EV時代における産業連携の変化
+        </div>
+
+        <div class="seminar-desc">
+          中国ICT企業と日本自動車企業の事例比較を通じて、
+          EV時代における産業連携の変化を考察する。<br>
+          日産、Sony Honda Mobility、Huawei、小米を対象に、
+          企業間競争から産業エコシステム競争への移行に注目する。
+        </div>
+      </a>
+
+
+      <!-- 第三回 -->
+      <a class="seminar-card"
+         href="./PPT/003.html">
+
+        <div class="seminar-tag">
+          第3回ゼミ
+        </div>
+
+        <div class="seminar-title">
+          EV・SDV時代における産業連携モデルの比較研究
+        </div>
+
+        <div class="seminar-desc">
+          日産、Xiaomi、Huawei、Sony Honda Mobilityを中心に、
+          CATL、AESC、NVIDIA、Qualcommなどのサプライヤーも対象として、
+          EV・SDV時代における企業間連携とサプライチェーンの変化を整理。<br>
+          公開インタビューを用いた共起ネットワーク分析の方向性について検討した。
+        </div>
+      </a>
+
+
+      <!-- 第四回 -->
+      <a class="seminar-card"
+         href="./PPT/004.html">
+
+        <div class="seminar-tag">
+          第4回ゼミ
+        </div>
+
+        <div class="seminar-title">
+          夏季予備調査による研究枠組みの修正
+        </div>
+
+        <div class="seminar-desc">
+          夏季休暇中に天津でHuawei、Xiaomi、BYDを現地調査。
+          Nissan、Honda、Sony Honda Mobilityの公開資料・インタビューと比較し、
+          「連携の多さ」ではなく、
+          「技術の共通化・外部化と製品差別化」という観点へ研究枠組みを修正。<br>
+          CATLの一体型智能底盤も補足事例として取り上げ、
+          OEMとサプライヤーの役割変化について検討する。
+        </div>
+      </a>
+
     </div>
-  </a>
 
-  <!-- 第二回（预留） -->
-  <a class="seminar-card"
-     href="./PPT/002.html">
-
-   <div class="seminar-tag">
-  第2回ゼミ
-</div>
-
-<div class="seminar-title">
-  EV時代における産業連携の変化
-</div>
-
-<div class="seminar-desc">
-  中国ICT企業と日本自動車企業の事例比較を通じて、
-  EV時代における産業連携の変化を考察する。<br>
-  日産、Sony Honda Mobility、Huawei、小米を対象に、
-  企業間競争から産業エコシステム競争への移行に注目する。
-</div>
-  </a>
-
- <!-- 第三回 -->
-<a class="seminar-card"
-   href="./PPT/003.html">
-
-  <div class="seminar-tag">
-    第3回ゼミ
-  </div>
-
-  <div class="seminar-title">
-    EV・SDV時代における産業連携モデルの比較研究
-  </div>
-
-  <div class="seminar-desc">
-    日産、Xiaomi、Huawei、Sony Honda Mobilityの4社に加え、
-    CATL、AESC、NVIDIA、Qualcommを対象として、
-    サプライチェーン、企業間連携、経営理念、
-    公開インタビューを用いた共起ネットワーク分析の方向性を整理。
-  </div>
-</a>
-
-</div>
-
-<div class="footer-note">
-  Seminar Research Archive / EV & Industrial Ecosystem Research
-</div>
-```
+    <div class="footer-note">
+      Seminar Research Archive / EV & Industrial Ecosystem Research
+    </div>
 
   </main>
 
 </body>
 </html>
+"""
+
+out_index = base / "index.html"
+out_index.write_text(index_html, encoding="utf-8")
+
+print(f"Created: {out004}")
+print(f"Created: {out_index}")
